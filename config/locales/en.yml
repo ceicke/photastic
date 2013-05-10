@@ -12,3 +12,10 @@ en:
   new_album_explanation: "Here you can create a new photo album. After creating it, you will be able to upload pictures into it."
   album_was_saved: "Your album was saved."
 
+  upload_picture: "Add picture"
+  new_picture: "Upload a picture"
+  new_picture_explanation: "Here you can upload a new picture into your album."
+  make_sure_all_required_fields: "Please make sure that you have filled out all the required fields."
+  picture_was_saved: "The picture was saved."
+  no_pictures_yet: "This album does not contain any pictures yet."
+

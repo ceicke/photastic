@@ -1,7 +1,7 @@
 .row-fluid
   - @albums.each do |album|
     .span4
-      = link_to image_tag('http://placehold.it/250x250', class: 'img-polaroid'), album_path(album)
+      = link_to image_tag('http://placehold.it/250x250', class: 'img-polaroid'), album_pictures_path(album)
 
 .row-fluid
   .span12

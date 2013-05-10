@@ -1,0 +1,27 @@
+%h1= @album.name
+
+- if @pictures.size > 0
+  - @pictures.each_with_index do |picture,i|
+    - if i % 3 == 0 && i > 0
+      .row-fluid 
+        .span4
+          .well.well-small
+            = image_tag picture.picture_file(:medium), class: 'img-polaroid'
+            %p= i.to_s
+            %p= (i % 3).to_s
+            %p= picture.description
+            %p= link_to t('delete'), album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'btn btn-danger'
+    - else
+      .span4
+        .well.well-small
+          = image_tag picture.picture_file(:medium), class: 'img-polaroid'
+          %p= i.to_s
+          %p= (i % 3).to_s
+          %p= picture.description
+          %p= link_to t('delete'), album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'btn btn-danger'
+
+- else
+  %p= t('no_pictures_yet')
+    
+.clearfix
+= link_to t('upload_picture'), new_album_picture_path(@album), class: 'btn btn-primary'

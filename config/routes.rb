@@ -1,6 +1,8 @@
 Photastic::Application.routes.draw do
-  resources :albums
 
+  resources :albums, except: :show do
+    resources :pictures
+  end
 
   devise_for :users
 
