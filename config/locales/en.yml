@@ -2,4 +2,13 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  welcome: "Welcome to Photastic"
+  save_error: "Oh no!"
+  save: "Save"
+  back: "Back"
+  delete_confirm: "Are you sure?"
+  make_sure_you_have_a_name: "Please make sure that you have a name for the album."
+  new_album: "Create a new album"
+  new_album_explanation: "Here you can create a new photo album. After creating it, you will be able to upload pictures into it."
+  album_was_saved: "Your album was saved."
+

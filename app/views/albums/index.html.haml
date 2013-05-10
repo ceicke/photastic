@@ -1,0 +1,8 @@
+.row-fluid
+  - @albums.each do |album|
+    .span4
+      = link_to image_tag('http://placehold.it/250x250', class: 'img-polaroid'), album_path(album)
+
+.row-fluid
+  .span12
+    = link_to t('new_album'), new_album_path, class: 'btn btn-primary'

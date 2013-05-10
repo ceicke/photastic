@@ -7,7 +7,6 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -25,6 +24,19 @@ end
 group :development do
   gem 'sextant'
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'faker'
+end
+
+# We are using devise to authenticate with the app
+gem 'devise'
+
+# We want to use HAML syntax
+gem 'haml-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

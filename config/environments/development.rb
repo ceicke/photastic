@@ -34,4 +34,7 @@ Photastic::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # The host that should appear in our e-mails
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end
