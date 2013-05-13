@@ -7,6 +7,9 @@
     %a{href: edit_album_path(@album), class: 'btn'}
       %i.icon-edit
       = t('edit_album_settings')
+    %a{href: album_members_path(@album), class: 'btn'}
+      %i.icon-user
+      = t('album_membership')
 
 .hidden-phone.visible-desktop
   - if @pictures.size > 0

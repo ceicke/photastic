@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
 
   skip_before_filter :authenticate_user!, only: [:index, :show]
   before_filter :check_album_passcode, only: [:index, :show]
-  #load_and_authorize_resource
+  load_and_authorize_resource except: [:index, :show]
 
   def index
     @album = Album.find(params[:album_id])

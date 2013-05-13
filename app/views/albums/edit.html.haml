@@ -1,3 +1,5 @@
 %h1= t('edit_album_settings')
 
 = render 'form'
+
+= link_to t('delete_album'), album_path(@album), method: :delete, confirm: t('really_delete_album'), class: 'btn btn-danger'

@@ -1,12 +1,14 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
   welcome: "Welcome to Photastic"
   save_error: "Oh no!"
   save: "Save"
   back: "Back"
   enter: "Enter"
+  yes: "Yes"
+  no: "No"
+  delete: "Delete"
+  edit: "Edit"
+  actions: "Actions"
   delete_confirm: "Are you sure?"
   make_sure_you_have_a_name: "Please make sure that you have a name for the album."
   new_album: "Create a new album"
@@ -17,6 +19,8 @@ en:
   album_name: "Name of album"
   album_passcode: "Passcode for album"
   please_enter_passcode_for_album: "Please enter the album's passcode to access it."
+  delete_album: "Delete Album"
+  really_delete_album: "Do you really want to delete the album? All pictures will be lost."
 
   upload_picture: "Add picture"
   new_picture: "Upload a picture"
@@ -25,4 +29,14 @@ en:
   no_picture_file_selected: "You need to select a picture file to upload to this album."
   picture_was_saved: "The picture was saved."
   no_pictures_yet: "This album does not contain any pictures yet."
+
+  membership_list: "Membership list"
+  add_member: "Add someone to this album"
+  edit_member: "Edit membership"
+  email_of_user: "Username"
+  can_administer_album: "User should be able to administer this album"
+  can_add_photos: "User can add photos to this album"
+  member_added: "The user was successfully added to your album."
+  no_members_yet: "No users have been added to this album."
+  membership_saved: "The changes to the membership were saved."
 

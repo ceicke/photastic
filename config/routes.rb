@@ -6,6 +6,7 @@ Photastic::Application.routes.draw do
     end
     resources :pictures, except: [:edit, :update]
     resources :passcodes, only: [:new, :create]
+    resources :members
   end
 
   devise_for :users

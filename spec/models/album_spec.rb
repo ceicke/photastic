@@ -29,6 +29,17 @@ describe Album do
     assert_equal Picture.all.size, (pic_count - pictures_in_album)
   end
 
+  it "should delete the memberships as well" do
+    a = FactoryGirl.create(:album_with_members)
+
+    members_size = Member.all.size
+    album_members_size = a.members.size
+
+    a.destroy
+
+    assert_equal Member.all.size, (members_size - album_members_size)
+  end
+
   describe "when looking for the thumbnail picture of the album" do
 
     describe "if we have images" do

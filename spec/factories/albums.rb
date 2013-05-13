@@ -26,4 +26,15 @@ FactoryGirl.define do
       album.update_attributes(picture_id: album.pictures.last.id)
     end
   end
+
+  factory :album_with_members, class: Album do
+    name Faker::Lorem.words(2)
+    association :user, factory: :user
+
+    after(:create) do |album|
+      4.times do
+        FactoryGirl.create(:member, album_id: album.id)
+      end
+    end
+  end
 end
