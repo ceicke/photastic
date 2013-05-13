@@ -2,7 +2,7 @@
   - if @picture.errors.any?
     .alert.alert-error
       %h4= t('save_error')
-      = t('make_sure_all_required_fields')
+      = t('no_picture_file_selected')
 
   = f.inputs do
     = f.input :picture_file, as: :file

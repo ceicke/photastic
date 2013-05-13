@@ -14,6 +14,7 @@ group :assets do
   gem 'jquery-rails'
   gem 'twitter-bootstrap-rails'
   gem 'formtastic-bootstrap'
+  gem 'fancybox-rails'
  
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
@@ -42,7 +43,7 @@ gem 'cancan'
 gem 'haml-rails'
 
 # We use paperclip to process our images
-gem "paperclip", "~> 3.0"
+gem 'paperclip', '~> 3.0'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -10,5 +10,6 @@
  *
  *= require formtastic-bootstrap
  *= require_self
+ *= require fancybox
  *= require_tree .
  */

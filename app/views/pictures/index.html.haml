@@ -1,27 +1,35 @@
-%h1= @album.name
+.page-header
+  %h1= @album.name
 
-- if @pictures.size > 0
-  - @pictures.each_with_index do |picture,i|
-    - if i % 3 == 0 && i > 0
-      .row-fluid 
-        .span4
-          .well.well-small
-            = image_tag picture.picture_file(:medium), class: 'img-polaroid'
-            %p= i.to_s
-            %p= (i % 3).to_s
+
+.hidden-phone.visible-desktop
+  - if @pictures.size > 0
+    #wrapper
+      #columns
+        - @pictures.each do |picture|
+          .picture
+            = link_to image_tag(picture.picture_file(:medium)), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
+            - unless picture.description.blank?
+              %p= picture.description
+            .control_area
+              .control_elements
+                = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'icon-remove'
+  - else
+    %p= t('no_pictures_yet')
+
+.visible-phone.hidden-desktop
+  - if @pictures.size > 0
+    .row-fluid
+      - @pictures.each do |picture|
+        .span12.img-polaroid
+          = link_to image_tag(picture.picture_file(:large)), picture.picture_file.url(:large)
+          - unless picture.description.blank?
             %p= picture.description
-            %p= link_to t('delete'), album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'btn btn-danger'
-    - else
-      .span4
-        .well.well-small
-          = image_tag picture.picture_file(:medium), class: 'img-polaroid'
-          %p= i.to_s
-          %p= (i % 3).to_s
-          %p= picture.description
-          %p= link_to t('delete'), album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'btn btn-danger'
-
-- else
-  %p= t('no_pictures_yet')
+          = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'icon-remove'
+        %br/
+        .clearfix
+  - else
+    %p= t('no_pictures_yet')  
     
 .clearfix
 = link_to t('upload_picture'), new_album_picture_path(@album), class: 'btn btn-primary'
