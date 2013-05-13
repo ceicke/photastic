@@ -1,4 +1,6 @@
 class AlbumsController < ApplicationController
+
+  skip_before_filter :authenticate_user!, only: :show
   load_and_authorize_resource
 
   # GET /albums
@@ -11,6 +13,15 @@ class AlbumsController < ApplicationController
       format.json { render json: @albums }
     end
   end
+
+  def show
+    album = Album.find(params[:id])
+
+    respond_to do |format|
+      format.html { redirect_to album_pictures_path(album) }
+      format.json { render json: album }
+    end
+  end  
 
   # GET /albums/new
   # GET /albums/new.json
@@ -55,11 +66,26 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.update_attributes(params[:album])
-        format.html { redirect_to @album, notice: t('album_was_saved') }
+        format.html { redirect_to album_pictures_path(@album), notice: t('album_was_saved') }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @album.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def promote
+    album = Album.find(params[:id])
+    picture = Picture.find(params[:picture_id])
+
+    respond_to do |format|
+      if album.update_attribute(:picture_id, picture.id)
+        format.html { redirect_to album_pictures_path(album) }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to album_pictures_path, notice: t('album_promote_error')}
+        format.json { head :no_content, status: :unprocessable_entity }
       end
     end
   end

@@ -1,6 +1,8 @@
 class PicturesController < ApplicationController
 
-  load_and_authorize_resource
+  skip_before_filter :authenticate_user!, only: [:index, :show]
+  before_filter :check_album_passcode, only: [:index, :show]
+  #load_and_authorize_resource
 
   def index
     @album = Album.find(params[:album_id])
@@ -40,10 +42,11 @@ class PicturesController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def show
+    album = Album.find(params[:album_id])
+    picture = Picture.find(params[:id])
 
-  def update
+    send_file picture.picture_file.path
   end
 
   def destroy
@@ -55,6 +58,16 @@ class PicturesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to album_pictures_path(album_id: album) }
       format.json { head :no_content }
+    end
+  end
+
+  private
+  def check_album_passcode
+    album = Album.find(params[:album_id])
+    if current_user.blank?
+      unless cookies[:album_passcode] == album.passcode
+        redirect_to new_album_passcode_path(album)
+      end
     end
   end
 end

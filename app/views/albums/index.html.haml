@@ -1,8 +1,15 @@
-.row-fluid
-  - @albums.each do |album|
-    .span4
-      = link_to image_tag('http://placehold.it/250x250', class: 'img-polaroid'), album_pictures_path(album)
+.page-header
+  %h1= t('welcome')
+  %a{href: new_album_path, class: 'btn btn-primary'}
+    %i.icon-plus
+    = t('new_album')
 
 .row-fluid
   .span12
-    = link_to t('new_album'), new_album_path, class: 'btn btn-primary'
+    %ul.thumbnails
+  - @albums.each do |album|
+    %li.span2
+      .thumbnail
+        = link_to image_tag(album.thumb_picture_url), album_pictures_path(album)
+        .name_area
+          = link_to album.name, album_pictures_path(album)

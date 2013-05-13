@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130510165543) do
+ActiveRecord::Schema.define(:version => 20130513151907) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "picture_id"
+    t.string   "passcode"
   end
 
   create_table "pictures", :force => true do |t|

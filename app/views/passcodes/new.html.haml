@@ -1,0 +1,8 @@
+.alert.alert-error= t('please_enter_passcode_for_album')
+
+= form_tag(album_passcodes_path(@album), :method => "post") do
+  %fieldset
+    = label_tag(:passcode, t('album_passcode'))
+    %input{name: 'passcode', type: 'text', placeholder: t('album_passcode')}
+    %br/
+    %button{type: 'submit', class: 'btn btn-primary'}= t('enter')

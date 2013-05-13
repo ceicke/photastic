@@ -1,7 +1,11 @@
 Photastic::Application.routes.draw do
 
-  resources :albums, except: :show do
-    resources :pictures
+  resources :albums do
+    member do
+      post 'promote'
+    end
+    resources :pictures, except: [:edit, :update]
+    resources :passcodes, only: [:new, :create]
   end
 
   devise_for :users

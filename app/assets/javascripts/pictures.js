@@ -5,7 +5,7 @@ jQuery(function() {
     function(){
       $(this).find(".control_area").fadeIn(100);
     },function(){
-      $(this).find(".control_area").fadeOut(100);
+      $(this).find(".control_area").fadeOut(200);
     }
   );
   // this is for displaying the fancybox

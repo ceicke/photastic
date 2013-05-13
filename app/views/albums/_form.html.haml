@@ -5,11 +5,12 @@
       = t('make_sure_you_have_a_name')
 
   = f.inputs do
-    = f.input :name
+    = f.input :name, label: t('album_name')
+    = f.input :passcode, label: t('album_passcode')
 
   = f.actions do
     = link_to t('back'), albums_path, class: 'btn btn-secondary'
-    = f.action :submit, :label => t('save')
+    = f.action :submit, label: t('save')
 
 
   

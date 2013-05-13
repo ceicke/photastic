@@ -1,6 +1,12 @@
 .page-header
   %h1= @album.name
-
+  - unless current_user.blank?
+    %a{href: new_album_picture_path(@album), class: 'btn btn-primary'}
+      %i.icon-plus
+      = t('upload_picture')
+    %a{href: edit_album_path(@album), class: 'btn'}
+      %i.icon-edit
+      = t('edit_album_settings')
 
 .hidden-phone.visible-desktop
   - if @pictures.size > 0
@@ -11,9 +17,15 @@
             = link_to image_tag(picture.picture_file(:medium)), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
             - unless picture.description.blank?
               %p= picture.description
-            .control_area
-              .control_elements
-                = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'icon-remove'
+            - unless current_user.blank?
+              .control_area
+                .control_elements
+                  - if picture == @album.picture
+                    %i.icon-star
+                  - else
+                    = link_to '', promote_album_path(@album, :picture_id => picture.id), method: :post, class: 'icon-star-empty'
+                  = link_to '', album_picture_path(@album, picture), class: 'icon-download'
+                  = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'icon-remove'
   - else
     %p= t('no_pictures_yet')
 
@@ -22,14 +34,18 @@
     .row-fluid
       - @pictures.each do |picture|
         .span12.img-polaroid
-          = link_to image_tag(picture.picture_file(:large)), picture.picture_file.url(:large)
+          = image_tag picture.picture_file(:large)
           - unless picture.description.blank?
             %p= picture.description
-          = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'icon-remove'
+          - unless current_user.blank?
+            - if picture == @album.picture
+              %i.icon-star
+            - else
+              = link_to '', promote_album_path(@album, :picture_id => picture.id), method: :post, class: 'icon-star-empty'
+            = link_to '', album_picture_path(@album, picture), class: 'icon-download'  
+            = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'icon-remove'
         %br/
         .clearfix
   - else
     %p= t('no_pictures_yet')  
-    
-.clearfix
-= link_to t('upload_picture'), new_album_picture_path(@album), class: 'btn btn-primary'
+
