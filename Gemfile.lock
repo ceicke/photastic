@@ -170,6 +170,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   fancybox-rails
+  formtastic
   formtastic-bootstrap
   haml-rails
   jquery-rails
