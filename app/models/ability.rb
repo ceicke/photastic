@@ -2,6 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    can :create, Album
     can :manage, Album do |album|
       album.user_id == user.id || Member.where(:album_id => album.id, :user_id => user.id, :can_administer => true).size > 0
     end
