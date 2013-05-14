@@ -69,7 +69,9 @@ Photastic::Application.configure do
   AWS::S3::DEFAULT_HOST = "s3-eu-west-1.amazonaws.com"
   config.paperclip_defaults = {
     :storage => :s3,
-    :url => ":s3_eu_url",
+    :s3_permissions => :private,
+    :s3_protocol => 'https',
+    :s3_host_name => 's3-eu-west-1.amazonaws.com',
     :s3_credentials => {
       :bucket => ENV['AWS_BUCKET'],
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
