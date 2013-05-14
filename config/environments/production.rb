@@ -65,7 +65,7 @@ Photastic::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  # config/environments/production.rb
+  # the S3 configuration
   AWS::S3::DEFAULT_HOST = "s3-eu-west-1.amazonaws.com"
   config.paperclip_defaults = {
     :storage => :s3,
@@ -77,4 +77,7 @@ Photastic::Application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+  # the analytics stuff
+  GA.tracker = "UA-40915864-1"
 end

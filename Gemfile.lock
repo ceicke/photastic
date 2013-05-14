@@ -64,6 +64,7 @@ GEM
       actionpack (>= 3.0)
     formtastic-bootstrap (2.1.1)
       formtastic (~> 2.2)
+    google-analytics-rails (0.0.4)
     haml (4.0.2)
       tilt
     haml-rails (0.4)
@@ -183,6 +184,7 @@ DEPENDENCIES
   faker
   fancybox-rails
   formtastic-bootstrap
+  google-analytics-rails
   haml-rails
   jquery-rails
   less-rails

@@ -54,6 +54,9 @@ gem 'formtastic-bootstrap'
 # We store our images on S3
 gem 'aws-sdk', '~> 1.5.7'
 
+# We use Google analytics
+gem 'google-analytics-rails'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
