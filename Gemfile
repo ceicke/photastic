@@ -12,7 +12,7 @@ group :assets do
   gem 'less-rails'
   gem 'jquery-rails'
   gem 'twitter-bootstrap-rails'
-  gem 'formtastic'
+  gem 'formtastic', git: 'git://github.com/justinfrench/formtastic.git', branch: '2.1-stable'
   gem 'formtastic-bootstrap'
   gem 'fancybox-rails'
  
