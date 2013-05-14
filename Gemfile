@@ -51,6 +51,9 @@ gem 'paperclip', '~> 3.0'
 # We have to put this outside
 gem 'formtastic-bootstrap'
 
+# We store our images on S3
+gem 'aws-sdk', '~> 1.5.7'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
