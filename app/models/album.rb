@@ -1,8 +1,9 @@
 class Album < ActiveRecord::Base
-  attr_accessible :name, :picture_id, :passcode
+  attr_accessible :name, :picture_id, :passcode, :subdomain
 
   validates :name, presence: true
   validates :user_id, presence: true
+  validates :subdomain, uniqueness: true
 
   belongs_to :user
   belongs_to :picture

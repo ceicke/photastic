@@ -12,6 +12,6 @@ Photastic::Application.routes.draw do
   end
 
   devise_for :users
-
+  match '/' => 'pictures#index', :constraints => { :subdomain => /.+/ }
   root :to => 'albums#index'
 end

@@ -5,7 +5,11 @@ class PicturesController < ApplicationController
   load_and_authorize_resource except: [:index, :show]
 
   def index
-    @album = Album.find(params[:album_id])
+    if request.subdomain.blank?
+      @album = Album.find(params[:album_id])
+    else
+      @album = Album.find_by_subdomain(request.subdomain)
+    end  
     @pictures = Picture.where(album_id: @album.id)
 
     respond_to do |format|

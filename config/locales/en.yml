@@ -21,6 +21,7 @@ en:
   please_enter_passcode_for_album: "Please enter the album's passcode and your name to access it."
   delete_album: "Delete Album"
   really_delete_album: "Do you really want to delete the album? All pictures will be lost."
+  album_subdomain: "Subdomain of album."
 
   upload_picture: "Add picture"
   new_picture: "Upload a picture"

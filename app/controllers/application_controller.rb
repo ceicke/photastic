@@ -19,7 +19,12 @@ class ApplicationController < ActionController::Base
   end
 
   def check_album_passcode
-    album = Album.find(params[:album_id])
+    if request.subdomain.blank?
+      album = Album.find(params[:album_id])
+    else
+      album = Album.find_by_subdomain(request.subdomain)
+    end
+    
     if current_user.blank?
       unless cookies[:album_passcode] == album.passcode && !cookies[:nickname].blank?
         redirect_to new_album_passcode_path(album)
