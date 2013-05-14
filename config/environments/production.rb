@@ -66,6 +66,7 @@ Photastic::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # config/environments/production.rb
+  AWS::S3::DEFAULT_HOST = "s3-eu-west-1.amazonaws.com"
   config.paperclip_defaults = {
     :storage => :s3,
     :url => ":s3_eu_url",
