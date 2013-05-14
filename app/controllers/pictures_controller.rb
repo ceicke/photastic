@@ -60,14 +60,5 @@ class PicturesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-  def check_album_passcode
-    album = Album.find(params[:album_id])
-    if current_user.blank?
-      unless cookies[:album_passcode] == album.passcode
-        redirect_to new_album_passcode_path(album)
-      end
-    end
-  end
+  
 end

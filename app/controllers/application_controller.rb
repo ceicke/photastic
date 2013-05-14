@@ -17,4 +17,13 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
+
+  def check_album_passcode
+    album = Album.find(params[:album_id])
+    if current_user.blank?
+      unless cookies[:album_passcode] == album.passcode && !cookies[:nickname].blank?
+        redirect_to new_album_passcode_path(album)
+      end
+    end
+  end
 end

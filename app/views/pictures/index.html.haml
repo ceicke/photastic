@@ -5,7 +5,7 @@
       %i.icon-plus
       = t('upload_picture')
     %a{href: edit_album_path(@album), class: 'btn'}
-      %i.icon-edit
+      %i.icon-wrench
       = t('edit_album_settings')
     %a{href: album_members_path(@album), class: 'btn'}
       %i.icon-user
@@ -17,18 +17,14 @@
       #columns
         - @pictures.each do |picture|
           .picture
-            = link_to image_tag(picture.picture_file(:medium)), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
-            - unless picture.description.blank?
-              %p= picture.description
-            - unless current_user.blank?
+            .picture_inner
+              = link_to image_tag(picture.picture_file(:medium)), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
+              - unless picture.description.blank?
+                %p= picture.description
               .control_area
                 .control_elements
-                  - if picture == @album.picture
-                    %i.icon-star
-                  - else
-                    = link_to '', promote_album_path(@album, :picture_id => picture.id), method: :post, class: 'icon-star-empty'
-                  = link_to '', album_picture_path(@album, picture), class: 'icon-download'
-                  = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'icon-remove'
+                  = render partial: 'controls', locals: {picture: picture}
+            = render partial: 'comments', locals: {picture: picture}
   - else
     %p= t('no_pictures_yet')
 
@@ -40,13 +36,9 @@
           = image_tag picture.picture_file(:large)
           - unless picture.description.blank?
             %p= picture.description
-          - unless current_user.blank?
-            - if picture == @album.picture
-              %i.icon-star
-            - else
-              = link_to '', promote_album_path(@album, :picture_id => picture.id), method: :post, class: 'icon-star-empty'
-            = link_to '', album_picture_path(@album, picture), class: 'icon-download'  
-            = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'icon-remove'
+          = render partial: 'controls', locals: {picture: picture}
+          = render partial: 'comments', locals: {picture: picture}
+          
         %br/
         .clearfix
   - else

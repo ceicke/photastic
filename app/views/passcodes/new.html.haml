@@ -4,5 +4,7 @@
   %fieldset
     = label_tag(:passcode, t('album_passcode'))
     %input{name: 'passcode', type: 'text'}
+    = label_tag(:name, t('your_name'))
+    %input{name: 'nickname', type: 'text'}
   .form-actions
     %button{type: 'submit', class: 'btn btn-primary'}= t('enter')

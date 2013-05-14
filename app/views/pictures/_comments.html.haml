@@ -1,0 +1,22 @@
+- if picture.comments.size == 1
+  %p
+    %i.icon-bullhorn
+    %a{href: '#', class: 'comment_toggle'}= "#{picture.comments.size} #{t('comment')}"
+- else
+  %p
+    %i.icon-bullhorn
+    %a{href: '#', class: 'comment_toggle'}= "#{picture.comments.size} #{t('comments')}"
+.comments
+  - if picture.comments.size > 0
+    %dl
+    - picture.comments.each do |comment|
+      %dt= comment.author
+      %dd= comment.comment
+
+  %br
+
+  = semantic_form_for [@album, picture, Comment.new] do |f|
+    = f.inputs do
+      = f.input :comment, :label => t('your_comment')
+    = f.actions do
+      = f.action :submit, :label => t('save')

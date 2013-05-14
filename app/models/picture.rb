@@ -8,4 +8,5 @@ class Picture < ActiveRecord::Base
   belongs_to :album
   belongs_to :user
   has_attached_file :picture_file, :styles => { :large => "800x800>", :medium => "250x250>", :thumb => "250x250#" }
+  has_many :comments, dependent: :destroy
 end
