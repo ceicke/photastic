@@ -12,8 +12,6 @@ group :assets do
   gem 'less-rails'
   gem 'jquery-rails'
   gem 'twitter-bootstrap-rails'
-  gem 'formtastic', git: 'git://github.com/justinfrench/formtastic.git', branch: '2.1-stable'
-  gem 'formtastic-bootstrap'
   gem 'fancybox-rails'
  
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -49,6 +47,9 @@ gem 'haml-rails'
 
 # We use paperclip to process our images
 gem 'paperclip', '~> 3.0'
+
+# We have to put this outside
+gem 'formtastic-bootstrap'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
