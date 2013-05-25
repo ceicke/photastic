@@ -10,7 +10,8 @@ class PicturesController < ApplicationController
     else
       @album = Album.find_by_subdomain(request.subdomain)
     end  
-    @pictures = Picture.where(album_id: @album.id)
+
+    @pictures = Picture.where(album_id: @album.id).order("created_at DESC")
 
     respond_to do |format|
       format.html
