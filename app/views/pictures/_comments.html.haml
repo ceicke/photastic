@@ -1,11 +1,9 @@
 - if picture.comments.size == 1
   %p
-    %i.icon-bullhorn
-    %a{href: '#', class: 'comment_toggle'}= "#{picture.comments.size} #{t('comment')}"
+    %a{class: 'comment_toggle'}= "#{picture.comments.size} #{t('comment')}"
 - else
   %p
-    %i.icon-bullhorn
-    %a{href: '#', class: 'comment_toggle'}= "#{picture.comments.size} #{t('comments')}"
+    %a{class: 'comment_toggle'}= "#{picture.comments.size} #{t('comments')}"
 .comments
   - if picture.comments.size > 0
     %dl

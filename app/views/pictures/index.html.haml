@@ -32,7 +32,7 @@
   - if @pictures.size > 0
     .row-fluid
       - @pictures.each do |picture|
-        .span12.img-polaroid
+        .span12.img-polaroid.picture
           = image_tag picture.picture_file(:large)
           - unless picture.description.blank?
             %p= picture.description
