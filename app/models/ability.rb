@@ -11,7 +11,10 @@ class Ability
         album.user_id == user.id || Member.where(:album_id => album.id, :user_id => user.id, :can_administer => true).size > 0
       end
       can :manage, Picture, :user_id => user.id
-      can [:new, :create], Picture do |picture|
+      can [:manage], Picture do |picture|
+        Member.where(:album_id => picture.album_id, :user_id => user.id, :can_administer => true).size > 0
+      end
+      can [:new, :create, :show], Picture do |picture|
         Member.where(:album_id => picture.album_id, :user_id => user.id, :can_addphotos => true).size > 0
       end
       can :manage, User, :id => user.id

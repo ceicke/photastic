@@ -12,7 +12,11 @@ class Comment < ActiveRecord::Base
     if user_id.blank?
       nickname
     else
-      user.email
+      if user.name.blank?
+        user.email
+      else
+        user.name
+      end
     end
   end
 

@@ -1,0 +1,11 @@
+= semantic_form_for @user do |f|
+  - if @user.errors.any?
+    .alert.alert-error
+      %h4= t('save_error')
+
+  = f.inputs do
+    = f.input :name, label: t('your_name')
+
+  = f.actions do
+    = link_to t('back'), albums_path, class: 'btn btn-secondary'
+    = f.action :submit, label: t('save')

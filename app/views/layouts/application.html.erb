@@ -49,6 +49,8 @@
           <div class="container-fluid nav-collapse">
             <ul class="nav pull-right">
               <li class="divider-vertical"></li>
+              <li><%= link_to current_user.email, edit_user_path(current_user) %></li>
+              <li class="divider-vertical"></li>
               <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
             </ul>
           </div><!--/.nav-collapse -->

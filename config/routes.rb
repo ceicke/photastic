@@ -10,6 +10,7 @@ Photastic::Application.routes.draw do
     resources :passcodes, only: [:new, :create]
     resources :members
   end
+  resources :users, only: [:edit, :update]
 
   devise_for :users
   match '/' => 'pictures#index', :constraints => { :subdomain => /.+/ }
