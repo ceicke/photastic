@@ -8,6 +8,10 @@ class AlbumsController < ApplicationController
   def index
     @albums = Album.where(user_id: current_user.id)
 
+    Member.where(user_id: current_user.id).each do |membership|
+      @albums << membership.album
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @albums }
