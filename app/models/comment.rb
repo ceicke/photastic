@@ -12,10 +12,10 @@ class Comment < ActiveRecord::Base
     if user_id.blank?
       nickname
     else
-      if user.name.blank?
+      if user.nickname.blank?
         user.email
       else
-        user.name
+        user.nickname
       end
     end
   end

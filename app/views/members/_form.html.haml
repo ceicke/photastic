@@ -4,7 +4,7 @@
       %h4= t('save_error')
 
   = f.inputs do
-    = f.input :user, value_method: Proc.new {|u| u.email}, label: t('email_of_user')
+    = f.input :user, label: t('email_of_user')
     = f.input :can_administer, label: t('can_administer_album')
     = f.input :can_addphotos, label: t('can_add_photos')
 
