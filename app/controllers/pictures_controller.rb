@@ -50,7 +50,7 @@ class PicturesController < ApplicationController
     album = Album.find(params[:album_id])
     picture = Picture.find(params[:id])
 
-    send_file picture.picture_file.path
+    send_file picture.picture_file.url
   end
 
   def destroy
