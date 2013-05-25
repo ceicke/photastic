@@ -27,6 +27,8 @@ class MembersController < ApplicationController
     @album = Album.find(params[:album_id])
     @member = Member.new(params[:member])
 
+    @member.album = @album
+
     respond_to do |format|
       if @member.save
         format.html { redirect_to album_members_path(@album), notice: t('member_added') }
