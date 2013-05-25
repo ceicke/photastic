@@ -1,9 +1,3 @@
-- if picture.comments.size == 1
-  %p
-    %a{class: 'comment_toggle'}= "#{picture.comments.size} #{t('comment')}"
-- else
-  %p
-    %a{class: 'comment_toggle'}= "#{picture.comments.size} #{t('comments')}"
 .comments
   - if picture.comments.size > 0
     %dl
@@ -15,6 +9,5 @@
 
   = semantic_form_for [@album, picture, Comment.new] do |f|
     = f.inputs do
-      = f.input :comment, :label => t('your_comment')
-    = f.actions do
-      = f.action :submit, :label => t('save')
+      = f.input :comment, label: t('your_comment')
+      = f.action :submit, label: t('save')

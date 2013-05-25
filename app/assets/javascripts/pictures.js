@@ -16,9 +16,4 @@ jQuery(function() {
     'speedOut'    : 200, 
     'overlayShow' : false
   });
-  // this is for toggling the comment area in and out
-  $(".picture .comment_toggle").click(function(event) {
-    event.preventDefault();
-    $(this).parentsUntil(".picture").parent().find(".comments").toggle("fast");
-  })
 });
