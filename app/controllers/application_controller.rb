@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
   
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :set_locale
 
   layout :layout_by_resource
 
@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+  def set_locale
+    I18n.locale = extract_locale_from_accept_language_header
+  end
+
   def check_album_passcode
     if request.subdomain.blank?
       album = Album.find(params[:album_id])
@@ -31,4 +35,9 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  private
+  def extract_locale_from_accept_language_header
+    request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+  end  
 end
