@@ -9,7 +9,9 @@ class AlbumsController < ApplicationController
     @albums = Album.where(user_id: current_user.id)
 
     Member.where(user_id: current_user.id).each do |membership|
-      @albums << membership.album
+      unless membership.album.blank?
+        @albums << membership.album
+      end
     end
 
     respond_to do |format|

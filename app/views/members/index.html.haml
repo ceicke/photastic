@@ -15,7 +15,7 @@
         %th= t('actions')
     - @members.each do |member|
       %tr
-        %td= member.user.name
+        %td= member.user.email
         %td= member.can_administer ? t('yes') : t('no')
         %td= member.can_addphotos ? t('yes') : t('no')
         %td
