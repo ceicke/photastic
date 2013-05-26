@@ -5,6 +5,7 @@ class MembersController < ApplicationController
 
   def index
     @album = Album.find(params[:album_id])   
+    @members = @album.members
 
     respond_to do |format|
       format.html
