@@ -9,4 +9,16 @@ class Picture < ActiveRecord::Base
   belongs_to :user
   has_attached_file :picture_file, :styles => { :large => "800x800>", :medium => "250x250>", :thumb => "250x250#" }
   has_many :comments, dependent: :destroy
+
+  after_post_process :save_image_dimensions
+
+  def save_image_dimensions
+    geo = Paperclip::Geometry.from_file(picture_file.queued_for_write[:large])
+    self.image_width_large = geo.width
+    self.image_height_large = geo.height
+
+    geo = Paperclip::Geometry.from_file(picture_file.queued_for_write[:medium])
+    self.image_width_medium = geo.width
+    self.image_height_medium = geo.height    
+  end
 end

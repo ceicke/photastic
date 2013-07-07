@@ -18,7 +18,7 @@
         - @pictures.each do |picture|
           .picture
             .picture_inner
-              = link_to image_tag(picture.picture_file(:medium)), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
+              = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
               - unless picture.description.blank?
                 %p= picture.description
               .control_area
@@ -33,7 +33,7 @@
     .row-fluid
       - @pictures.each do |picture|
         .span12.img-polaroid.picture
-          = image_tag picture.picture_file(:large)
+          = image_tag picture.picture_file(:large), width: picture.image_width_large, height: picture.image_height_large
           - unless picture.description.blank?
             %p= picture.description
           = render partial: 'controls', locals: {picture: picture}
