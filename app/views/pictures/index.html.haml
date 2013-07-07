@@ -18,7 +18,9 @@
         - @pictures.each do |picture|
           .picture
             .picture_inner
-              = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
+              /= link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
+              %a{href: picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s}
+                %img{data: {original: picture.picture_file(:medium)}, width: picture.image_width_medium, height: picture.image_height_medium}
               - unless picture.description.blank?
                 %p= picture.description
               .control_area

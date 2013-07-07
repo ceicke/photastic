@@ -16,4 +16,8 @@ jQuery(function() {
     'speedOut'    : 200, 
     'overlayShow' : false
   });
+
+  $("img").lazyload({
+    effect: "fadeIn"
+  }); 
 });
