@@ -3,7 +3,7 @@
     %dl
     - picture.comments.each do |comment|
       %dt= comment.author
-      - if comment.nickname == cookies[:nickname] || comment.user == current_user 
+      - if can? :manage, @album 
         %dd
           = comment.comment
           %br
