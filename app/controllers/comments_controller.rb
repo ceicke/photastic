@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
   skip_before_filter :authenticate_user!, :only => :create
   before_filter :check_album_passcode, :only => :create
-  load_and_authorize_resource except: [:create]
+  load_and_authorize_resource except: [:create, :destroy]
 
   def create
     @album = Album.find(params[:album_id])
@@ -32,7 +32,7 @@ class CommentsController < ApplicationController
 
   def destroy
     album = Album.find(params[:album_id])
-    comment = Comment.new(params[:id])
+    comment = Comment.find(params[:id])
 
     comment.destroy
 

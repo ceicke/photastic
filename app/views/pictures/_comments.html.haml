@@ -3,7 +3,13 @@
     %dl
     - picture.comments.each do |comment|
       %dt= comment.author
-      %dd= comment.comment
+      - if comment.nickname == cookies[:nickname] || comment.user == current_user 
+        %dd
+          = comment.comment
+          %br
+          = link_to t('delete_comment'), album_picture_comment_path(album_id: @album.id, picture_id: picture.id, id: comment.id), method: :delete, confirm: t('delete_confirm'), class: 'btn btn-small btn-danger'
+      - else
+        %dd= comment.comment
 
   %br
 
