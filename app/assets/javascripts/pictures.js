@@ -17,7 +17,7 @@ jQuery(function() {
     'overlayShow' : false
   });
 
-  $("img").lazyload({
-    effect: "fadeIn"
-  }); 
+  //$("img").lazyload({
+  //  effect: "fadeIn"
+  //}); 
 });
