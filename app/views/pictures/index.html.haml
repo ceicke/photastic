@@ -11,27 +11,15 @@
       %i.icon-user
       = t('album_membership')
 
-.pictures
-  - if @pictures.size > 0
-    %ul
-      - @pictures.each do |picture|
-        %li.picture
-          = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
-          %p
-            .pull-left= "#{t('comments')}: #{picture.comments.size}"
-            .pull-right= render :partial => 'controls', :locals => {:picture => picture}
-  - else
-    %p= t('no_pictures_yet')
-
-:javascript
-  (function ($){
-    $('.pictures').imagesLoaded(function() {
-      var options = {
-        autoResize: true,
-        container: $('.pictures'),
-        offset: 40,
-        itemWidth: 210,
-        fillEmptySpace: true,
-      };
-    });
-  });
+.row-fluid
+  .span12
+    - if @pictures.size > 0
+      .pictures
+        - @pictures.each do |picture|
+          .picture
+            = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
+            %p
+              .pull-left= "#{t('comments')}: #{picture.comments.size}"
+              .pull-right= render :partial => 'controls', :locals => {:picture => picture}
+    - else
+      %p= t('no_pictures_yet') 

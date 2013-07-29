@@ -15,5 +15,5 @@
 //= require twitter/bootstrap
 //= require fancybox
 //= require jquery.imagesloaded
-//= require jquery.wookmark.min
+//= require masonry.pkgd.min
 //= require_tree .
