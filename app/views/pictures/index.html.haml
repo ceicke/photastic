@@ -11,36 +11,27 @@
       %i.icon-user
       = t('album_membership')
 
-.hidden-phone.visible-desktop
+.pictures
   - if @pictures.size > 0
-    #wrapper
-      #columns
-        - @pictures.each do |picture|
-          .picture
-            .picture_inner
-              = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
-              - unless picture.description.blank?
-                %p= picture.description
-              .control_area
-                .control_elements
-                  = render partial: 'controls', locals: {picture: picture}
-            = render partial: 'comments', locals: {picture: picture}
+    %ul
+      - @pictures.each do |picture|
+        %li.picture
+          = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
+          %p
+            .pull-left= "#{t('comments')}: #{picture.comments.size}"
+            .pull-right= render :partial => 'controls', :locals => {:picture => picture}
   - else
     %p= t('no_pictures_yet')
 
-.visible-phone.hidden-desktop
-  - if @pictures.size > 0
-    .row-fluid
-      - @pictures.each do |picture|
-        .span12.img-polaroid.picture
-          = image_tag picture.picture_file(:large), width: picture.image_width_large, height: picture.image_height_large
-          - unless picture.description.blank?
-            %p= picture.description
-          = render partial: 'controls', locals: {picture: picture}
-          = render partial: 'comments', locals: {picture: picture}
-          
-        %br/
-        .clearfix
-  - else
-    %p= t('no_pictures_yet')    
-
+:javascript
+  (function ($){
+    $('.pictures').imagesLoaded(function() {
+      var options = {
+        autoResize: true,
+        container: $('.pictures'),
+        offset: 40,
+        itemWidth: 210,
+        fillEmptySpace: true,
+      };
+    });
+  })(jQuery);

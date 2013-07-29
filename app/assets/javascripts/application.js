@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require fancybox
-//= require jquery.lazyload.min
+//= require jquery.imagesloaded
+//= require jquery.wookmark.min
 //= require_tree .
