@@ -17,7 +17,8 @@
       .pictures
         - @pictures.each do |picture|
           .picture
-            = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
+            = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), :rel => @album.id, :data => { :colorbox => true, :colorbox_height => '95%', :colorbox_static => true }
+            %p= picture.description
             %p
               .pull-left= "#{t('comments')}: #{picture.comments.size}"
               .pull-right= render :partial => 'controls', :locals => {:picture => picture}

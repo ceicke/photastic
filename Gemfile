@@ -12,7 +12,7 @@ group :assets, :production do
   gem 'less-rails'
   gem 'jquery-rails'
   gem 'twitter-bootstrap-rails'
-  gem 'fancybox-rails'
+  gem 'colorbox-rails'
  
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', :platforms => :ruby
