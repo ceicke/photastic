@@ -17,10 +17,10 @@
       .pictures
         - @pictures.each do |picture|
           .picture
-            = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), :rel => @album.id, :data => { :colorbox => true, :colorbox_height => '95%', :colorbox_static => true }
+            = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), album_picture_path(album_id: @album.id, id: picture.id), rel: @album.id, data: { colorbox: true, colorbox_height: '95%', colorbox_static: true, colobox_width: '65%' }
             %p= picture.description
             %p
               .pull-left= "#{t('comments')}: #{picture.comments.size}"
-              .pull-right= render :partial => 'controls', :locals => {:picture => picture}
+              .pull-right= render partial: 'controls', locals: {picture: picture}
     - else
       %p= t('no_pictures_yet') 

@@ -48,10 +48,12 @@ class PicturesController < ApplicationController
   end
 
   def show
-    album = Album.find(params[:album_id])
-    picture = Picture.find(params[:id])
+    @album = Album.find(params[:album_id])
+    @picture = Picture.find(params[:id])
 
-    redirect_to picture.picture_file.url
+    respond_to do |format|
+      format.html {render :layout => 'photo'}
+    end
   end
 
   def destroy
