@@ -13,18 +13,17 @@
 
 .hidden-phone.visible-desktop
   - if @pictures.size > 0
-    #wrapper
-      #columns
-        - @pictures.each do |picture|
-          .picture
-            .picture_inner
-              = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
-              - unless picture.description.blank?
-                %p= picture.description
-              .control_area
-                .control_elements
-                  = render partial: 'controls', locals: {picture: picture}
-            = render partial: 'comments', locals: {picture: picture}
+    #pictures
+      - @pictures.each do |picture|
+        .picture
+          .picture_inner
+            = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
+            - unless picture.description.blank?
+              %p= picture.description
+            .control_area
+              .control_elements
+                = render partial: 'controls', locals: {picture: picture}
+          = render partial: 'comments', locals: {picture: picture}
   - else
     %p= t('no_pictures_yet')
 

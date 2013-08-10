@@ -27,6 +27,7 @@ end
 
 group :development do
   gem 'sextant'
+  gem 'pg'
 end
 
 group :development, :test do

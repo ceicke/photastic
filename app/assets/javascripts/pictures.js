@@ -16,4 +16,11 @@ jQuery(function() {
     'speedOut'    : 200, 
     'overlayShow' : false
   });
+
+  var $container = $('#pictures');
+  // initialize
+  $container.masonry({
+    columnWidth: 200,
+    itemSelector: '.picture'
+  });
 });

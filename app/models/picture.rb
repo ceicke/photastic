@@ -7,7 +7,7 @@ class Picture < ActiveRecord::Base
 
   belongs_to :album
   belongs_to :user
-  has_attached_file :picture_file, :styles => { :large => "800x800>", :medium => "250x250>", :thumb => "250x250#" }
+  has_attached_file :picture_file, :styles => { :large => "800x800>", :medium => "250x250>", :thumb => "250x250#" }, :default_url => "/images/lolcat_404.jpg"
   has_many :comments, dependent: :destroy
 
   after_post_process :save_image_dimensions
