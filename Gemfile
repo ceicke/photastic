@@ -61,6 +61,9 @@ gem 'aws-sdk', '~> 1.5.7'
 # We use Google analytics
 gem 'google-analytics-rails'
 
+# reading exif data
+gem 'exifr'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

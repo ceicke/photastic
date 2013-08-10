@@ -1,4 +1,8 @@
 de:
+  time:
+    formats:
+      default: "%d.%m.%y %H:%M"
+
   welcome: "Willkommen bei Photastic"
   save_error: "Oh nein!"
   save: "Speichern"

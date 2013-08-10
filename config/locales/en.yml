@@ -1,4 +1,8 @@
 en:
+  time:
+    formats:
+      default: "%d.%m.%y %H:%M"
+      
   welcome: "Welcome to Photastic"
   save_error: "Oh no!"
   save: "Save"

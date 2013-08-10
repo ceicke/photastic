@@ -12,6 +12,34 @@ class Picture < ActiveRecord::Base
 
   after_post_process :save_image_dimensions
 
+  def get_exif
+    EXIFR::JPEG.new(picture_file.path)
+  end
+
+  def date_time
+    if get_exif.exif?
+      if get_exif.date_time.blank?
+        created_at
+      else
+        get_exif.date_time
+      end
+    else
+      created_at
+    end
+  end
+
+  def latitude_longitude
+    if get_exif.exif?
+      if get_exif.gps.blank?
+        nil
+      else
+        get_exif.gps.latitude + ":" + get_exif.gps.longitude
+      end
+    else
+      nil
+    end
+  end
+
   def save_image_dimensions
     geo = Paperclip::Geometry.from_file(picture_file.queued_for_write[:large])
     self.image_width_large = geo.width

@@ -11,7 +11,11 @@ class PicturesController < ApplicationController
       @album = Album.find_by_subdomain(request.subdomain)
     end  
 
-    @pictures = Picture.where(album_id: @album.id).paginate(:page => params[:page], :per_page => 30).order("created_at DESC")
+    if Picture.where(album_id: @album.id).size > 60
+      @pictures = Picture.where(album_id: @album.id).paginate(:page => params[:page], :per_page => 30).order("created_at DESC")
+    else
+      @pictures = Picture.where(album_id: @album.id).order("created_at DESC")
+    end
 
     respond_to do |format|
       format.html

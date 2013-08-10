@@ -20,8 +20,15 @@
         .picture
           .picture_inner
             = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
-            - unless picture.description.blank?
-              %p= picture.description
+            - if picture.description.blank?
+              %p
+                = l picture.date_time
+                = picture.latitude_longitude unless picture.latitude_longitude.nil?
+            - else
+              %p
+                = l(picture.date_time) + ': '
+                = picture.description
+                = picture.latitude_longitude unless picture.latitude_longitude.nil?
             .control_area
               .control_elements
                 = render partial: 'controls', locals: {picture: picture}
@@ -35,8 +42,15 @@
       - @pictures.each do |picture|
         .span12.img-polaroid.picture
           = image_tag picture.picture_file(:large), width: picture.image_width_large, height: picture.image_height_large
-          - unless picture.description.blank?
-            %p= picture.description
+          - if picture.description.blank?
+            %p
+              = l picture.date_time
+              = picture.latitude_longitude unless picture.latitude_longitude.nil?
+          - else
+            %p
+              = l(picture.date_time) + ': '
+              = picture.description
+              = picture.latitude_longitude unless picture.latitude_longitude.nil?
           = render partial: 'controls', locals: {picture: picture}
           = render partial: 'comments', locals: {picture: picture}
           
