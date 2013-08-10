@@ -1,6 +1,0 @@
-.row-fluid
-  .span7
-    = image_tag(@picture.picture_file(:large), class: 'boximage')
-  .span5
-    = render partial: 'imageinfo', locals: { picture: @picture }
-    = render partial: 'comments', locals: { picture: @picture }

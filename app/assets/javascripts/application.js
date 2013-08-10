@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require jquery.imagesloaded
-//= require masonry.pkgd.min
-//=require colorbox-rails
+//= require fancybox
+//= require jquery.lazyload.min
 //= require_tree .
