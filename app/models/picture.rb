@@ -10,37 +10,25 @@ class Picture < ActiveRecord::Base
   has_attached_file :picture_file, :styles => { :large => "800x800>", :medium => "250x250>", :thumb => "250x250#" }, :default_url => "/images/lolcat_404.jpg"
   has_many :comments, dependent: :destroy
 
-  after_post_process :save_image_dimensions
-
-  def get_exif
-    EXIFR::JPEG.new(picture_file.path)
-  end
+  after_post_process :postprocess_image
 
   def date_time
-    if get_exif.exif?
-      if get_exif.date_time.blank?
-        created_at
-      else
-        get_exif.date_time
-      end
+    if self.taken_at.blank?
+      self.created_at
     else
-      created_at
+      self.taken_at
     end
   end
 
   def latitude_longitude
-    if get_exif.exif?
-      if get_exif.gps.blank?
-        nil
-      else
-        get_exif.gps.latitude + ":" + get_exif.gps.longitude
-      end
-    else
+    if self.latitude.nil? || self.longitude.nil?
       nil
+    else
+      self.latitude + ':' + self.longitude
     end
   end
 
-  def save_image_dimensions
+  def postprocess_image
     geo = Paperclip::Geometry.from_file(picture_file.queued_for_write[:large])
     self.image_width_large = geo.width
     self.image_height_large = geo.height
@@ -48,5 +36,20 @@ class Picture < ActiveRecord::Base
     geo = Paperclip::Geometry.from_file(picture_file.queued_for_write[:medium])
     self.image_width_medium = geo.width
     self.image_height_medium = geo.height    
+
+    exif = EXIFR::JPEG.new(picture_file.queued_for_write[:original].path)
+
+    if exif.exif?
+
+      unless exif.date_time.blank?
+        self.taken_at = exif.date_time
+      end
+
+      unless exif.gps.blank?
+        self.latitude = exif.gps.latitude
+        self.longitude = exif.gps.longitude
+      end
+
+    end
   end
 end
