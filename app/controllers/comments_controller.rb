@@ -21,10 +21,10 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to album_pictures_path(@album), notice: t('comment_was_saved') }
+        format.html { redirect_to :back, notice: t('comment_was_saved') }
         format.json { render json: @comment, status: :created, location: @comment }
       else
-        format.html { redirect_to album_pictures_path(@album), alert: t('comment_was_not_saved') + @comment.errors.inspect.to_s }
+        format.html { redirect_to :back, alert: t('comment_was_not_saved') + @comment.errors.inspect.to_s }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
     comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to album_pictures_path(album) }
+      format.html { :back }
       format.json { head :no_content }
     end
   end
