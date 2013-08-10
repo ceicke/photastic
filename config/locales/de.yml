@@ -22,6 +22,8 @@ de:
   delete_album: "Album löschen"
   really_delete_album: "Möchteste du wirklich das Album mit allen Bildern löschen?."
   album_subdomain: "Subdomain des Albums."
+  previous: "Zurück"
+  next: "Weiter"
 
   upload_picture: "Bild hinzufügen"
   new_picture: "Bild hochladen"

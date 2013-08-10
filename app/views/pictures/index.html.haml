@@ -11,6 +11,8 @@
       %i.icon-user
       = t('album_membership')
 
+= will_paginate @pictures, previous_label: t('previous'), next_label: t('next')
+
 .hidden-phone.visible-desktop
   - if @pictures.size > 0
     #pictures
@@ -42,6 +44,8 @@
         .clearfix
   - else
     %p= t('no_pictures_yet')  
+
+= will_paginate @pictures, previous_label: t('previous'), next_label: t('next')
 
 :javascript
   $("img").lazyload({
