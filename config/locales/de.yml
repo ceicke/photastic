@@ -1,7 +1,7 @@
 de:
   time:
     formats:
-      default: "%d.%m.%y %H:%M"
+      default: "%d.%m.%y"
 
   welcome: "Willkommen bei Photastic"
   save_error: "Oh nein!"
