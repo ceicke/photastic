@@ -22,6 +22,7 @@ end
 
 group :production, :staging do
   gem "pg"
+  gem "newrelic_rpm"
 end
 
 group :development do
