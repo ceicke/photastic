@@ -1,7 +1,7 @@
 #wrapper {
   width: 90%;
   max-width: 1100px;
-  margin: 50px auto;
+  margin: 10px auto;
 }
 
 #columns {
@@ -53,10 +53,6 @@
   padding: 15px;
 }
 
-.picture {
-  width: 25%;
-}
-
 .picture .control_area a:hover {
   text-decoration: none;
 }
@@ -69,20 +65,27 @@
 
 @media (min-width: 960px) {
   #columns {
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
-  }
-}
-
-@media (min-width: 1100px) {
-  #columns {
     -webkit-column-count: 4;
     -moz-column-count: 4;
     column-count: 4;
   }
 }
 
+@media (min-width: 1100px) {
+  #columns {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+  }
+}
+
 .comments {
   font-size: 12px;  
+}
+
+.pagination {
+  text-align: center;
+  //width: 500px;
+  //margin-left: auto ;
+  //margin-right: auto ;
 }
