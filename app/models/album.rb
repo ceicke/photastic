@@ -8,6 +8,7 @@ class Album < ActiveRecord::Base
   belongs_to :user
   belongs_to :picture
   has_many :pictures, dependent: :destroy
+  has_many :videos, dependent: :destroy
   has_many :members, dependent: :destroy
   has_many :users, through: :members
 

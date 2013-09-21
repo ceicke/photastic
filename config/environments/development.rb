@@ -37,4 +37,6 @@ Photastic::Application.configure do
 
   # The host that should appear in our e-mails
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  Paperclip.options[:command_path] = "/usr/local/bin/"
 end

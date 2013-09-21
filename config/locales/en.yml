@@ -27,6 +27,7 @@ en:
   really_delete_album: "Do you really want to delete the album? All pictures will be lost."
   album_subdomain: "Subdomain of album."
 
+  pictures: "Pictures"
   upload_picture: "Add picture"
   new_picture: "Upload a picture"
   new_picture_explanation: "Here you can upload a new picture into your album."
@@ -34,6 +35,15 @@ en:
   no_picture_file_selected: "You need to select a picture file to upload to this album."
   picture_was_saved: "The picture was saved."
   no_pictures_yet: "This album does not contain any pictures yet."
+
+  videos: "Videos"
+  upload_video: "Add Video"
+  new_video: "Upload a video"
+  new_video_explanation: "Here you can upload a new video into your album."
+  make_sure_all_required_fields: "Please make sure that you have filled out all the required fields."
+  no_video_file_selected: "You need to select a video file to upload to this album."
+  video_was_saved: "The video was saved."
+  no_videos_yet: "This album does not contain any videos yet."
 
   membership_list: "Membership list"
   add_member: "Add someone to this album"

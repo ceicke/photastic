@@ -10,6 +10,9 @@
     %a{href: album_members_path(@album), class: 'btn'}
       %i.icon-user
       = t('album_membership')
+  %a{href: album_videos_path(@album), class: 'btn'}
+    %i.icon-film
+    = t('videos')
 
 = will_paginate @pictures, previous_label: t('previous'), next_label: t('next')
 

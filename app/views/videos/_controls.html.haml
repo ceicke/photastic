@@ -1,0 +1,3 @@
+= link_to '', album_video_path(@album, video), class: 'icon-download'
+- if can? :delete, video
+  = link_to '', album_video_path(@album, video), method: :delete, confirm: t('delete_confirm'), class: 'icon-remove'
