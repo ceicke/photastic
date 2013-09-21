@@ -8,7 +8,7 @@ jQuery(function() {
       $(this).find(".control_area").fadeOut(200);
     }
   );
-  // this is for displaying the fancybox
+  // this is for displaying the fancybox for the images
   $("a.fancyboxgroup").fancybox({
     'transitionIn'  : 'fade',
     'transitionOut' : 'fade',
@@ -16,5 +16,7 @@ jQuery(function() {
     'speedOut'    : 200, 
     'overlayShow' : false
   });
+
+
 
 });
