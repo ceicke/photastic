@@ -9,7 +9,7 @@ class Video < ActiveRecord::Base
   belongs_to :user
 
   has_attached_file :video_file, :styles => {
-    :thumb => { :geometry => "250x250>", :format => 'jpg', :time => 10 }
+    :thumb => { :geometry => "250x250>", :format => 'jpg', :time => 2 }
   }, :processors => [:ffmpeg]
   
 end
