@@ -16,7 +16,7 @@ source /home/vagrant/.profile
 source /home/vagrant/.rvm/scripts/rvm
 
 # check for Ruby
-which ruby &> /dev/null
+ruby -v | grep 2.0 &> /dev/null
 if [ $? -eq 1 ]; then
   rvm install 2.0.0
   rvm use 2.0.0 --default
