@@ -14,3 +14,6 @@
 /log/*.log
 /tmp
 /public/system
+
+# Ignore local vagrant directory
+/.vagrant
