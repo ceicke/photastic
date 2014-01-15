@@ -6,21 +6,13 @@ apt-get -y install bash curl git patch bzip2 build-essential openssl libreadline
 
 cd /home/vagrant
 
-# check for RVM
-which rvm &> /dev/null
-if [ $? -eq 1 ]; then
-  \curl -L https://get.rvm.io | bash -s stable
-fi
+\curl -L https://get.rvm.io | bash -s stable
 
 source /home/vagrant/.profile
 source /home/vagrant/.rvm/scripts/rvm
 
-# check for Ruby
-ruby -v | grep 2.0 &> /dev/null
-if [ $? -eq 1 ]; then
-  rvm install 2.0.0
-  rvm use 2.0.0 --default
-fi
+rvm install 2.0.0
+rvm use 2.0.0 --default
 
 gem source -r http://rubygems.org/
 gem install bundler
@@ -40,6 +32,3 @@ rake db:migrate
 # output IP address
 echo "Here is your IP address:"
 ip -4 -f inet addr
-
-# start the rails server
-rails s -d
