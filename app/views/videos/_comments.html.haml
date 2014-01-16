@@ -1,18 +1,18 @@
 .comments
-  - if picture.comments.size > 0
+  - if video.comments.size > 0
     %dl
-    - picture.comments.each do |comment|
+    - video.comments.each do |comment|
       %dt= comment.author
       - if can? :manage, @album 
         %dd
           = comment.comment
-          = link_to t('delete_comment'), album_picture_comment_path(album_id: @album.id, picture_id: picture.id, id: comment.id), method: :delete, confirm: t('delete_confirm')
+          = link_to t('delete_comment'), album_video_comment_path(album_id: @album.id, video_id: video.id, id: comment.id), method: :delete, confirm: t('delete_confirm')
       - else
         %dd= comment.comment
 
   %br
 
-  = semantic_form_for [@album, picture, Comment.new(commentable_type: 'Picture', commentable_id: picture.id)] do |f|
+  = semantic_form_for [@album, video, Comment.new(commentable_type: 'Video', commentable_id: video.id)] do |f|
     = f.inputs do
       = f.input :commentable_type, as: :hidden
       = f.input :commentable_id, as: :hidden

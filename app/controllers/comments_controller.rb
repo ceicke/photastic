@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
 
   def create
     @album = Album.find(params[:album_id])
-    picture = Picture.find(params[:picture_id])
     @comment = Comment.new(params[:comment])
 
     # set user or nickname
@@ -16,14 +15,16 @@ class CommentsController < ApplicationController
       @comment.user = current_user
     end
 
-    # set picture
-    @comment.picture = picture
-
-    back_url = request.referer
+    # set the back link to the ID of the object, so that we can jump to the a-target on that page
+    unless request.referer.blank?
+      back_url = request.referer + '#' + @comment.commentable_id.to_s
+    else
+      back_url = :back
+    end
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to back_url + '#' + picture.id.to_s, notice: t('comment_was_saved') }
+        format.html { redirect_to back_url, notice: t('comment_was_saved') }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { redirect_to :back, alert: t('comment_was_not_saved') + @comment.errors.inspect.to_s }
@@ -36,10 +37,17 @@ class CommentsController < ApplicationController
     album = Album.find(params[:album_id])
     comment = Comment.find(params[:id])
 
+    # set the back link to the ID of the object, so that we can jump to the a-target on that page
+    unless request.referer.blank?
+      back_url = request.referer + '#' + comment.commentable_id.to_s
+    else
+      back_url = :back
+    end
+
     comment.destroy
 
     respond_to do |format|
-      format.html { :back }
+      format.html { redirect_to back_url, notice: t('comment_was_deleted') }
       format.json { head :no_content }
     end
   end

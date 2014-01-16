@@ -7,6 +7,7 @@ class Video < ActiveRecord::Base
 
   belongs_to :album
   belongs_to :user
+  has_many :comments, dependent: :destroy, as: :commentable
 
   has_attached_file :video_file, :styles => {
     :thumb => { :geometry => "250x250>", :format => 'jpg', :time => 2 }

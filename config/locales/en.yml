@@ -63,6 +63,7 @@ en:
   comment_was_saved: "Your comment was saved."
   comment_was_not_saved: "Your comment could not be saved."
   delete_comment: "Delete comment"
+  comment_was_deleted: "Comment deleted"
 
   edit_user_setting: "Edit your settings"
 

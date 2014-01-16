@@ -8,7 +8,7 @@ class Picture < ActiveRecord::Base
   belongs_to :album
   belongs_to :user
   has_attached_file :picture_file, :styles => { :large => "800x800>", :medium => "250x250>", :thumb => "250x250#" }, :default_url => "/images/lolcat_404.jpg"
-  has_many :comments, dependent: :destroy
+  has_many :comments, dependent: :destroy, as: :commentable
 
   after_post_process :postprocess_image
 

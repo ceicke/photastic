@@ -1,11 +1,10 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :nickname, :picture_id, :user_id, :comment
+  attr_accessible :nickname, :user_id, :comment, :commentable_id, :commentable_type
 
-  validates :picture_id, presence: true
   validates :comment, presence: true
   before_validation :user_id_or_nickname
 
-  belongs_to :picture
+  belongs_to :commentable, polymorphic: true
   belongs_to :user
 
   def author

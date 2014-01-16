@@ -65,5 +65,6 @@ de:
   comment_was_saved: "Dein Kommentar wurde gespeichert."
   comment_was_not_saved: "Dein Kommentar konnte leider nicht gespeichert werden."
   delete_comment: "Kommentar löschen"
+  comment_was_deleted: "Kommentar gelöscht"
 
   edit_user_setting: "Benutzerkonto bearbeiten"

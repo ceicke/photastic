@@ -7,7 +7,9 @@ Photastic::Application.routes.draw do
     resources :pictures, except: [:edit, :update] do
       resources :comments, except: [:index, :new, :edit, :update]
     end
-    resources :videos, except: [:edit, :update]
+    resources :videos, except: [:edit, :update] do
+      resources :comments, except: [:index, :new, :edit, :update]
+    end
     resources :passcodes, only: [:new, :create]
     resources :members
   end

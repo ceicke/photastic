@@ -34,6 +34,7 @@
             .control_area
               .control_elements
                 = render partial: 'controls', locals: {video: video}                
+          = render partial: 'comments', locals: {video: video}
         %div{style: 'display:none'}
           %div{id: "video_#{video.id}"}
             %video{controls: true}
