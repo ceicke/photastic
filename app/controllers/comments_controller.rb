@@ -19,9 +19,11 @@ class CommentsController < ApplicationController
     # set picture
     @comment.picture = picture
 
+    back_url = request.referer
+
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to :back, notice: t('comment_was_saved') }
+        format.html { redirect_to back_url + '#' + picture.id.to_s, notice: t('comment_was_saved') }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { redirect_to :back, alert: t('comment_was_not_saved') + @comment.errors.inspect.to_s }

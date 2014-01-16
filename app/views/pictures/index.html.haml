@@ -21,6 +21,7 @@
     #wrapper
       #columns
         - @pictures.each do |picture|
+          %a{name: picture.id}
           .picture
             .picture_inner
               = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
