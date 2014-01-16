@@ -23,13 +23,11 @@ group :assets, :production do
 end
 
 group :production, :staging do
-  gem "pg"
   gem "newrelic_rpm"
 end
 
 group :development do
   gem 'sextant'
-  gem 'pg'
 end
 
 group :development, :test do
@@ -65,6 +63,8 @@ gem 'google-analytics-rails'
 
 # reading exif data
 gem 'exifr'
+
+gem 'pg'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
