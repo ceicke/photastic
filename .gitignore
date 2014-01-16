@@ -17,3 +17,6 @@
 
 # Ignore local vagrant directory
 /.vagrant
+
+# stupid .DS_Store files
+.DS_Store
