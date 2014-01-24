@@ -34,7 +34,10 @@
               %i.fa.fa-users
               = t('membership_list')
 
-= will_paginate @pictures, previous_label: t('previous'), next_label: t('next')
+.hidden-phone.visible-desktop
+  = will_paginate @pictures, previous_label: '«', next_label: '»'
+.hidden-desktop.visible-phone
+  = will_paginate @pictures, previous_label: '«', next_label: '»', inner_window: 1, outer_window: 0
 
 .hidden-phone.visible-desktop
   - if @pictures.size > 0
@@ -85,4 +88,7 @@
   - else
     %p= t('no_pictures_yet')  
 
-= will_paginate @pictures, previous_label: t('previous'), next_label: t('next')
+.hidden-phone.visible-desktop
+  = will_paginate @pictures, previous_label: '«', next_label: '»'
+.hidden-desktop.visible-phone
+  = will_paginate @pictures, previous_label: '«', next_label: '»', inner_window: 1, outer_window: 0
