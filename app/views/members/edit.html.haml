@@ -1,3 +1,8 @@
+- content_for :title do
+  = @album.name
+  = "::"
+  = t('edit_member')
+
 .page-header
   %h1= t('edit_member')
 

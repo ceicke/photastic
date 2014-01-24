@@ -1,17 +1,22 @@
+- content_for :title do
+  = @album.name
+  = "::"
+  = t('videos')
+
 .page-header
   %h1= @album.name
   - unless current_user.blank?
     %a{href: new_album_video_path(@album), class: 'btn btn-primary'}
-      %i.icon-plus
+      %i.fa.fa-plus
       = t('upload_video')
     %a{href: edit_album_path(@album), class: 'btn'}
-      %i.icon-wrench
+      %i.fa.fa-wrench
       = t('edit_album_settings')
     %a{href: album_members_path(@album), class: 'btn'}
-      %i.icon-user
+      %i.fa.fa-users
       = t('album_membership')
   %a{href: album_pictures_path(@album), class: 'btn'}
-    %i.icon-camera
+    %i.fa.fa-camera-retro
     = t('pictures')  
 
 = will_paginate @videos, previous_label: t('previous'), next_label: t('next')

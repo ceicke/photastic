@@ -1,7 +1,12 @@
+- content_for :title do
+  = @album.name
+  = "::"
+  = t('membership_list')
+
 .page-header
   %h1= t('membership_list')
   %a{href: new_album_member_path(@album), class: 'btn btn-primary'}
-    %i.icon-plus
+    %i.fa.fa-plus
     = t('add_member')
   = link_to t('back'), album_pictures_path(@album), class: 'btn'
 

@@ -1,3 +1,8 @@
+- content_for :title do
+  = @album.name
+  = "::"
+  = t('album_passcode')
+
 .alert.alert-error= t('please_enter_passcode_for_album')
 
 = form_tag(album_passcodes_path(@album), :method => "post") do

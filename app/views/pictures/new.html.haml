@@ -1,3 +1,8 @@
+- content_for :title do
+  = @album.name
+  = "::"
+  = t('new_picture')
+
 %h1= t('new_picture')
 
 %p= t('new_picture_explanation')

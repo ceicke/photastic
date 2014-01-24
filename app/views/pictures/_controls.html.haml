@@ -1,8 +1,8 @@
 - if can? :update, @album
   - if picture == @album.picture
-    %i.icon-star
+    %i.fa.fa-star
   - else
-    = link_to '', promote_album_path(@album, :picture_id => picture.id), method: :post, class: 'icon-star-empty'
-= link_to '', album_picture_path(@album, picture), class: 'icon-download'
+    = link_to '', promote_album_path(@album, :picture_id => picture.id), method: :post, class: 'fa fa-star-o'
+= link_to '', album_picture_path(@album, picture), class: 'fa fa-download'
 - if can? :delete, picture
-  = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'icon-remove'
+  = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'fa fa-trash-o'

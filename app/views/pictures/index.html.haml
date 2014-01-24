@@ -1,17 +1,22 @@
+- content_for :title do
+  = @album.name
+  = "::"
+  = t('pictures')
+
 .page-header
   %h1= @album.name
   - unless current_user.blank?
     %a{href: new_album_picture_path(@album), class: 'btn btn-primary'}
-      %i.icon-plus
+      %i.fa.fa-plus
       = t('upload_picture')
     %a{href: edit_album_path(@album), class: 'btn'}
-      %i.icon-wrench
+      %i.fa.fa-wrench
       = t('edit_album_settings')
     %a{href: album_members_path(@album), class: 'btn'}
-      %i.icon-user
+      %i.fa.fa-users
       = t('album_membership')
   %a{href: album_videos_path(@album), class: 'btn'}
-    %i.icon-film
+    %i.fa.fa-video-camera
     = t('videos')
 
 = will_paginate @pictures, previous_label: t('previous'), next_label: t('next')
@@ -43,6 +48,7 @@
   - if @pictures.size > 0
     .row-fluid
       - @pictures.each do |picture|
+        %a{name: picture.id}
         .span12.img-polaroid.picture
           = image_tag picture.picture_file(:large), width: picture.image_width_large, height: picture.image_height_large
           - if picture.description.blank?
