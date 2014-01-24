@@ -9,15 +9,30 @@
     %a{href: new_album_picture_path(@album), class: 'btn btn-primary'}
       %i.fa.fa-plus
       = t('upload_picture')
-    %a{href: edit_album_path(@album), class: 'btn'}
-      %i.fa.fa-wrench
-      = t('edit_album_settings')
-    %a{href: album_members_path(@album), class: 'btn'}
-      %i.fa.fa-users
-      = t('album_membership')
-  %a{href: album_videos_path(@album), class: 'btn'}
-    %i.fa.fa-video-camera
-    = t('videos')
+    %a{href: album_videos_path(@album), class: 'btn'}
+      %i.fa.fa-video-camera
+      = t('videos')
+    .pull-right.hidden-phone
+      %a{href: edit_album_path(@album), class: 'btn'}
+        %i.fa.fa-wrench
+        = t('edit_album_settings')
+      %a{href: album_members_path(@album), class: 'btn'}
+        %i.fa.fa-users
+        = t('membership_list')
+    .pull-right.hidden-desktop
+      .btn-group
+        %a.btn.dropdown-toggle{data: {toggle: "dropdown"}}
+          %i.fa.fa-wrench
+          %span.caret
+        %ul.dropdown-menu.pull-right
+          %li
+            %a{href: edit_album_path(@album)}
+              %i.fa.fa-wrench
+              = t('edit_album_settings')
+          %li
+            %a{href: album_members_path(@album)}
+              %i.fa.fa-users
+              = t('membership_list')
 
 = will_paginate @pictures, previous_label: t('previous'), next_label: t('next')
 
@@ -69,9 +84,3 @@
     %p= t('no_pictures_yet')  
 
 = will_paginate @pictures, previous_label: t('previous'), next_label: t('next')
-
-:javascript
-  $("img").lazyload({
-    effect: "fadeIn"
-  });    
-
