@@ -44,7 +44,7 @@
   #wrapper
     #columns
       - @videos.each do |video|
-        .picture
+        .picture_thumb
           .picture_inner
             %a{href: "#video_#{video.id}", class: 'inline'} 
               = image_tag(video.video_file(:thumb))

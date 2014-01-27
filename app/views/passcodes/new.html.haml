@@ -3,13 +3,14 @@
   = "::"
   = t('album_passcode')
 
-.alert.alert-error= t('please_enter_passcode_for_album')
 
-= form_tag(album_passcodes_path(@album), :method => "post") do
-  %fieldset
-    = label_tag(:passcode, t('album_passcode'))
-    %input{name: 'passcode', type: 'text'}
-    = label_tag(:name, t('your_name'))
-    %input{name: 'nickname', type: 'text'}
-  .form-actions
-    %button{type: 'submit', class: 'btn btn-primary'}= t('enter')
+.container
+  .alert.alert-error= t('please_enter_passcode_for_album')
+
+  = form_tag(album_passcodes_path(@album), :method => "post") do
+    %fieldset
+      %input{name: 'passcode', type: 'text', placeholder: t('album_passcode')}
+    %fieldset
+      %input{name: 'nickname', type: 'text', placeholder: t('your_name')}
+    %fieldset
+      %button{type: 'submit', class: 'btn btn-primary'}= t('enter')

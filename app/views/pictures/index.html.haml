@@ -45,7 +45,7 @@
       #columns
         - @pictures.each do |picture|
           %a{name: picture.id}
-          .picture
+          .picture_thumb
             .picture_inner
               = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
               - if picture.description.blank?
@@ -69,17 +69,16 @@
         %a{name: picture.id}
         .span12.img-polaroid.picture
           = image_tag picture.picture_file(:large), width: picture.image_width_large, height: picture.image_height_large
-          - if picture.description.blank?
-            %p
-              = l picture.date_time
-              = picture.latitude_longitude unless picture.latitude_longitude.nil?
-          - else
-            %p
-              = l(picture.date_time) + ': '
-              = picture.description
-              = picture.latitude_longitude unless picture.latitude_longitude.nil?
-          = render partial: 'controls', locals: {picture: picture}
-          = render partial: 'comments', locals: {picture: picture}
+          .picture_inner_phone
+            - if picture.description.blank?
+              %p
+                = l picture.date_time
+            - else
+              %p
+                = l(picture.date_time) + ': '
+                = picture.description
+            = render partial: 'controls', locals: {picture: picture}
+            = render partial: 'comments', locals: {picture: picture}
           
         %br/
         .clearfix

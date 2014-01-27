@@ -1,13 +1,11 @@
-= semantic_form_for [@album, @video], html: { enctype: "multipart/form-data" } do |f|
+= semantic_form_for [@album, @video], html: { enctype: 'multipart/form-data' } do |f|
   - if @video.errors.any?
     .alert.alert-error
       %h4= t('save_error')
       = t('no_video_file_selected')
 
   = f.inputs do
-    = f.input :video_file, as: :file
-    = f.input :description
-
-  = f.actions do
+    = f.input :video_file, as: :file, label: false
+    = f.input :description, as: :text, placeholder: t('video_description'), label: false, input_html: {rows: 5, cols: 50}
     = link_to t('back'), album_videos_path(@album), class: 'btn btn-secondary'
     = f.action :submit, :label => t('save')

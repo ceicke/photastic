@@ -4,8 +4,6 @@
       %h4= t('save_error')
 
   = f.inputs do
-    = f.input :name, label: t('your_name')
-
-  = f.actions do
+    = f.input :nickname, placeholder: t('your_name'), label: false
     = link_to t('back'), albums_path, class: 'btn btn-secondary'
     = f.action :submit, label: t('save')
