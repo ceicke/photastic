@@ -37,6 +37,7 @@ de:
   no_picture_file_selected: "Du musst ein Bild auswählen bevor du es hochladen kannst."
   picture_was_saved: "Dein Bild wurde gespeichert."
   no_pictures_yet: "Dieses Album enthält noch keine Bilder."
+  picture_description: "Beschreibung"
 
   videos: "Videos"
   upload_video: "Video hinzufügen"
@@ -46,13 +47,16 @@ de:
   no_video_file_selected: "Du musst eine Video-Datei auswählen bevor du es hochladen kannst."
   video_was_saved: "Dein Video wurde gespeichert."
   no_videos_yet: "Dieses Album enthält noch keine Videos."
+  video_description: "Beschreibung"
 
   membership_list: "Mitgliederliste"
   add_member: "Jemanden dem Album hinzufügen"
   edit_member: "Mitgliedschaft bearbeiten"
-  email_of_user: "Benutzername"
-  can_administer_album: "Der Benutzer soll das Album administrieren können"
-  can_add_photos: "Der Benutzer soll Bilder hochladen können"
+  email_of_user: "E-Mail"
+  password: "Passwort"
+  password_confirmation: "Passwort wiederholen"
+  can_administer_album: "Album administrieren"
+  can_add_photos: "Bilder hochladen"
   member_added: "Der Benutzer wurde dem Album hinzugefügt."
   no_members_yet: "Es wurde kein Benutzer zum Album hinzugefügt."
   membership_saved: "Die Änderungen bei der Mitgliedschaft wurden gespeichert."
@@ -67,4 +71,7 @@ de:
   delete_comment: "Kommentar löschen"
   comment_was_deleted: "Kommentar gelöscht"
 
-  edit_user_setting: "Benutzerkonto bearbeiten"
+  edit_user_settings: "Benutzerkonto bearbeiten"
+
+  sign_in: "Anmelden"
+  sign_out: "Logout"

@@ -8,8 +8,16 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require formtastic-bootstrap
  *= require_self
+ *= require bootstrap.min.css
+ *= require bootstrap-responsive.min.css
+ *= require bootstrap-overrides.css
+*= require formtastic-bootstrap
+ *= require font-awesome
+ *= require theme
+ *= require sign-in
+ *= require albums
+ *= require pictures
  *= require fancybox
- *= require_tree .
+ * require_tree .
  */
