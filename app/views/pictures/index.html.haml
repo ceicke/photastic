@@ -28,12 +28,10 @@
               - if picture.description.blank?
                 %p
                   = l picture.date_time
-                  = picture.latitude_longitude unless picture.latitude_longitude.nil?
               - else
                 %p
                   = l(picture.date_time) + ': '
                   = picture.description
-                  = picture.latitude_longitude unless picture.latitude_longitude.nil?
               .control_area
                 .control_elements
                   = render partial: 'controls', locals: {picture: picture}
