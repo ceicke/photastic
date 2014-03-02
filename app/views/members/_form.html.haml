@@ -4,10 +4,8 @@
       %h4= t('save_error')
 
   = f.inputs do
-    = f.input :user, label: t('email_of_user')
+    = f.input :user, label: t('email_of_user'), placeholder: t('email_of_user')
     = f.input :can_administer, label: t('can_administer_album')
     = f.input :can_addphotos, label: t('can_add_photos')
-
-  = f.actions do
     = link_to t('back'), album_members_path(@album), class: 'btn btn-secondary'
-    = f.action :submit, label: t('save')
+    = f.action :submit, label: t('save'), class: 'btn btn-primary'

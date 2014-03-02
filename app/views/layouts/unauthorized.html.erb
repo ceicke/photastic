@@ -14,36 +14,52 @@
     <![endif]-->
 
     <%= stylesheet_link_tag "application", :media => "all" %>
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 
   </head>
   <body>
 
-    <div class="navbar navbar-fluid-top">
+    <div class="navbar navbar-inverse navbar-static-top">
       <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+        <div class="container">
+          <a class="brand" href="<%= new_user_session_path %>">
+            <strong>PHOTASTIC</strong>
           </a>
-          <%= link_to "Photastic", new_user_session_path, :class => "brand" %>
         </div>
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
+    <div class="container">
+      <div class="row">
         <div class="span12">
-          <%= bootstrap_flash %>
+          
+          <% flash.each do |name, msg| %>
+            <% if msg.is_a?(String) %>
+              <div class="alert alert-<%= name == :notice ? "success" : "danger" %>">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <%= content_tag :div, msg, :id => "flash_#{name}" %>
+              </div>
+            <% end %>
+          <% end %>
+
           <%= yield %>
+
         </div>
       </div><!--/row-->
+    </div> <!-- /container -->      
 
-      <footer>
-        <p>&copy; Christoph Eicke 2013</p>
-      </footer>
+    <!-- starts footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="span12">
+                    &copy <%= DateTime.now.year %> Photasti.cc
+                </div>
+            </div>
+        </div>
+    </footer> 
 
-    </div> <!-- /container -->
+    
 
     <!-- Javascripts
     ================================================== -->

@@ -5,13 +5,8 @@
       = t('make_sure_you_have_a_name')
 
   = f.inputs do
-    = f.input :name, label: t('album_name')
-    = f.input :passcode, label: t('album_passcode')
-    = f.input :subdomain, label: t('album_subdomain')
-
-  = f.actions do
-    = link_to t('back'), albums_path, class: 'btn btn-secondary'
-    = f.action :submit, label: t('save')
-
-
-  
+    = f.input :name, label: t('album_name'), placeholder: t('album_name')
+    = f.input :passcode, label: t('album_passcode'), placeholder: t('album_passcode')
+    = f.input :subdomain, label: t('album_subdomain'), placeholder: t('album_subdomain'), input_html: {class: 'span4'}, prepend: 'http://', append: '.photasti.cc'
+    = link_to t('back'), album_path(@album), class: 'btn btn-secondary'
+    = f.action :submit, label: t('save'), class: 'btn btn-primary'

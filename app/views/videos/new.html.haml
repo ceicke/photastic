@@ -1,5 +1,9 @@
-%h1= t('new_video')
+- content_for :title do
+  = @album.name
+  = "::"
+  = t('new_video')
 
-%p= t('new_video_explanation')
-
-= render 'form'
+.container
+  %h1= t('new_video')
+  %p= t('new_video_explanation')
+  = render 'form'

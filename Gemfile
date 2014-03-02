@@ -11,7 +11,6 @@ gem 'rails', '3.2.13'
 group :assets, :production do
   gem 'less-rails'
   gem 'jquery-rails'
-  gem 'twitter-bootstrap-rails'
   gem 'fancybox-rails'
  
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -20,6 +19,7 @@ group :assets, :production do
   gem 'uglifier', '>= 1.0.3'
 
   gem 'bootstrap-will_paginate'
+  gem 'font-awesome-less'
 end
 
 group :production, :staging do

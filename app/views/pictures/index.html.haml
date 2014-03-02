@@ -1,20 +1,43 @@
+- content_for :title do
+  = @album.name
+  = "::"
+  = t('pictures')
+
 .page-header
   %h1= @album.name
   - unless current_user.blank?
     %a{href: new_album_picture_path(@album), class: 'btn btn-primary'}
-      %i.icon-plus
+      %i.fa.fa-plus
       = t('upload_picture')
-    %a{href: edit_album_path(@album), class: 'btn'}
-      %i.icon-wrench
-      = t('edit_album_settings')
-    %a{href: album_members_path(@album), class: 'btn'}
-      %i.icon-user
-      = t('album_membership')
-  %a{href: album_videos_path(@album), class: 'btn'}
-    %i.icon-film
-    = t('videos')
+    %a{href: album_videos_path(@album), class: 'btn'}
+      %i.fa.fa-video-camera
+      = t('videos')
+    .pull-right.hidden-phone
+      %a{href: edit_album_path(@album), class: 'btn'}
+        %i.fa.fa-wrench
+        = t('edit_album_settings')
+      %a{href: album_members_path(@album), class: 'btn'}
+        %i.fa.fa-users
+        = t('membership_list')
+    .pull-right.hidden-desktop
+      .btn-group
+        %a.btn.dropdown-toggle{data: {toggle: "dropdown"}}
+          %i.fa.fa-wrench
+          %span.caret
+        %ul.dropdown-menu.pull-right
+          %li
+            %a{href: edit_album_path(@album)}
+              %i.fa.fa-wrench
+              = t('edit_album_settings')
+          %li
+            %a{href: album_members_path(@album)}
+              %i.fa.fa-users
+              = t('membership_list')
 
-= will_paginate @pictures, previous_label: t('previous'), next_label: t('next')
+.hidden-phone.visible-desktop
+  = will_paginate @pictures, previous_label: '«', next_label: '»'
+.hidden-desktop.visible-phone
+  = will_paginate @pictures, previous_label: '«', next_label: '»', inner_window: 1, outer_window: 0
 
 .hidden-phone.visible-desktop
   - if @pictures.size > 0
@@ -22,7 +45,7 @@
       #columns
         - @pictures.each do |picture|
           %a{name: picture.id}
-          .picture
+          .picture_thumb
             .picture_inner
               = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
               - if picture.description.blank?
@@ -43,29 +66,26 @@
   - if @pictures.size > 0
     .row-fluid
       - @pictures.each do |picture|
+        %a{name: picture.id}
         .span12.img-polaroid.picture
           = image_tag picture.picture_file(:large), width: picture.image_width_large, height: picture.image_height_large
-          - if picture.description.blank?
-            %p
-              = l picture.date_time
-              = picture.latitude_longitude unless picture.latitude_longitude.nil?
-          - else
-            %p
-              = l(picture.date_time) + ': '
-              = picture.description
-              = picture.latitude_longitude unless picture.latitude_longitude.nil?
-          = render partial: 'controls', locals: {picture: picture}
-          = render partial: 'comments', locals: {picture: picture}
+          .picture_inner_phone
+            - if picture.description.blank?
+              %p
+                = l picture.date_time
+            - else
+              %p
+                = l(picture.date_time) + ': '
+                = picture.description
+            = render partial: 'controls', locals: {picture: picture}
+            = render partial: 'comments', locals: {picture: picture}
           
         %br/
         .clearfix
   - else
     %p= t('no_pictures_yet')  
 
-= will_paginate @pictures, previous_label: t('previous'), next_label: t('next')
-
-:javascript
-  $("img").lazyload({
-    effect: "fadeIn"
-  });    
-
+.hidden-phone.visible-desktop
+  = will_paginate @pictures, previous_label: '«', next_label: '»'
+.hidden-desktop.visible-phone
+  = will_paginate @pictures, previous_label: '«', next_label: '»', inner_window: 1, outer_window: 0

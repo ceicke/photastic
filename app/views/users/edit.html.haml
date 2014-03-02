@@ -1,3 +1,6 @@
-%h1= t('edit_user_settings')
+- content_for :title do
+  = t('edit_user_settings')
 
-= render 'form'
+.container
+  %h1= t('edit_user_settings')
+  = render 'form'

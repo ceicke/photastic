@@ -49,6 +49,7 @@ en:
   add_member: "Add someone to this album"
   edit_member: "Edit membership"
   email_of_user: "Username"
+  password: "Password"
   can_administer_album: "User should be able to administer this album"
   can_add_photos: "User can add photos to this album"
   member_added: "The user was successfully added to your album."
@@ -67,3 +68,8 @@ en:
 
   edit_user_setting: "Edit your settings"
 
+  sign_in: "Sign in"
+  sign_out: "Logout"
+  sign_up: "Sign up"
+  password_forgotten: "I forgot my password"
+  no_account: "Don’t have an account?"

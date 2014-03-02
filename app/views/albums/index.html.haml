@@ -1,15 +1,19 @@
+- content_for :title do
+  = t('welcome')
+
 .page-header
   %h1= t('welcome')
   %a{href: new_album_path, class: 'btn btn-primary'}
-    %i.icon-plus
+    %i.fa.fa-plus
     = t('new_album')
 
-.row-fluid
-  .span12
-    %ul.thumbnails
-  - @albums.each do |album|
-    %li.span2
-      .thumbnail
-        = link_to image_tag(album.thumb_picture_url), album_pictures_path(album)
-        .name_area
-          = link_to album.name, album_pictures_path(album)
+.container
+  .row-fluid
+    .span12
+      %ul.thumbnails
+    - @albums.each do |album|
+      %li.span2
+        .thumbnail
+          = link_to image_tag(album.thumb_picture_url), album_pictures_path(album)
+          .name_area
+            = link_to album.name, album_pictures_path(album)
