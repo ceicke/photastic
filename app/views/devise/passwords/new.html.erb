@@ -2,20 +2,16 @@
   <div class="container">
       <div class="row login">
           <div class="span5 left_box">
-              <h4>Forgot your password?</h4>
+              <h4><%= t('password forgotten') %>?</h4>
 
               <div class="perk_box">
                   <div class="perk">
                       <span class="icos ico1"></span>
-                      <p><strong>Lorem alteration</strong> in some form  injected humour these randomised words .</p>
+                      <p><strong>Enter your E-Mail address</strong> and click 'submit'</p>
                   </div>
                   <div class="perk">
                       <span class="icos ico2"></span>
-                      <p><strong>There are many variations</strong> of passages of Lorem alteration in some form  injected humour these randomised words.</p>
-                  </div>
-                  <div class="perk">
-                      <span class="icos ico3"></span>
-                      <p><strong>Alteration in some form</strong> injected humour these randomised words.</p>
+                      <p><strong>You will receive an e-mail</strong> containing a link, please click on it</p>
                   </div>
               </div>
           </div>
@@ -29,9 +25,9 @@
                               <%= f.submit 'Submit' %>
                           <% end -%>
                           <div class="forgot">
-                                <%= link_to "Sign in", new_session_path(resource_name) %><br />
-                                <span>Don’t have an account?</span>
-                                <%= link_to "Sign up", new_registration_path(resource_name) %>
+                                <%= link_to t('sign_in'), new_session_path(resource_name) %><br />
+                                <span><%= t('no_account') %></span>
+                                <%= link_to t('sign_up'), new_registration_path(resource_name) %>
                           </div>
                       </div>
 

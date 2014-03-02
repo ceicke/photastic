@@ -70,3 +70,6 @@ en:
 
   sign_in: "Sign in"
   sign_out: "Logout"
+  sign_up: "Sign up"
+  password_forgotten: "I forgot my password"
+  no_account: "Don’t have an account?"
