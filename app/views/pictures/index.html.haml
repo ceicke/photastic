@@ -9,9 +9,10 @@
     %a{href: new_album_picture_path(@album), class: 'btn btn-primary'}
       %i.fa.fa-plus
       = t('upload_picture')
-    %a{href: album_videos_path(@album), class: 'btn'}
-      %i.fa.fa-video-camera
-      = t('videos')
+  %a{href: album_videos_path(@album), class: 'btn'}
+    %i.fa.fa-video-camera
+    = t('videos')
+  - unless current_user.blank?
     .pull-right.hidden-phone
       %a{href: edit_album_path(@album), class: 'btn'}
         %i.fa.fa-wrench
