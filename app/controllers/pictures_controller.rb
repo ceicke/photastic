@@ -47,6 +47,26 @@ class PicturesController < ApplicationController
     end
   end
 
+  def edit
+    @album = Album.find(params[:album_id])
+    @picture = Picture.find(params[:id])
+  end
+
+  def update
+    @album = Album.find(params[:album_id])
+    @picture = Picture.find(params[:id])
+
+    respond_to do |format|
+      if @picture.update_attributes(params[:picture])
+        format.html { redirect_to album_pictures_path(album_id: @album), notice: t('picture_was_saved') }
+        format.json { render json: @picture, status: :created, location: @picture }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @picture.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def show
     album = Album.find(params[:album_id])
     picture = Picture.find(params[:id])

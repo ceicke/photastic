@@ -4,10 +4,10 @@ Photastic::Application.routes.draw do
     member do
       post 'promote'
     end
-    resources :pictures, except: [:edit, :update] do
+    resources :pictures do
       resources :comments, except: [:index, :new, :edit, :update]
     end
-    resources :videos, except: [:edit, :update] do
+    resources :videos do
       resources :comments, except: [:index, :new, :edit, :update]
     end
     resources :passcodes, only: [:new, :create]

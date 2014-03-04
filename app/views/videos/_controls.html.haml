@@ -1,3 +1,4 @@
 = link_to '', album_video_path(@album, video), class: 'fa fa-download'
 - if can? :delete, video
+  = link_to '', edit_album_video_path(@album, video), class: 'fa fa-edit'
   = link_to '', album_video_path(@album, video), method: :delete, confirm: t('delete_confirm'), class: 'fa fa-trash-o'

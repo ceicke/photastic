@@ -1,0 +1,8 @@
+- content_for :title do
+  = @album.name
+  = "::"
+  = t('edit_video')
+
+.container
+  %h1= t('edit_video')
+  = render 'form'

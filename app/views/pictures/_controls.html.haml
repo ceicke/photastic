@@ -5,4 +5,5 @@
     = link_to '', promote_album_path(@album, :picture_id => picture.id), method: :post, class: 'fa fa-star-o'
 = link_to '', album_picture_path(@album, picture), class: 'fa fa-download'
 - if can? :delete, picture
+  = link_to '', edit_album_picture_path(@album, picture), class: 'fa fa-edit'
   = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'fa fa-trash-o'

@@ -47,6 +47,26 @@ class VideosController < ApplicationController
     end
   end
 
+  def edit
+    @album = Album.find(params[:album_id])
+    @video = Video.find(params[:id])
+  end
+
+  def update
+    @album = Album.find(params[:album_id])
+    @video = Video.find(params[:id])
+
+    respond_to do |format|
+      if @video.update_attributes(params[:video])
+        format.html { redirect_to album_videos_path(album_id: @album), notice: t('video_was_saved') }
+        format.json { render json: @video, status: :created, location: @video }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @video.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def show
     album = Album.find(params[:album_id])
     video = Video.find(params[:id])
