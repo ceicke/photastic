@@ -17,8 +17,16 @@ jQuery(function() {
     'overlayShow' : false
   });
 
-  $('.dropdown-toggle').dropdown()
+  $('.dropdown-toggle').dropdown();
 
+
+    $('#wrapper').isotope({
+      itemSelector: '.picture_thumb',
+      layoutMode: 'masonry',
+      masonry : {
+        columnWidth: 300
+      }
+    });
 
 
 });

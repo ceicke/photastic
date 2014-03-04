@@ -43,27 +43,26 @@
   
 - if @videos.size > 0
   #wrapper
-    #columns
-      - @videos.each do |video|
-        .picture_thumb
-          .picture_inner
-            %a{href: "#video_#{video.id}", class: 'inline'} 
-              = image_tag(video.video_file(:thumb))
-            - if video.description.blank?
-              %p
-                = l video.created_at
-            - else
-              %p
-                = l(video.created_at) + ': '
-                = video.description
-            .control_area
-              .control_elements
-                = render partial: 'controls', locals: {video: video}                
-          = render partial: 'comments', locals: {video: video}
-        %div{style: 'display:none'}
-          %div{id: "video_#{video.id}"}
-            %video{controls: true}
-              %source{src: video.video_file(:original), type: video.video_file_content_type}
+    - @videos.each do |video|
+      .picture_thumb
+        .picture_inner
+          %a{href: "#video_#{video.id}", class: 'inline'}
+            = image_tag(video.video_file(:thumb))
+          - if video.description.blank?
+            %p
+              = l video.created_at
+          - else
+            %p
+              = l(video.created_at) + ': '
+              = video.description
+          .control_area
+            .control_elements
+              = render partial: 'controls', locals: {video: video}
+        = render partial: 'comments', locals: {video: video}
+      %div{style: 'display:none'}
+        %div{id: "video_#{video.id}"}
+          %video{controls: true}
+            %source{src: video.video_file(:original), type: video.video_file_content_type}
 - else
   %p= t('no_videos_yet')
 

@@ -43,23 +43,22 @@
 .hidden-phone.visible-desktop
   - if @pictures.size > 0
     #wrapper
-      #columns
-        - @pictures.each do |picture|
+      - @pictures.each do |picture|
+        .picture_thumb
           %a{name: picture.id}
-          .picture_thumb
-            .picture_inner
-              = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
-              - if picture.description.blank?
-                %p
-                  = l picture.date_time
-              - else
-                %p
-                  = l(picture.date_time) + ': '
-                  = picture.description
-              .control_area
-                .control_elements
-                  = render partial: 'controls', locals: {picture: picture}
-            = render partial: 'comments', locals: {picture: picture}
+          .picture_inner
+            = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
+            - if picture.description.blank?
+              %p
+                = l picture.date_time
+            - else
+              %p
+                = l(picture.date_time) + ': '
+                = picture.description
+            .control_area
+              .control_elements
+                = render partial: 'controls', locals: {picture: picture}
+          = render partial: 'comments', locals: {picture: picture}
   - else
     %p= t('no_pictures_yet')
 
@@ -67,8 +66,8 @@
   - if @pictures.size > 0
     .row-fluid
       - @pictures.each do |picture|
-        %a{name: picture.id}
         .span12.img-polaroid.picture
+          %a{name: picture.id}
           = image_tag picture.picture_file(:large), width: picture.image_width_large, height: picture.image_height_large
           .picture_inner_phone
             - if picture.description.blank?

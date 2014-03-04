@@ -15,4 +15,12 @@ jQuery(function() {
     'hideOnContentClick': false
   });
 
+  $('#wrapper').isotope({
+    itemSelector: '.picture_thumb',
+    layoutMode: 'masonry',
+    masonry : {
+        columnWidth: 300
+    }
+  });
+
 });

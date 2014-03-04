@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require fancybox
+//= require jquery.isotope.min
 //= require_tree .

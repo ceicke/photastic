@@ -3,7 +3,7 @@
     %dl
     - picture.comments.each do |comment|
       %dt= comment.author
-      - if can? :manage, @album 
+      - if can? :manage, @album
         %dd
           = comment.comment
           = link_to t('delete_comment'), album_picture_comment_path(album_id: @album.id, picture_id: picture.id, id: comment.id), method: :delete, confirm: t('delete_confirm')
