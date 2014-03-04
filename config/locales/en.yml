@@ -28,7 +28,7 @@ en:
   album_subdomain: "Subdomain of album."
 
   pictures: "Pictures"
-  upload_picture: "Add picture"
+  upload_picture: "Picture"
   new_picture: "Upload a picture"
   new_picture_explanation: "Here you can upload a new picture into your album."
   make_sure_all_required_fields: "Please make sure that you have filled out all the required fields."
@@ -37,7 +37,7 @@ en:
   no_pictures_yet: "This album does not contain any pictures yet."
 
   videos: "Videos"
-  upload_video: "Add Video"
+  upload_video: "Video"
   new_video: "Upload a video"
   new_video_explanation: "Here you can upload a new video into your album."
   make_sure_all_required_fields: "Please make sure that you have filled out all the required fields."

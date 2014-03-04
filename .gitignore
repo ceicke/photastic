@@ -20,3 +20,6 @@
 
 # stupid .DS_Store files
 .DS_Store
+
+# RubyMine editor files
+.idea/

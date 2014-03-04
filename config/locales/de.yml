@@ -30,7 +30,7 @@ de:
   next: "Weiter"
 
   pictures: "Bilder"
-  upload_picture: "Bild hinzufügen"
+  upload_picture: "Bild"
   new_picture: "Bild hochladen"
   new_picture_explanation: "Hier kannst du neue Photos in dein Album laden."
   make_sure_all_required_fields: "Bitte fülle alle notwenigen Felder aus."
@@ -40,7 +40,7 @@ de:
   picture_description: "Beschreibung"
 
   videos: "Videos"
-  upload_video: "Video hinzufügen"
+  upload_video: "Video"
   new_video: "Video hochladen"
   new_video_explanation: "Hier kannst du neue Videos in dein Album laden."
   make_sure_all_required_fields: "Bitte fülle alle notwenigen Felder aus."
