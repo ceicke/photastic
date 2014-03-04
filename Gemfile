@@ -55,6 +55,8 @@ gem 'paperclip-ffmpeg'
 # We have to put this outside
 gem 'formtastic-bootstrap'
 
+gem 'ui_datepicker-rails3'
+
 # We store our images on S3
 gem 'aws-sdk', '~> 1.5.7'
 

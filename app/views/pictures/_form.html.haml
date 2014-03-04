@@ -7,6 +7,6 @@
   = f.inputs do
     = f.input :picture_file, as: :file, label: false
     = f.input :description, as: :text, placeholder: t('picture_description'), label: false, input_html: {rows: 5, cols: 50}
-
+    = f.input :created_at, as: :date if controller.action_name == 'edit'
     = link_to t('back'), album_pictures_path(@album), class: 'btn btn-secondary'
     = f.action :submit, :label => t('save'), class: 'btn btn-primary'

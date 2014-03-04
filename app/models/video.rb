@@ -1,5 +1,5 @@
 class Video < ActiveRecord::Base
-  attr_accessible :description, :video_file, :video_file_file_name
+  attr_accessible :description, :video_file, :video_file_file_name, :created_at
 
   validates :album_id, presence: true
   validates :user_id, presence: true

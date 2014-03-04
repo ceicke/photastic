@@ -1,5 +1,5 @@
 class Picture < ActiveRecord::Base
-  attr_accessible :description, :picture_file, :picture_file_file_name
+  attr_accessible :description, :picture_file, :picture_file_file_name, :created_at
 
   validates :album_id, presence: true
   validates :user_id, presence: true
