@@ -40,31 +40,53 @@
   = will_paginate @videos, previous_label: '«', next_label: '»'
 .hidden-desktop.visible-phone
   = will_paginate @videos, previous_label: '«', next_label: '»', inner_window: 1, outer_window: 0
-  
-- if @videos.size > 0
-  #wrapper
-    - @videos.each do |video|
-      .picture_thumb
-        .picture_inner
-          %a{href: "#video_#{video.id}", class: 'inline'}
+
+.hidden-phone.visible-desktop
+  - if @videos.size > 0
+    #wrapper
+      - @videos.each do |video|
+        .picture_thumb
+          .picture_inner
+            %a{name: video.id}
+            %a{href: album_video_path(@album, video)}
+              = image_tag(video.video_file(:thumb))
+            - if video.description.blank?
+              %p
+                = l video.created_at
+            - else
+              %p
+                = l(video.created_at) + ': '
+                = video.description
+            .control_area
+              .control_elements
+                = render partial: 'controls', locals: {video: video}
+          = render partial: 'comments', locals: {video: video}
+  - else
+    %p= t('no_videos_yet')
+
+.visible-phone.hidden-desktop
+  - if @videos.size > 0
+    .row-fluid
+      - @videos.each do |video|
+        .span12.img-polaroid.video
+          %a{name: video.id}
+          %a{href: album_video_path(@album, video)}
             = image_tag(video.video_file(:thumb))
-          - if video.description.blank?
-            %p
-              = l video.created_at
-          - else
-            %p
-              = l(video.created_at) + ': '
-              = video.description
-          .control_area
-            .control_elements
-              = render partial: 'controls', locals: {video: video}
-        = render partial: 'comments', locals: {video: video}
-      %div{style: 'display:none'}
-        %div{id: "video_#{video.id}"}
-          %video{controls: true}
-            %source{src: video.video_file(:original), type: video.video_file_content_type}
-- else
-  %p= t('no_videos_yet')
+          .picture_inner_phone
+            - if video.description.blank?
+              %p
+                = l video.created_at
+            - else
+              %p
+                = l(video.created_at) + ': '
+                = video.description
+            = render partial: 'controls', locals: {video: video}
+            = render partial: 'comments', locals: {video: video}
+
+        %br/
+        .clearfix
+  - else
+    %p= t('no_pictures_yet')
 
 .hidden-phone.visible-desktop
   = will_paginate @videos, previous_label: '«', next_label: '»'

@@ -8,12 +8,6 @@ jQuery(function() {
       $(this).find(".control_area").fadeOut(200);
     }
   );
-  
-  $("a.inline").fancybox({
-    'speedIn'   : 600, 
-    'speedOut'    : 200, 
-    'hideOnContentClick': false
-  });
 
   $('#wrapper').isotope({
     itemSelector: '.picture_thumb',
