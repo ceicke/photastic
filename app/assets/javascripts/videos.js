@@ -9,6 +9,9 @@ jQuery(function() {
     }
   );
 
+});
+
+$('#wrapper').load(function() {
   $('#wrapper').isotope({
     itemSelector: '.picture_thumb',
     layoutMode: 'masonry',
@@ -16,5 +19,4 @@ jQuery(function() {
         columnWidth: 300
     }
   });
-
 });
