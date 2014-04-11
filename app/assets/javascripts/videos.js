@@ -17,9 +17,9 @@ jQuery(function() {
         }
     });
 
-    $wrapper.imagesLoaded(function() {
-        $wrapper.isotope();
-    });
+    //$wrapper.imagesLoaded(function() {
+    //    $wrapper.isotope();
+    //});
 
 });
 
