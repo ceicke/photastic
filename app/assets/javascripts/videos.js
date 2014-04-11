@@ -9,14 +9,18 @@ jQuery(function() {
     }
   );
 
+    $wrapper = $('#wrapper').isotope({
+        itemSelector: '.picture_thumb',
+        layoutMode: 'masonry',
+        masonry : {
+            columnWidth: 300
+        }
+    });
+
+    $wrapper.imagesLoaded(function() {
+        $wrapper.isotope();
+    });
+
 });
 
-$('#wrapper').load(function() {
-  $('#wrapper').isotope({
-    itemSelector: '.picture_thumb',
-    layoutMode: 'masonry',
-    masonry : {
-        columnWidth: 300
-    }
-  });
-});
+

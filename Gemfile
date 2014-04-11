@@ -66,7 +66,11 @@ gem 'google-analytics-rails'
 # reading exif data
 gem 'exifr'
 
+# use postgresql
 gem 'pg'
+
+# use images loaded
+gem 'imagesLoaded_rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
