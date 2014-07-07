@@ -1,5 +1,5 @@
 class Album < ActiveRecord::Base
-  attr_accessible :name, :picture_id, :passcode, :subdomain
+  attr_accessible :name, :picture_id, :passcode, :subdomain, :yo_api_key, :yo_username
 
   validates :name, presence: true
   validates :user_id, presence: true
@@ -27,6 +27,12 @@ class Album < ActiveRecord::Base
       ActionController::Base.helpers.asset_path('empty_gallery.png')
     else
       thumb_picture.picture_file.url(:thumb)
+    end
+  end
+
+  def send_yo
+    unless yo_api_key.blank?
+      Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => yo_api_key)
     end
   end
 end

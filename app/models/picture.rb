@@ -12,6 +12,8 @@ class Picture < ActiveRecord::Base
 
   after_post_process :postprocess_image
 
+  after_create :send_yo
+
   def date_time
     if self.taken_at.blank?
       self.created_at
@@ -51,5 +53,9 @@ class Picture < ActiveRecord::Base
       end
 
     end
+  end
+
+  def send_yo
+    album.send_yo
   end
 end

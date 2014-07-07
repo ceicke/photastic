@@ -141,3 +141,5 @@ de:
         other: 'Konnte %{resource} nicht speichern: %{count} Fehler.'
   edit_picture: "Bild bearbeiten"
   edit_video: "Video bearbeiten"
+  album_yo_api_key: "Your Yo! API Key"
+  yo_username: "Your Yo! Username"
