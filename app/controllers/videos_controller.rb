@@ -2,7 +2,7 @@ class VideosController < ApplicationController
 
   skip_before_filter :authenticate_user!, only: [:index, :show]
   before_filter :check_album_passcode, only: [:index, :show]
-  load_and_authorize_resource except: [:index, :show]
+  load_and_authorize_resource except: [:index, :show], param_method: :video_params
 
   def index
     if request.subdomain.blank?
@@ -30,7 +30,7 @@ class VideosController < ApplicationController
   end
 
   def create
-    @video = Video.new(params[:video])
+    @video = Video.new(video_params)
     @album = Album.find(params[:album_id])
 
     @video.user = current_user
@@ -57,7 +57,7 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
 
     respond_to do |format|
-      if @video.update_attributes(params[:video])
+      if @video.update_attributes(video_params)
         format.html { redirect_to album_videos_path(album_id: @album), notice: t('video_was_saved') }
         format.json { render json: @video, status: :created, location: @video }
       else
@@ -84,6 +84,11 @@ class VideosController < ApplicationController
       format.html { redirect_to  album_videos_path(album_id: album) }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def video_params
+    params.require(:video).permit(:description, :video_file, :video_file_file_name, :created_at)
   end
   
 end

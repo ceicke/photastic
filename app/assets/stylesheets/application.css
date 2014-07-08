@@ -12,12 +12,12 @@
  *= require bootstrap.min.css
  *= require bootstrap-responsive.min.css
  *= require bootstrap-overrides.css
-*= require formtastic-bootstrap
+ *= require formtastic-bootstrap
  *= require font-awesome
- *= require theme
- *= require sign-in
- *= require albums
- *= require pictures
+ *= require theme.css
+ *= require sign-in.css
+ *= require albums.css
+ *= require pictures.css
  *= require fancybox
  * require_tree .
  */

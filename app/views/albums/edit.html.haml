@@ -14,7 +14,7 @@
       .alert-error.well
         .container
           %h4 Danger Zone!
-          %p= link_to t('delete_album'), album_path(@album), method: :delete, confirm: t('really_delete_album'), class: 'btn btn-danger'
-      %a{href: album_members_path(@album), class: 'btn'}
+          %p= link_to t('delete_album'), album_path(@album), method: :delete, data: {confirm: t('really_delete_album')}, class: 'btn btn-danger'
+      %a{href: album_album_members_path(@album), class: 'btn'}
         %i.fa.fa-users
         = t('membership_list')

@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
   def create
     @album = Album.find(params[:album_id])
-    @comment = Comment.new(params[:comment])
+    @comment = Comment.new(comment_params)
 
     # set user or nickname
     if current_user.blank?
@@ -50,5 +50,10 @@ class CommentsController < ApplicationController
       format.html { redirect_to back_url, notice: t('comment_was_deleted') }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def comment_params
+    params.require(:comment).permit(:nickname, :user_id, :comment, :commentable_id, :commentable_type)
   end
 end

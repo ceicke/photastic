@@ -37,7 +37,7 @@ de:
   new_picture: "Bild hochladen"
   new_picture_explanation: "Hier kannst du neue Photos in dein Album laden."
   make_sure_all_required_fields: "Bitte fülle alle notwenigen Felder aus."
-  no_picture_file_selected: "Du musst ein Bild auswählen bevor du es hochladen kannst."
+  no_picture_file_selected: "Du musst ein Bild auswählen, bevor du es hochladen kannst."
   picture_was_saved: "Dein Bild wurde gespeichert."
   no_pictures_yet: "Dieses Album enthält noch keine Bilder."
   picture_description: "Beschreibung"

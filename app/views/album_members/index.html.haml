@@ -5,12 +5,12 @@
 
 .page-header
   %h1= t('membership_list')
-  %a{href: new_album_member_path(@album), class: 'btn btn-primary'}
+  %a{href: new_album_album_member_path(@album), class: 'btn btn-primary'}
     %i.fa.fa-plus
     = t('add_member')
   = link_to t('back'), album_pictures_path(@album), class: 'btn'
 
-- if @members.size > 0
+- if @album_members.size > 0
   %table.table.table-striped
     %thead
       %tr
@@ -18,14 +18,14 @@
         %th= t('can_administer_album')
         %th= t('can_add_photos')
         %th= t('actions')
-    - @members.each do |member|
+    - @album_members.each do |member|
       %tr
-        %td= member.user.email
+        %td= member.user.try(:email)
         %td= member.can_administer ? t('yes') : t('no')
         %td= member.can_addphotos ? t('yes') : t('no')
         %td
-          = link_to t('edit'), edit_album_member_path(@album, member), class: 'btn'
-          = link_to t('delete'), album_member_path(@album, member), method: :delete, confirm: t('delete_confirm'), class: 'btn btn-danger'
+          = link_to t('edit'), edit_album_album_member_path(@album, member), class: 'btn'
+          = link_to t('delete'), album_album_member_path(@album, member), method: :delete, data: {confirm: t('delete_confirm')}, class: 'btn btn-danger'
 
 
 - else

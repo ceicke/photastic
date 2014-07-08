@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -19,15 +19,11 @@ group :assets, :production do
   gem 'uglifier', '>= 1.0.3'
 
   gem 'bootstrap-will_paginate'
-  gem 'font-awesome-less'
+  gem 'font-awesome-rails'
 end
 
 group :production, :staging do
   gem "newrelic_rpm"
-end
-
-group :development do
-  gem 'sextant'
 end
 
 group :development, :test do
@@ -41,8 +37,8 @@ end
 # We are using devise to authenticate with the app
 gem 'devise'
 
-# We use cancan for authorization
-gem 'cancan'
+# We use cancancan for authorization
+gem 'cancancan'
 
 # We want to use HAML syntax
 gem 'haml-rails'
@@ -71,6 +67,9 @@ gem 'pg'
 
 # use images loaded
 gem 'imagesLoaded_rails'
+
+# faster links
+gem 'turbolinks'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

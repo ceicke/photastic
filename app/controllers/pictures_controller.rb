@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
 
   skip_before_filter :authenticate_user!, only: [:index, :show]
   before_filter :check_album_passcode, only: [:index, :show]
-  load_and_authorize_resource except: [:index, :show]
+  load_and_authorize_resource except: [:index, :show], param_method: :picture_params
 
   def index
     if request.subdomain.blank?
@@ -30,7 +30,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(params[:picture])
+    @picture = Picture.new(picture_params)
     @album = Album.find(params[:album_id])
 
     @picture.user = current_user
@@ -57,7 +57,7 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
 
     respond_to do |format|
-      if @picture.update_attributes(params[:picture])
+      if @picture.update_attributes(picture_params)
         format.html { redirect_to album_pictures_path(album_id: @album), notice: t('picture_was_saved') }
         format.json { render json: @picture, status: :created, location: @picture }
       else
@@ -84,6 +84,11 @@ class PicturesController < ApplicationController
       format.html { redirect_to album_pictures_path(album_id: album) }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def picture_params
+    params.require(:picture).permit(:description, :picture_file)
   end
   
 end

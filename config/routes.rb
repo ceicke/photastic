@@ -11,11 +11,12 @@ Photastic::Application.routes.draw do
       resources :comments, except: [:index, :new, :edit, :update]
     end
     resources :passcodes, only: [:new, :create]
-    resources :members
+    resources :album_members
   end
   resources :users, only: [:edit, :update]
 
   devise_for :users
-  match '/' => 'pictures#index', :constraints => { :subdomain => /.+/ }
+  get '/', to: 'pictures#index', constraints: { :subdomain => /.+/ }
   root :to => 'albums#index'
 end
+

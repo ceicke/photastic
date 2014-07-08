@@ -20,7 +20,7 @@
       %a{href: edit_album_path(@album), class: 'btn'}
         %i.fa.fa-wrench
         = t('edit_album_settings')
-      %a{href: album_members_path(@album), class: 'btn'}
+      %a{href: album_album_members_path(@album), class: 'btn'}
         %i.fa.fa-users
         = t('membership_list')
     .pull-right.hidden-desktop
@@ -34,7 +34,7 @@
               %i.fa.fa-wrench
               = t('edit_album_settings')
           %li
-            %a{href: album_members_path(@album)}
+            %a{href: album_album_members_path(@album)}
               %i.fa.fa-users
               = t('membership_list')
 

@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
   def index
     @albums = Album.where(user_id: current_user.id)
 
-    Member.where(user_id: current_user.id).each do |membership|
+    AlbumMember.where(user_id: current_user.id).each do |membership|
       unless membership.album.blank?
         @albums << membership.album
       end
@@ -48,7 +48,7 @@ class AlbumsController < ApplicationController
   # POST /albums
   # POST /albums.json
   def create
-    @album = Album.new(params[:album])
+    @album = Album.new(album_params)
 
     @album.user = current_user
 
@@ -71,7 +71,7 @@ class AlbumsController < ApplicationController
     @album.user = current_user
 
     respond_to do |format|
-      if @album.update_attributes(params[:album])
+      if @album.update_attributes(album_params)
         format.html { redirect_to album_pictures_path(@album), notice: t('album_was_saved') }
         format.json { head :no_content }
       else
@@ -106,5 +106,10 @@ class AlbumsController < ApplicationController
       format.html { redirect_to albums_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def album_params
+    params.require(:album).permit(:name, :picture_id, :passcode, :subdomain, :yo_api_key, :yo_username)
   end
 end

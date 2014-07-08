@@ -1,6 +1,4 @@
 class Album < ActiveRecord::Base
-  attr_accessible :name, :picture_id, :passcode, :subdomain, :yo_api_key, :yo_username
-
   validates :name, presence: true
   validates :user_id, presence: true
   validates :subdomain, uniqueness: true
@@ -9,7 +7,7 @@ class Album < ActiveRecord::Base
   belongs_to :picture
   has_many :pictures, dependent: :destroy
   has_many :videos, dependent: :destroy
-  has_many :members, dependent: :destroy
+  has_many :album_members, dependent: :destroy
   has_many :users, through: :members
 
   def thumb_picture

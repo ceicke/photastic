@@ -1,5 +1,5 @@
-= semantic_form_for [@album, @member] do |f|
-  - if @member.errors.any?
+= semantic_form_for [@album, @album_member] do |f|
+  - if @album_member.errors.any?
     .alert.alert-error
       %h4= t('save_error')
 
@@ -7,5 +7,5 @@
     = f.input :user, label: t('email_of_user'), placeholder: t('email_of_user')
     = f.input :can_administer, label: t('can_administer_album')
     = f.input :can_addphotos, label: t('can_add_photos')
-    = link_to t('back'), album_members_path(@album), class: 'btn btn-secondary'
+    = link_to t('back'), album_album_members_path(@album), class: 'btn btn-secondary'
     = f.action :submit, label: t('save'), class: 'btn btn-primary'

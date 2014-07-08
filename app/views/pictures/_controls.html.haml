@@ -6,4 +6,4 @@
 = link_to '', album_picture_path(@album, picture), class: 'fa fa-download'
 - if can? :delete, picture
   = link_to '', edit_album_picture_path(@album, picture), class: 'fa fa-edit'
-  = link_to '', album_picture_path(@album, picture), method: :delete, confirm: t('delete_confirm'), class: 'fa fa-trash-o'
+  = link_to '', album_picture_path(@album, picture), method: :delete, data: {confirm: t('delete_confirm')}, class: 'fa fa-trash-o'

@@ -1,6 +1,4 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :nickname, :user_id, :comment, :commentable_id, :commentable_type
-
   validates :comment, presence: true
   before_validation :user_id_or_nickname
 

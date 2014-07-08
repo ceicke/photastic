@@ -92,4 +92,6 @@ Photastic::Application.configure do
 
   # the analytics stuff
   GA.tracker = "UA-40915864-1"
+
+  config.eager_load = true
 end
