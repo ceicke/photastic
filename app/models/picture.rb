@@ -1,18 +1,23 @@
 class Picture < ActiveRecord::Base
-  attr_accessible :description, :picture_file, :picture_file_file_name, :created_at
+  attr_accessible :description, :picture_file, :picture_file_file_name, :created_at, :filepicker_url
 
   validates :album_id, presence: true
   validates :user_id, presence: true
-  validates :picture_file, :attachment_presence => true
+  # validates :picture_file, :attachment_presence => true
+  validates :filepicker_url, presence: true
 
   belongs_to :album
   belongs_to :user
   has_attached_file :picture_file, :styles => { :large => "800x800>", :medium => "250x250>", :thumb => "250x250#" }, :default_url => "/images/lolcat_404.jpg"
   has_many :comments, dependent: :destroy, as: :commentable
 
-  after_post_process :postprocess_image
+  # after_post_process :postprocess_image
 
   after_create :send_yo
+
+  def is_filepicker_picture?
+    self.picture_file.blank?
+  end
 
   def date_time
     if self.taken_at.blank?

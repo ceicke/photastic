@@ -67,5 +67,7 @@ module Photastic
 
     # no app initialization (i.e. no database connection) on precompiling
     config.assets.initialize_on_precompile = false
+
+    config.filepicker_rails.api_key = "ALIq2FS8MT2mkfmcK3m9Az"
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140707193212) do
+ActiveRecord::Schema.define(:version => 20140801191347) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20140707193212) do
     t.string   "latitude"
     t.string   "longitude"
     t.datetime "taken_at"
+    t.string   "filepicker_url"
   end
 
   add_index "pictures", ["album_id"], :name => "index_pictures_on_album_id"

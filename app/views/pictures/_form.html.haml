@@ -1,12 +1,26 @@
-= semantic_form_for [@album, @picture], html: { enctype: 'multipart/form-data'} do |f|
-  - if @picture.errors.any?
-    .alert.alert-error
-      %h4= t('save_error')
-      = t('no_picture_file_selected')
+:javascript
+  function onPhotoUpload(event) {
+    var url = event.fpfile.url;
+    url += '/convert?fit=clip&h=250&w=250'
+    $('img.preview').attr('src',url);
+    $('.preview_container').removeClass('hidden');
+  }
 
-  = f.inputs do
-    = f.input :picture_file, as: :file, label: false
-    = f.input :description, as: :text, placeholder: t('picture_description'), label: false, input_html: {rows: 5, cols: 50}
-    = f.input :created_at, as: :date, label: false if controller.action_name == 'edit'
-    = link_to t('back'), album_pictures_path(@album), class: 'btn btn-secondary'
-    = f.action :submit, :label => t('save'), class: 'btn btn-primary'
+.row
+  .span6
+    = semantic_form_for [@album, @picture], html: { enctype: 'multipart/form-data'} do |f|
+      - if @picture.errors.any?
+        .alert.alert-error
+          %h4= t('save_error')
+          = t('no_picture_file_selected')
+
+      = f.inputs do
+        = f.filepicker_field :filepicker_url, onchange: 'onPhotoUpload(event)'
+        = f.input :description, as: :text, placeholder: t('picture_description'), label: false, input_html: {rows: 5, cols: 50}
+        = f.input :created_at, as: :date, label: false if controller.action_name == 'edit'
+        = link_to t('back'), album_pictures_path(@album), class: 'btn btn-secondary'
+        = f.action :submit, :label => t('save'), class: 'btn btn-primary'
+  .span6
+    .preview_container.hidden
+      .picture_thumb
+        %img.preview{src: ''}

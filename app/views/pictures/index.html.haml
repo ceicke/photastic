@@ -50,7 +50,10 @@
         .picture_thumb
           %a{name: picture.id}
           .picture_inner
-            = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
+            - if picture.is_filepicker_picture?
+              = link_to filepicker_image_tag(picture.filepicker_url, w: 250, h: 250, fit: 'clip'), filepicker_image_url(picture.filepicker_url + '+photastic.jpg'), class: 'fancyboxgroup', rel: @album.id.to_s
+            - else
+              = link_to image_tag(picture.picture_file(:medium), width: picture.image_width_medium, height: picture.image_height_medium), picture.picture_file.url(:large), class: 'fancyboxgroup', rel: @album.id.to_s
             - if picture.description.blank?
               %p
                 = l picture.date_time
@@ -71,7 +74,10 @@
       - @pictures.each do |picture|
         .span12.img-polaroid.picture
           %a{name: picture.id}
-          = image_tag picture.picture_file(:large), width: picture.image_width_large, height: picture.image_height_large
+            - if picture.is_filepicker_picture?
+              = filepicker_image_tag picture.filepicker_url, w: 800, h: 800
+            - else
+              = image_tag picture.picture_file(:large), width: picture.image_width_large, height: picture.image_height_large
           .picture_inner_phone
             - if picture.description.blank?
               %p
@@ -82,7 +88,7 @@
                 = picture.description
             = render partial: 'controls', locals: {picture: picture}
             = render partial: 'comments', locals: {picture: picture}
-          
+
         %br/
         .clearfix
   - else
