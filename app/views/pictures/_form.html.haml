@@ -1,5 +1,5 @@
 :javascript
-  function onPhotoUpload(event) {
+  function showPreviewPicture(event) {
     var url = event.fpfile.url;
     url += '/convert?fit=clip&h=250&w=250'
     $('img.preview').attr('src',url);
@@ -15,7 +15,9 @@
           = t('no_picture_file_selected')
 
       = f.inputs do
-        = f.filepicker_field :filepicker_url, onchange: 'onPhotoUpload(event)'
+        = f.filepicker_field :filepicker_url, onchange: 'showPreviewPicture(event)', button_class: 'btn btn-primary', button_text: t('pick_file'), mimetypes: 'image/*'
+        %br
+        %br
         = f.input :description, as: :text, placeholder: t('picture_description'), label: false, input_html: {rows: 5, cols: 50}
         = f.input :created_at, as: :date, label: false if controller.action_name == 'edit'
         = link_to t('back'), album_pictures_path(@album), class: 'btn btn-secondary'
