@@ -78,8 +78,6 @@ Photastic::Application.configure do
     }
   }
 
-  config.filepicker_rails.api_key = ENV['FILEPICKER_API_KEY']
-
   # the analytics stuff
   GA.tracker = "UA-40915864-1"
 end

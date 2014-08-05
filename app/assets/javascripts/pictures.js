@@ -19,12 +19,18 @@ jQuery(function() {
 
   $('.dropdown-toggle').dropdown();
 
-  $wrapper = $('#wrapper').isotope({
-    itemSelector: '.picture_thumb',
-    layoutMode: 'masonry',
-    masonry : {
-      columnWidth: 300
-    }
-  });
+
+
+    $wrapper = $('#wrapper').isotope({
+      itemSelector: '.picture_thumb',
+      layoutMode: 'masonry',
+      masonry : {
+        columnWidth: 300
+      }
+    });
+
+    //$wrapper.imagesLoaded(function() {
+    //   $wrapper.isotope();
+    //});
 
 });

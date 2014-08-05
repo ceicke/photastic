@@ -72,8 +72,6 @@ gem 'pg'
 # use images loaded
 gem 'imagesLoaded_rails'
 
-gem 'filepicker-rails'
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

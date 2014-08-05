@@ -71,7 +71,7 @@ class PicturesController < ApplicationController
     album = Album.find(params[:album_id])
     picture = Picture.find(params[:id])
 
-    redirect_to picture.filepicker_url
+    redirect_to picture.picture_file.url
   end
 
   def destroy

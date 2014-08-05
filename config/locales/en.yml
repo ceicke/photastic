@@ -29,7 +29,6 @@ en:
   delete_album: "Delete Album"
   really_delete_album: "Do you really want to delete the album? All pictures will be lost."
   album_subdomain: "Subdomain of album."
-  pick_file: "Pick file"
 
   pictures: "Pictures"
   upload_picture: "Picture"
