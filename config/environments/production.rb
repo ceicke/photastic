@@ -78,6 +78,8 @@ Photastic::Application.configure do
     }
   }
 
+  config.action_mailer.default_url_options = { :host => 'photasti.cc' }
+
   # the analytics stuff
   GA.tracker = "UA-40915864-1"
 end
