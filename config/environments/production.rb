@@ -78,7 +78,7 @@ Photastic::Application.configure do
     }
   }
 
-  config.action_mailer.default_url_options = { :host => 'photasti.cc' }
+  config.action_mailer.default_url_options = { :host => 'photastic.herokuapp.com/' }
 
   # the analytics stuff
   GA.tracker = "UA-40915864-1"
