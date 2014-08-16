@@ -141,5 +141,6 @@ de:
         other: 'Konnte %{resource} nicht speichern: %{count} Fehler.'
   edit_picture: "Bild bearbeiten"
   edit_video: "Video bearbeiten"
-  album_yo_api_key: "Your Yo! API Key"
-  yo_username: "Your Yo! Username"
+  album_yo_api_key: "Dein Yo! API Key"
+  yo_username: "Dein Yo! Username"
+  email_of_user_administration_hint: "Benutzername eines Photastic Benutzers"
