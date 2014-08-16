@@ -88,6 +88,8 @@ Photastic::Application.configure do
       :enable_starttls_auto => true
   }
 
+  Rails.application.routes.default_url_options[:host] = 'photasti.cc'
+
   # the analytics stuff
   GA.tracker = "UA-40915864-1"
 end
