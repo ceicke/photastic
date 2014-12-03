@@ -57,7 +57,7 @@ class Picture < ActiveRecord::Base
 
   def send_yo
     unless album.yo_api_key.blank?
-      Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => album.yo_api_key, 'link' => picture_file.url(:medium)) 
+      Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => album.yo_api_key, 'link' => picture_file.url(:large)) 
     end
   end
 end
