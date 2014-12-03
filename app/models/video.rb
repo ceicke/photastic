@@ -16,6 +16,9 @@ class Video < ActiveRecord::Base
   }, :processors => [:ffmpeg]
 
   def send_yo
-    album.send_yo
+    unless album.yo_api_key.blank?
+      Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => album.yo_api_key, 'link' => video_file.url)
+    end
   end
+
 end
