@@ -15,7 +15,7 @@ gem 'uglifier', '>= 1.0.3'
 
 gem 'bootstrap-will_paginate'
 gem 'font-awesome-rails'
-
+gem 'therubyracer'
 group :production do
   gem "newrelic_rpm"
 end
