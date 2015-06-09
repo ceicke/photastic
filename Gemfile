@@ -7,20 +7,16 @@ gem 'rails', '4.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets, :production do
-  gem 'less-rails'
-  gem 'jquery-rails'
-  gem 'fancybox-rails'
+gem 'less-rails'
+gem 'jquery-rails'
+gem 'fancybox-rails'
  
-  gem 'uglifier', '>= 1.0.3'
+gem 'uglifier', '>= 1.0.3'
 
-  gem 'bootstrap-will_paginate'
-  gem 'font-awesome-rails'
-end
+gem 'bootstrap-will_paginate'
+gem 'font-awesome-rails'
 
-group :production, :staging do
+group :production do
   gem "newrelic_rpm"
 end
 
