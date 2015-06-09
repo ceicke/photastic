@@ -14,6 +14,6 @@
 //= require jquery_ujs
 //= require fancybox
 //= require jquery.isotope.min
-//= require imagesloaded
+//= require jquery.imagesloaded
 //= require turbolinks
 //= require_tree .

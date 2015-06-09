@@ -8,6 +8,7 @@ jQuery(function() {
       $(this).find(".control_area").fadeOut(200);
     }
   );
+
   // this is for displaying the fancybox for the images
   $("a.fancyboxgroup").fancybox({
     'transitionIn'  : 'fade',
@@ -19,18 +20,16 @@ jQuery(function() {
 
   $('.dropdown-toggle').dropdown();
 
+  $wrapper = $('#wrapper');
 
-
-    $wrapper = $('#wrapper').isotope({
+  $wrapper.imagesLoaded(function() {
+    $wrapper.isotope({
       itemSelector: '.picture_thumb',
       layoutMode: 'masonry',
       masonry : {
         columnWidth: 300
       }
     });
-
-    //$wrapper.imagesLoaded(function() {
-    //   $wrapper.isotope();
-    //});
+  });
 
 });

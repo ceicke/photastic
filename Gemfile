@@ -65,9 +65,6 @@ gem 'exifr'
 # use postgresql
 gem 'pg'
 
-# use images loaded
-gem 'imagesLoaded_rails'
-
 # faster links
 gem 'turbolinks'
 
