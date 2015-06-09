@@ -59,9 +59,6 @@ gem 'exifr'
 # use postgresql
 gem 'pg'
 
-# faster links
-gem 'turbolinks'
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
