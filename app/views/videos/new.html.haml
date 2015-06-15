@@ -36,7 +36,7 @@
           progress = parseInt(data.loaded / data.total * 100, 10)
           $('#progress .bar').css 'width', progress + '%'
         done: (e, data) ->
-          window.location.href = "#{album_pictures_path(album: @album)}"
+          window.location.href = "#{album_videos_path(album: @album)}"
         fail: (e, data) ->
           $('#progress').removeClass('progress-striped')
           $('#progress .bar').css('width','100%').addClass('bar-danger')
