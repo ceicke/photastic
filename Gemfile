@@ -16,6 +16,7 @@ gem 'uglifier', '>= 1.0.3'
 gem 'bootstrap-will_paginate'
 gem 'font-awesome-rails'
 gem 'therubyracer'
+gem 'coffee-rails'
 group :production do
   gem "newrelic_rpm"
 end
@@ -27,6 +28,9 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
 end
+
+# To upload files nicer
+gem 'jquery-fileupload-rails'
 
 # We are using devise to authenticate with the app
 gem 'devise'

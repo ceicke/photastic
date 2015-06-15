@@ -6,4 +6,39 @@
 .container
   %h1= t('new_video')
   %p= t('new_video_explanation')
-  = render 'form'
+
+  %form#fileupload{action: "#{album_videos_path(album: @album)}", enctype: 'multipart/form-data', method: 'POST'}
+    .row-fluid
+      .span12
+        %input{type: 'file', name: 'video[video_file]'}
+    .row-fluid
+      .span12
+        %textarea{name: 'video[description]', cols: '50', rows: '5', placeholder: "#{t('video_description')}"}
+    .row-fluid
+      .span8
+        #progress.progress.progress-striped.active
+          .bar{style: 'width:0%;'}
+      .span12
+        #button-area
+
+  :coffeescript
+    $ ->
+      $('#progress').hide 'fast'
+
+      $('#fileupload').fileupload
+        add: (e, data) ->
+          data.context = $('<button/>').addClass('btn btn-primary').text("#{t('save')}").appendTo($('#button-area')).click(->
+            data.context = $('<p/>').text('Uploading...').replaceAll($(this))
+            data.submit()
+          )
+        progressall: (e, data) ->
+          $('#progress').show 'fast'
+          progress = parseInt(data.loaded / data.total * 100, 10)
+          $('#progress .bar').css 'width', progress + '%'
+        done: (e, data) ->
+          window.location.href = "#{album_pictures_path(album: @album)}"
+        fail: (e, data) ->
+          $('#progress').removeClass('progress-striped')
+          $('#progress .bar').css('width','100%').addClass('bar-danger')
+        always: (e, data) ->
+          $('#button-area').empty()

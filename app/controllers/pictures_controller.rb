@@ -15,7 +15,7 @@ class PicturesController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render json: @pictures }
+      format.json { render json: @pictures.map{|picture| picture.to_jq_upload } }
     end
   end
 
@@ -71,7 +71,10 @@ class PicturesController < ApplicationController
     album = Album.find(params[:album_id])
     picture = Picture.find(params[:id])
 
-    redirect_to picture.picture_file.url
+    respond_to do |format|
+      format.html redirect_to picture.picture_file.url
+      format.json { render json: picture }
+    end
   end
 
   def destroy

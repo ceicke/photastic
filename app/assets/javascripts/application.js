@@ -15,4 +15,5 @@
 //= require fancybox
 //= require jquery.isotope.min
 //= require jquery.imagesloaded
+//= require jquery-fileupload/basic
 //= require_tree .
