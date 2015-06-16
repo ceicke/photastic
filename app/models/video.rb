@@ -24,7 +24,7 @@ class Video < ActiveRecord::Base
     conf << "\n"
     conf << "set webhook = https://app.heywatch.com/pings/ebfe706b/ceicke"
     conf << "\n"
-    conf << "-> mp4_720p = sftp://#{username}:#{password}@photasti.cc:22/encoded_videos/#{album.id}-#{id}-ios.mov"
+    conf << "-> mp4_720p = sftp://#{username}:#{password}@photasti.cc:22/encoded_videos/#{album.id}-#{id}-ios.mp4"
     conf << "\n"
     conf << "-> android_720p = sftp://#{username}:#{password}@photasti.cc:22/encoded_videos/#{album.id}-#{id}-andoid.mp4"
     conf << "\n"
