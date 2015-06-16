@@ -74,8 +74,9 @@ gem 'pg'
 
 # Deploy with Capistrano
 gem 'capistrano', '~> 3.4.0'
+gem 'capistrano-puma'
 gem 'capistrano-rails', '~> 1.1.0'
 gem 'capistrano-rvm'
-
+gem 'capistrano-bundler'
 # To use debugger
 # gem 'debugger'
