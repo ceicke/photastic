@@ -73,7 +73,10 @@ gem 'pg'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano', '~> 3.4.0'
+gem 'capistrano-rails', '~> 1.1.0'
+gem 'capistrano-rvm'
+gem 'capistrano-passenger'
 
 # To use debugger
 # gem 'debugger'
