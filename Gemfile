@@ -18,7 +18,7 @@ gem 'font-awesome-rails'
 gem 'therubyracer'
 gem 'coffee-rails'
 group :production do
-  gem "newrelic_rpm"
+  gem 'puma'
 end
 
 group :development, :test do
@@ -76,7 +76,6 @@ gem 'pg'
 gem 'capistrano', '~> 3.4.0'
 gem 'capistrano-rails', '~> 1.1.0'
 gem 'capistrano-rvm'
-gem 'capistrano-passenger'
 
 # To use debugger
 # gem 'debugger'
