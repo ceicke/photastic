@@ -24,13 +24,13 @@ class Video < ActiveRecord::Base
     conf << "\n"
     conf << "set webhook = https://app.heywatch.com/pings/ebfe706b/ceicke"
     conf << "\n"
-    conf << "-> mp4_720p = sftp://#{username}:#{password}@photasti.cc:22/encoded_videos/#{album.id}/#{id}/video.mp4"
+    conf << "-> mp4_720p = sftp://#{username}:#{password}@photasti.cc:22/encoded_videos/#{album.id}-#{id}-ios.mov"
     conf << "\n"
-    conf << "-> android_720p = sftp://#{username}:#{password}@photasti.cc:22/encoded_videos/#{album.id}/#{id}/video-andoid.mp4"
+    conf << "-> android_720p = sftp://#{username}:#{password}@photasti.cc:22/encoded_videos/#{album.id}-#{id}-andoid.mp4"
     conf << "\n"
-    conf << "-> flash_360p = sftp://#{username}:#{password}@photasti.cc:22/encoded_videos/#{album.id}/#{id}/video.flv"
+    conf << "-> flash_360p = sftp://#{username}:#{password}@photasti.cc:22/encoded_videos/#{album.id}-#{id}-flash.flv"
     conf << "\n"
-    conf << "-> jpg_250x250 = sftp://#{username}:#{password}@photasti.cc:22/encoded_videos/#{album.id}/#{id}/video-thumb.jpg, number=1"
+    conf << "-> jpg_250x250 = sftp://#{username}:#{password}@photasti.cc:22/encoded_videos/#{album.id}-#{id}-thumb.jpg, number=1"
     conf << "\n"
 
     job = HeyWatch.submit(conf, heywatch_api_key)
