@@ -47,6 +47,9 @@ gem 'paperclip', '~> 3.0'
 # We can also do videos
 gem 'paperclip-av-transcoder'
 
+# use heywatch for encoding videos
+gem 'heywatch'
+
 # We have to put this outside
 gem 'formtastic-bootstrap'
 
