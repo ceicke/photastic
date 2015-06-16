@@ -11,7 +11,7 @@ class Video < ActiveRecord::Base
 
   has_attached_file :video_file, :styles => {
     :thumb => { :geometry => "250x250>", :format => 'jpg', :time => 2 }
-  }, :processors => [:ffmpeg]
+  }, :processors => [:transcoder]
 
   def send_yo
     unless album.yo_api_key.blank?

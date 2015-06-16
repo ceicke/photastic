@@ -43,8 +43,9 @@ gem 'haml-rails'
 
 # We use paperclip to process our images
 gem 'paperclip', '~> 3.0'
+
 # We can also do videos
-gem 'paperclip-ffmpeg'
+gem 'paperclip-av-transcoder'
 
 # We have to put this outside
 gem 'formtastic-bootstrap'

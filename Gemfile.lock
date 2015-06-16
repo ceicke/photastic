@@ -37,6 +37,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.0)
+    av (0.9.0)
+      cocaine (~> 0.5.3)
     aws-sdk (1.5.8)
       httparty (~> 0.7)
       json (~> 1.4)
@@ -155,9 +157,9 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
-    paperclip-ffmpeg (1.2.0)
+    paperclip-av-transcoder (0.6.4)
+      av (~> 0.9.0)
       paperclip (>= 2.5.2)
-      rails
     pg (0.18.2)
     puma (2.11.3)
       rack (>= 1.1, < 2.0)
@@ -267,7 +269,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   paperclip (~> 3.0)
-  paperclip-ffmpeg
+  paperclip-av-transcoder
   pg
   puma
   rails (= 4.2.1)
