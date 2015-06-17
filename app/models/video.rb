@@ -28,15 +28,15 @@ class Video < ActiveRecord::Base
 
     conf << "set source = http://photasti.cc/#{video_file.url}"
     conf << "\n"
-    conf << "set webhook = https://app.heywatch.com/pings/ebfe706b/ceicke"
+    conf << "set webhook = http://photasti.cc/video_callback/callback?video_id=#{id}"
     conf << "\n"
     conf << "-> mp4_720p = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/ios.mp4"
     conf << "\n"
-    conf << "-> android_720p = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/android.mp4"
-    conf << "\n"
     conf << "-> flash_360p = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/flash.flv"
     conf << "\n"
-    conf << "-> jpg_250x250 = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/thumb.jpg, number=1"
+    conf << "-> jpg_250x = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/thumb.jpg, number=1"
+    conf << "\n"
+    conf << "-> storyboard_250x = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/thumb.jpg, number=1"
     conf << "\n"
 
     job = HeyWatch.submit(conf, heywatch_api_key)
@@ -47,6 +47,10 @@ class Video < ActiveRecord::Base
       raise "#{job["error_code"]} - #{job["error_message"]}"
     end
 
+  end
+
+  def set_encoded!
+    update_column('encoded',true)
   end
 
   def send_yo

@@ -14,6 +14,11 @@ Photastic::Application.routes.draw do
     resources :album_members
   end
   resources :users, only: [:edit, :update]
+  resource :video_callback, only: [:callback] do
+    member do
+      post 'callback'
+    end
+  end
 
   devise_for :users
   get '/', to: 'pictures#index', constraints: { :subdomain => /.+/ }
