@@ -8,12 +8,14 @@ class Video < ActiveRecord::Base
   has_many :comments, dependent: :destroy, as: :commentable
 
   after_create :send_yo
+  after_save :heywatch_encode
 
   has_attached_file :video_file, :styles => {
     :thumb => { :geometry => "250x250>", :format => 'jpg', :time => 2 }
   }, :processors => [:transcoder]
 
   def heywatch_encode
+    
     username = ENV['SERVER_USERNAME']
     password = ENV['SERVER_PASSWORD']
     heywatch_api_key = ENV['HEYWATCH_API_KEY']
