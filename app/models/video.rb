@@ -18,7 +18,9 @@ class Video < ActiveRecord::Base
     password = ENV['SERVER_PASSWORD']
     heywatch_api_key = ENV['HEYWATCH_API_KEY']
 
-    FileUtils.mkdir_p "/home/photastic/encoded_videos/#{album.id}/#{id}"
+    target_dir = '/home/photastic/app/shared/public/system/videos_encoded'
+
+    FileUtils.mkdir_p "#{target_dir}/#{album.id}/#{id}"
 
     conf = ""
 
@@ -26,13 +28,13 @@ class Video < ActiveRecord::Base
     conf << "\n"
     conf << "set webhook = https://app.heywatch.com/pings/ebfe706b/ceicke"
     conf << "\n"
-    conf << "-> mp4_720p = sftp://#{username}:#{password}@photasti.cc:22/home/photastic/encoded_videos/#{album.id}/#{id}/ios.mp4"
+    conf << "-> mp4_720p = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/ios.mp4"
     conf << "\n"
-    conf << "-> android_720p = sftp://#{username}:#{password}@photasti.cc:22/home/photastic/encoded_videos/#{album.id}/#{id}/andoid.mp4"
+    conf << "-> android_720p = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/andoid.mp4"
     conf << "\n"
-    conf << "-> flash_360p = sftp://#{username}:#{password}@photasti.cc:22/home/photastic/encoded_videos/#{album.id}/#{id}/flash.flv"
+    conf << "-> flash_360p = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/flash.flv"
     conf << "\n"
-    conf << "-> jpg_250x250 = sftp://#{username}:#{password}@photasti.cc:22/home/photastic/encoded_videos/#{album.id}/#{id}/thumb.jpg, number=1"
+    conf << "-> jpg_250x250 = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/thumb.jpg, number=1"
     conf << "\n"
 
     job = HeyWatch.submit(conf, heywatch_api_key)
