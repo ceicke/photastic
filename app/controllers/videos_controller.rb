@@ -68,10 +68,9 @@ class VideosController < ApplicationController
   end
 
   def show
-    album = Album.find(params[:album_id])
-    video = Video.find(params[:id])
-
-    redirect_to video.video_file.url
+    @album = Album.find(params[:album_id])
+    @video = Video.find(params[:id])
+    # redirect_to video.video_file.url
   end
 
   def destroy

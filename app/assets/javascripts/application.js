@@ -16,4 +16,5 @@
 //= require jquery.isotope.min
 //= require jquery.imagesloaded
 //= require jquery-fileupload/basic
+//= require video
 //= require_tree .

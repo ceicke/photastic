@@ -21,5 +21,6 @@
  *= require fancybox
  *= require jquery.fileupload
  *= require jquery.fileupload-ui
+ *= require video-js
  * require_tree .
  */

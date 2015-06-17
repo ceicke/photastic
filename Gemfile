@@ -50,6 +50,9 @@ gem 'paperclip-av-transcoder'
 # use heywatch for encoding videos
 gem 'heywatch'
 
+# video player
+gem 'videojs_rails'
+
 # We have to put this outside
 gem 'formtastic-bootstrap'
 

@@ -242,6 +242,7 @@ GEM
       json (>= 1.8.0)
     ui_datepicker-rails3 (1.2.0)
     uuidtools (2.1.5)
+    videojs_rails (4.6.1)
     warden (1.2.3)
       rack (>= 1.0)
     will_paginate (3.0.7)
@@ -283,3 +284,4 @@ DEPENDENCIES
   therubyracer
   uglifier (>= 1.0.3)
   ui_datepicker-rails3
+  videojs_rails

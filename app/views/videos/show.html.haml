@@ -1,0 +1,20 @@
+- content_for :title do
+  = @album.name
+  = "::"
+  = t('upload_video')
+
+.container
+  %h1= t('upload_video')
+  %p= link_to t('back'), :back, class: 'btn btn-secondary'
+
+  = videojs_rails sources: { mp4: "http://photasti.cc/system/videos_encoded/#{@video.album.id}/#{@video.id}/ios.mp4"}, flv: "http://photasti.cc/system/videos_encoded/#{@video.album.id}/#{@video.id}/flash.flv", setup: "{}", controls: true, width:"840", height:"510"
+
+  - if @video.description.blank?
+    %p
+      = l @video.created_at
+  - else
+    %p
+      = l(@video.created_at) + ': '
+      = @video.description	  
+
+  = render partial: 'comments', locals: {video: @video}
