@@ -26,7 +26,7 @@ class Video < ActiveRecord::Base
 
     conf = ""
 
-    conf << "set source = #{video_file.url}"
+    conf << "set source = http://photasti.cc/#{video_file.url}"
     conf << "\n"
     conf << "set webhook = https://app.heywatch.com/pings/ebfe706b/ceicke"
     conf << "\n"
