@@ -36,8 +36,6 @@ class Video < ActiveRecord::Base
     conf << "\n"
     conf << "-> jpg_250x = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/thumb.jpg, number=1"
     conf << "\n"
-    conf << "-> storyboard_250x = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/thumb.jpg, number=1"
-    conf << "\n"
 
     job = HeyWatch.submit(conf, heywatch_api_key)
 
