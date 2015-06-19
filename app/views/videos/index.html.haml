@@ -52,7 +52,7 @@
               - if !video.encoded?
                 = image_tag(video.video_file(:thumb))
               - else
-                %img{src: "http://photasti.cc/public/system/videos_encoded/#{@album.id}/#{video.id}/thumb.jpg"}
+                %img{src: "http://photasti.cc/system/videos_encoded/#{@album.id}/#{video.id}/thumb.jpg"}
             - if video.description.blank?
               %p
                 = l video.created_at
