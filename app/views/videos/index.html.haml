@@ -49,7 +49,10 @@
           .picture_inner
             %a{name: video.id}
             %a{href: album_video_path(@album, video)}
-              = image_tag(video.video_file(:thumb))
+              - if !video.encoded?
+                = image_tag(video.video_file(:thumb))
+              - else
+                %img{src: "/public/system/videos_encoded/#{@album.id}/#{video.id}/thumb.jpg"}
             - if video.description.blank?
               %p
                 = l video.created_at
