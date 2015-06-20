@@ -74,7 +74,7 @@
         .span12.img-polaroid.video
           %a{name: video.id}
           %a{href: album_video_path(@album, video)}
-	           - if !video.encoded?
+            - if !video.encoded?
               = image_tag(video.video_file(:thumb))
             - else
               %img{src: "http://photasti.cc/system/videos_encoded/#{@album.id}/#{video.id}/thumb.jpg"}
