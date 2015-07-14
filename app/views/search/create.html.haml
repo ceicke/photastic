@@ -1,0 +1,42 @@
+- content_for :title do
+  = @album.name
+  = "::"
+  = "Search '#{@q}'"
+
+.container
+  .row-fluid
+    .span12
+      = form_tag(album_search_index_path(@album), method: 'post', class: 'form-search') do
+        = text_field_tag(:q, @q, class: 'input-medium search-query', placeholder: t('search_for'))
+        %button{type: 'submit', class: 'btn'}
+          %i.fa.fa-search
+          = t('search_submit')
+
+.container
+  .row-fluid
+    .span6
+      %h3= "Pictures (#{@pictures.size})"
+    .span6
+      %h3= "Videos (#{@videos.size})"
+  .row-fluid
+    .span6
+      - @pictures.each do |p|
+        .row-fluid
+          .span6
+            .picture_thumb
+              %a{href: album_picture_path(@album, p)}
+                = image_tag(p.picture_file(:medium), width: p.image_width_medium, height: p.image_height_medium)
+                %center= l(p.date_time)
+          .span6
+            %p= p.description
+    .span6
+      - @videos.each do |v|
+        .row-fluid
+          .span6
+            .picture_thumb
+              %a{href: album_video_path(@album, v)}
+                %img{src: "http://photasti.cc/system/videos_encoded/#{@album.id}/#{v.id}/thumb.jpg"}
+                %center= l(v.created_at)
+          .span6
+            %p= v.description
+            

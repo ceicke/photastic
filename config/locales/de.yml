@@ -82,6 +82,10 @@ de:
   password_forgotten: "Passwort vergessen"
   no_account: "Noch keinen Zugang?"
 
+  search: "Suche"
+  search_submit: "Suchen"
+  search_for: "Suche nach..."
+
   devise:
     confirmations:
       confirmed: Vielen Dank für Ihre Registrierung. Sie sind jetzt angemeldet.

@@ -15,28 +15,12 @@
   %a{href: album_videos_path(@album), class: 'btn'}
     %i.fa.fa-video-camera
     = t('videos')
-  - unless current_user.blank?
-    .pull-right.hidden-phone
-      %a{href: edit_album_path(@album), class: 'btn'}
-        %i.fa.fa-wrench
-        = t('edit_album_settings')
-      %a{href: album_album_members_path(@album), class: 'btn'}
-        %i.fa.fa-users
-        = t('membership_list')
-    .pull-right.hidden-desktop
-      .btn-group
-        %a.btn.dropdown-toggle{data: {toggle: "dropdown"}}
-          %i.fa.fa-wrench
-          %span.caret
-        %ul.dropdown-menu.pull-right
-          %li
-            %a{href: edit_album_path(@album)}
-              %i.fa.fa-wrench
-              = t('edit_album_settings')
-          %li
-            %a{href: album_album_members_path(@album)}
-              %i.fa.fa-users
-              = t('membership_list')
+  .pull-right
+    = form_tag(album_search_index_path(@album), method: 'post', class: 'form-search') do
+      = text_field_tag(:q, @q, class: 'input-medium search-query', placeholder: t('search_for'))
+      %button{type: 'submit', class: 'btn'}
+        %i.fa.fa-search
+        = t('search_submit')
 
 .hidden-phone.visible-desktop
   = will_paginate @pictures, previous_label: '«', next_label: '»'

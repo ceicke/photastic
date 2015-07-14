@@ -71,6 +71,10 @@ en:
 
   edit_user_setting: "Edit your settings"
 
+  search: "Search"
+  search_submit: "Search"
+  search_for: "Search for..."
+
   sign_in: "Sign in"
   sign_out: "Logout"
   sign_up: "Sign up"

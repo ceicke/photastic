@@ -17,3 +17,17 @@
           = link_to image_tag(album.thumb_picture_url), album_pictures_path(album)
           .name_area
             = link_to album.name, album_pictures_path(album)
+          - unless current_user.blank? 
+            .btn-group
+              %a.btn.dropdown-toggle{data: {toggle: "dropdown"}}
+                %i.fa.fa-wrench
+                %span.caret
+              %ul.dropdown-menu.pull-right
+                %li
+                  %a{href: edit_album_path(album)}
+                    %i.fa.fa-wrench
+                    = t('edit_album_settings')
+                %li
+                  %a{href: album_album_members_path(album)}
+                    %i.fa.fa-users
+                    = t('membership_list')

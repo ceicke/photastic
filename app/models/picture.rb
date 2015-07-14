@@ -1,4 +1,10 @@
 class Picture < ActiveRecord::Base
+  include PgSearch
+  multisearchable against: :description, :using => {
+    :tsearch => {:prefix => true},
+    :trigram => true
+  }
+
   validates :album_id, presence: true
   validates :user_id, presence: true
   validates :picture_file, :attachment_presence => true

@@ -68,11 +68,11 @@ class PicturesController < ApplicationController
   end
 
   def show
-    album = Album.find(params[:album_id])
-    picture = Picture.find(params[:id])
+    @album = Album.find(params[:album_id])
+    @picture = Picture.find(params[:id])
 
     respond_to do |format|
-      format.html redirect_to picture.picture_file.url
+      format.html
       format.json { render json: picture }
     end
   end

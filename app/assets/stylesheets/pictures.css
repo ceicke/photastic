@@ -24,6 +24,12 @@
   margin-bottom: 5px;
 }
 
+.picture_thumb_noborder img {
+  width: 100%;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+}
+
 .picture_thumb .control_area {
   width: 85%;
   position: absolute;

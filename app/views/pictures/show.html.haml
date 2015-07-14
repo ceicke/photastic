@@ -1,0 +1,20 @@
+- content_for :title do
+  = @album.name
+  = "::"
+  = t('upload_picture')
+
+.container
+  %h1= t('upload_picture')
+  %p= link_to t('back'), :back, class: 'btn btn-secondary'
+
+  = image_tag(@picture.picture_file(:large), width: @picture.image_width_large, height: @picture.image_height_large)
+
+  - if @picture.description.blank?
+    %p
+      = l @picture.created_at
+  - else
+    %p
+      = l(@picture.created_at) + ': '
+      = @picture.description	  
+
+  = render partial: 'comments', locals: {picture: @picture}

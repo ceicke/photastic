@@ -10,6 +10,7 @@ Photastic::Application.routes.draw do
     resources :videos do
       resources :comments, except: [:index, :new, :edit, :update]
     end
+    resources :search, only: [:create]
     resources :passcodes, only: [:new, :create]
     resources :album_members
   end
