@@ -15,7 +15,7 @@ class PicturesController < ApplicationController
     
     respond_to do |format|
       format.html
-      format.json { render json: @pictures.map{|picture| picture.to_jq_upload } }
+      format.json { render json: @pictures }
     end
   end
 
