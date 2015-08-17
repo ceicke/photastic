@@ -33,4 +33,12 @@ class Album < ActiveRecord::Base
       Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => yo_api_key)
     end
   end
+
+  def cover_picture
+    thumb_picture_url
+  end
+
+  def as_json(options={})
+    super(:methods => [:cover_picture])
+  end
 end

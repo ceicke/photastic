@@ -64,4 +64,20 @@ class Picture < ActiveRecord::Base
       Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => album.yo_api_key, 'link' => picture_file.url(:large)) 
     end
   end
+
+  def picture_url_large
+    picture_file.url(:large)
+  end
+
+  def picture_url_medium
+    picture_file.url(:medium)
+  end
+
+  def picture_url_thumb
+    picture_file.url(:thumb)
+  end
+
+  def as_json(options={})
+    super(:methods => [:picture_url_large, :picture_url_medium, :picture_url_thumb])
+  end
 end
