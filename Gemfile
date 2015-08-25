@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -10,8 +10,10 @@ gem 'rails', '4.2.1'
 gem 'less-rails'
 gem 'jquery-rails'
 gem 'fancybox-rails'
- 
+
 gem 'uglifier', '>= 1.0.3'
+
+gem 'sass'
 
 gem 'bootstrap-will_paginate'
 gem 'font-awesome-rails'
@@ -30,6 +32,7 @@ group :development, :test do
 end
 
 # To upload files nicer
+gem 'dropzonejs-rails'
 gem 'jquery-fileupload-rails'
 
 # We are using devise to authenticate with the app

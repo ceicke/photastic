@@ -2,17 +2,17 @@ class PicturesController < ApplicationController
 
   skip_before_filter :authenticate_user!, only: [:index, :show]
   before_filter :check_album_passcode, only: [:index, :show]
-  load_and_authorize_resource except: [:index, :show], param_method: :picture_params
+  load_and_authorize_resource except: [:index, :show, :create], param_method: :picture_params
 
   def index
     if request.subdomain.blank?
       @album = Album.find(params[:album_id])
     else
       @album = Album.find_by_subdomain(request.subdomain)
-    end  
+    end
 
     @pictures = Picture.where(album_id: @album.id).paginate(:page => params[:page], :per_page => 30).order("created_at DESC")
-    
+
     respond_to do |format|
       format.html
       format.json { render json: @pictures }
@@ -39,10 +39,10 @@ class PicturesController < ApplicationController
     respond_to do |format|
       if @picture.save
         format.html { redirect_to album_pictures_path(album_id: @album), notice: t('picture_was_saved') }
-        format.json { render json: @picture, status: :created, location: @picture }
+        format.json { render json: @picture, status: :created }
       else
-        format.html { render action: "new" }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
+        format.html { render action: 'new'}
+        format.json { render json @picture.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -93,5 +93,5 @@ class PicturesController < ApplicationController
   def picture_params
     params.require(:picture).permit(:description, :picture_file)
   end
-  
+
 end

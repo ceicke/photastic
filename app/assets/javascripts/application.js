@@ -17,4 +17,5 @@
 //= require jquery.imagesloaded
 //= require jquery-fileupload/basic
 //= require video
+//= require dropzone
 //= require_tree .

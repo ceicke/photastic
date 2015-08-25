@@ -5,7 +5,7 @@ en:
   date:
     month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
     abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
-      
+
   welcome: "Welcome to Photastic"
   save_error: "Oh no!"
   save: "Save"
@@ -33,11 +33,13 @@ en:
   pictures: "Pictures"
   upload_picture: "Picture"
   new_picture: "Upload a picture"
+  new_pictures: "Upload pictures"
   new_picture_explanation: "Here you can upload a new picture into your album."
   make_sure_all_required_fields: "Please make sure that you have filled out all the required fields."
   no_picture_file_selected: "You need to select a picture file to upload to this album."
   picture_was_saved: "The picture was saved."
   no_pictures_yet: "This album does not contain any pictures yet."
+  upload_pictures_here: "Click here to select images or drag them here."
 
   videos: "Videos"
   upload_video: "Video"

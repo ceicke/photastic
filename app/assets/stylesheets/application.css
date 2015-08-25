@@ -19,8 +19,7 @@
  *= require albums.css
  *= require pictures.css
  *= require fancybox
- *= require jquery.fileupload
- *= require jquery.fileupload-ui
  *= require video-js
+ *= require dropzone/dropzone
  * require_tree .
  */
