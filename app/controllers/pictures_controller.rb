@@ -12,10 +12,11 @@ class PicturesController < ApplicationController
     end
 
     @pictures = Picture.where(album_id: @album.id).paginate(:page => params[:page], :per_page => 30).order("created_at DESC")
+    @all_pictures = Picture.where(album_id: @album.id).order("created_at DESC")
 
     respond_to do |format|
       format.html
-      format.json { render json: @pictures }
+      format.json { render json: @all_pictures }
     end
   end
 
