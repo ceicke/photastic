@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
   validates :comment, presence: true
+  validates :commentable_id, presence: true
   before_validation :user_id_or_nickname
 
   belongs_to :commentable, polymorphic: true

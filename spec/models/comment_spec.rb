@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Comment do
-  it "should require a picture" do
-    c = FactoryGirl.build(:comment, picture_id: nil)
+  it "should require a commentable object" do
+    c = FactoryGirl.build(:comment, commentable_id: nil)
     assert_equal false, c.valid?
   end
 

@@ -32,12 +32,12 @@ describe Album do
   it "should delete the memberships as well" do
     a = FactoryGirl.create(:album_with_members)
 
-    members_size = Member.all.size
-    album_members_size = a.members.size
+    members_size = AlbumMember.all.size
+    album_members_size = a.album_members.size
 
     a.destroy
 
-    assert_equal Member.all.size, (members_size - album_members_size)
+    assert_equal AlbumMember.all.size, (members_size - album_members_size)
   end
 
   describe "when looking for the thumbnail picture of the album" do

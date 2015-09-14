@@ -21,12 +21,12 @@ class Video < ActiveRecord::Base
   }, :processors => [:transcoder]
 
   def heywatch_encode
-    
     username = ENV['SERVER_USERNAME']
     password = ENV['SERVER_PASSWORD']
     heywatch_api_key = ENV['HEYWATCH_API_KEY']
 
-    target_dir = '/home/photastic/app/shared/public/system/videos_encoded'
+    current_dir = Dir.pwd
+    target_dir = current_dir + '/app/shared/public/system/videos_encoded'
 
     FileUtils.mkdir_p "#{target_dir}/#{album.id}/#{id}"
 
@@ -45,9 +45,7 @@ class Video < ActiveRecord::Base
 
     job = HeyWatch.submit(conf, heywatch_api_key)
 
-    if job["status"] == "ok"
-      puts job["id"]
-    else
+    if !job['status'] == 'ok'
       raise "#{job["error_code"]} - #{job["error_message"]}"
     end
 

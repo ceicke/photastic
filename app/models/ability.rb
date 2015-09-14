@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    
+
     if user.blank?
       false
     else
@@ -14,7 +14,7 @@ class Ability
       can [:manage], Picture do |picture|
         AlbumMember.where(:album_id => picture.album_id, :user_id => user.id, :can_administer => true).size > 0
       end
-      can [:new, :create, :show], Picture do |picture|
+      can [:index, :new, :create, :show], Picture do |picture|
         AlbumMember.where(:album_id => picture.album_id, :user_id => user.id, :can_addphotos => true).size > 0
       end
       can :manage, Video, :user_id => user.id
@@ -23,7 +23,7 @@ class Ability
       end
       can [:new, :create, :show], Video do |video|
         AlbumMember.where(:album_id => video.album_id, :user_id => user.id, :can_addphotos => true).size > 0
-      end      
+      end
       can :manage, User, :id => user.id
       can :manage, AlbumMember
     end

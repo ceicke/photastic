@@ -43,4 +43,6 @@ Photastic::Application.configure do
   config.action_controller.action_on_unpermitted_parameters = :log
 
   config.eager_load = false
+
+  config.active_record.raise_in_transactional_callbacks = true
 end

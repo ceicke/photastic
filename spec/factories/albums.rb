@@ -33,7 +33,7 @@ FactoryGirl.define do
 
     after(:create) do |album|
       4.times do
-        FactoryGirl.create(:member, album_id: album.id)
+        FactoryGirl.create(:album_member, album_id: album.id)
       end
     end
   end

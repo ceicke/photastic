@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
 
   skip_before_filter :authenticate_user!, only: [:index, :show]
   before_filter :check_album_passcode, only: [:index, :show]
-  load_and_authorize_resource except: [:index, :show, :create], param_method: :picture_params
+  load_and_authorize_resource param_method: :picture_params
 
   def index
     if request.subdomain.blank?

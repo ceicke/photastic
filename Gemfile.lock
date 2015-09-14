@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.8)
     arel (6.0.3)
     av (0.9.0)
       cocaine (~> 0.5.3)
@@ -77,6 +78,8 @@ GEM
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
     commonjs (0.2.7)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     devise (3.5.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -220,6 +223,7 @@ GEM
       rspec-mocks (~> 2.99.0)
     ruby_parser (3.7.0)
       sexp_processor (~> 4.1)
+    safe_yaml (1.0.4)
     sass (3.4.14)
     sexp_processor (4.6.0)
     shoulda-matchers (2.8.0)
@@ -251,6 +255,9 @@ GEM
     videojs_rails (4.6.1)
     warden (1.2.3)
       rack (>= 1.0)
+    webmock (1.21.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
     will_paginate (3.0.7)
 
 PLATFORMS
@@ -294,3 +301,4 @@ DEPENDENCIES
   uglifier (>= 1.0.3)
   ui_datepicker-rails3
   videojs_rails
+  webmock
