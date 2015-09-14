@@ -11,6 +11,10 @@ class PicturesController < ApplicationController
       @album = Album.find_by_subdomain(request.subdomain)
     end
 
+    if current_user
+      authorize! :manage, @album
+    end
+
     @pictures = Picture.where(album_id: @album.id).paginate(:page => params[:page], :per_page => 30).order("created_at DESC")
     @all_pictures = Picture.where(album_id: @album.id).order("created_at DESC")
 

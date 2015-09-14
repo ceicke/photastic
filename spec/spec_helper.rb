@@ -42,6 +42,8 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   config.extend ControllerMacros, type: :controller
 
+  config.include Rails.application.routes.url_helpers
+
   # for our heywatch mocking
   config.before(:each) do
     stub_request(:post, /heywatch.com/).

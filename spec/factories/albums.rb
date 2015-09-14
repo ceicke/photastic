@@ -10,7 +10,7 @@ FactoryGirl.define do
 
     after(:create) do |album|
       5.times do
-        FactoryGirl.create(:picture, album_id: album.id)
+        FactoryGirl.create(:picture, album_id: album.id, user_id: album.user.id)
       end
     end
   end

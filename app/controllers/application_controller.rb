@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   protect_from_forgery
-  
+
   before_filter :authenticate_user!, :set_locale
 
   layout :layout_by_resource
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     else
       album = Album.find_by_subdomain(request.subdomain)
     end
-    
+
     if current_user.blank?
       unless cookies[:album_passcode] == album.passcode && !cookies[:nickname].blank?
         redirect_to new_album_passcode_path(album)
@@ -39,5 +39,5 @@ class ApplicationController < ActionController::Base
   private
   def extract_locale_from_accept_language_header
     request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first unless request.env['HTTP_ACCEPT_LANGUAGE'].blank?
-  end  
+  end
 end
