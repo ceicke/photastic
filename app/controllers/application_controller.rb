@@ -30,7 +30,10 @@ class ApplicationController < ActionController::Base
     end
 
     if current_user.blank?
-      unless cookies[:album_passcode] == album.passcode && !cookies[:nickname].blank?
+      if cookies[:album_passcode] == album.passcode && !cookies[:nickname].blank?
+        @guest_authenticated = true
+      else
+        @guest_authenticated = false
         redirect_to new_album_passcode_path(album)
       end
     end

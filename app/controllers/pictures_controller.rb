@@ -1,8 +1,7 @@
 class PicturesController < ApplicationController
 
-  skip_before_filter :authenticate_user!, only: [:index, :show]
-  before_filter :check_album_passcode, only: [:index, :show]
-  load_and_authorize_resource param_method: :picture_params
+  skip_before_filter :authenticate_user!, only: [:index, :show, :new, :create]
+  before_filter :check_album_passcode, only: [:index, :show, :new, :create]
 
   def index
     if request.subdomain.blank?
@@ -28,8 +27,16 @@ class PicturesController < ApplicationController
     @album = Album.find(params[:album_id])
     @picture = Picture.new
 
+    if !current_user && !@album.guests_can_upload
+      redirect_to album_pictures_path(album_id: @album.id) and return
+    end
+
+    if current_user
+      authorize! :create, @album
+    end
+
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @picture }
     end
   end
@@ -38,7 +45,17 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
     @album = Album.find(params[:album_id])
 
-    @picture.user = current_user
+    if !current_user && !@album.guests_can_upload
+      redirect_to album_pictures_path(album_id: @album.id) and return
+    end
+
+    if current_user
+      authorize! :create, @album
+      @picture.user = current_user
+    else
+      @picture.guest_user = cookies[:nickname]
+    end
+
     @picture.album = @album
 
     respond_to do |format|
@@ -47,6 +64,7 @@ class PicturesController < ApplicationController
         format.json { render json: @picture, status: :created }
       else
         format.html { render action: 'new'}
+        p @picture.errors
         format.json { render json @picture.errors, status: :unprocessable_entity }
       end
     end

@@ -25,6 +25,7 @@ de:
   edit_album_settings: "Album Einstellungen"
   album_name: "Name des Albums"
   album_passcode: "Passwort"
+  album_guests_can_upload: "Gäste dürfen Fotos und Videos hochladen"
   please_enter_passcode_for_album: "Bitte gib das Album Passwort und deinen Namen ein."
   delete_album: "Album löschen"
   really_delete_album: "Möchteste du wirklich das Album mit allen Bildern löschen?."

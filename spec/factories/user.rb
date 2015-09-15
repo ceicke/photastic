@@ -9,6 +9,7 @@ FactoryGirl.define do
     email
     password "foobar123"
     password_confirmation "foobar123"
+    nickname 'Realuser'
   end
 
 end

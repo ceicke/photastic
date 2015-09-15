@@ -1,18 +1,21 @@
 class VideosController < ApplicationController
 
-  skip_before_filter :authenticate_user!, only: [:index, :show]
-  before_filter :check_album_passcode, only: [:index, :show]
-  load_and_authorize_resource except: [:index, :show], param_method: :video_params
+  skip_before_filter :authenticate_user!, only: [:index, :show, :new, :create]
+  before_filter :check_album_passcode, only: [:index, :show, :new, :create]
 
   def index
     if request.subdomain.blank?
       @album = Album.find(params[:album_id])
     else
       @album = Album.find_by_subdomain(request.subdomain)
-    end  
+    end
+
+    if current_user
+      authorize! :manage, @album
+    end
 
     @videos = Video.where(album_id: @album.id).paginate(:page => params[:page], :per_page => 30).order('created_at DESC')
-    
+
     respond_to do |format|
       format.html
       format.json { render json: @videos }
@@ -22,6 +25,14 @@ class VideosController < ApplicationController
   def new
     @album = Album.find(params[:album_id])
     @video = Video.new
+
+    if !current_user && !@album.guests_can_upload
+      redirect_to album_videos_path(album_id: @album.id) and return
+    end
+
+    if current_user
+      authorize! :create, @album
+    end
 
     respond_to do |format|
       format.html # new.html.erb
@@ -33,7 +44,17 @@ class VideosController < ApplicationController
     @video = Video.new(video_params)
     @album = Album.find(params[:album_id])
 
-    @video.user = current_user
+    if !current_user && !@album.guests_can_upload
+      redirect_to album_videos_path(album_id: @album.id) and return
+    end
+
+    if current_user
+      authorize! :create, @album
+      @video.user = current_user
+    else
+      @video.guest_user = cookies[:nickname]
+    end
+
     @video.album = @album
 
     respond_to do |format|
@@ -89,5 +110,5 @@ class VideosController < ApplicationController
   def video_params
     params.require(:video).permit(:description, :video_file, :video_file_file_name, :created_at)
   end
-  
+
 end

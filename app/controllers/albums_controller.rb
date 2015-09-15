@@ -27,7 +27,7 @@ class AlbumsController < ApplicationController
       format.html { redirect_to album_pictures_path(album) }
       format.json { render json: album }
     end
-  end  
+  end
 
   # GET /albums/new
   # GET /albums/new.json
@@ -110,6 +110,6 @@ class AlbumsController < ApplicationController
 
   private
   def album_params
-    params.require(:album).permit(:name, :picture_id, :passcode, :subdomain, :yo_api_key, :yo_username)
+    params.require(:album).permit(:name, :picture_id, :passcode, :subdomain, :yo_api_key, :yo_username, :guests_can_upload)
   end
 end

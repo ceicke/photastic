@@ -6,7 +6,6 @@ class Picture < ActiveRecord::Base
   }
 
   validates :album_id, presence: true
-  validates :user_id, presence: true
   validates :picture_file, :attachment_presence => true
 
   belongs_to :album
@@ -41,7 +40,7 @@ class Picture < ActiveRecord::Base
 
     geo = Paperclip::Geometry.from_file(picture_file.queued_for_write[:medium])
     self.image_width_medium = geo.width
-    self.image_height_medium = geo.height    
+    self.image_height_medium = geo.height
 
     exif = EXIFR::JPEG.new(picture_file.queued_for_write[:original].path)
 
@@ -59,9 +58,25 @@ class Picture < ActiveRecord::Base
     end
   end
 
+  def uploader_name
+    if user.blank?
+      if guest_user.blank?
+        ''
+      else
+        guest_user
+      end
+    else
+      if user.nickname.blank?
+        ''
+      else
+        user.nickname
+      end
+    end
+  end
+
   def send_yo
-    unless album.yo_api_key.blank?
-      Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => album.yo_api_key, 'link' => picture_file.url(:large)) 
+    if Rails.env.production? && !album.yo_api_key.blank?
+      Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => album.yo_api_key, 'link' => picture_file.url(:large))
     end
   end
 

@@ -8,7 +8,7 @@
     = @album.name
     - unless @album.yo_username.blank? || @album.yo_api_key.blank?
       #yo-button
-  - unless current_user.blank?
+  - if !current_user.blank? || @album.guests_can_upload
     %a{href: new_album_picture_path(@album), class: 'btn btn-primary'}
       %i.fa.fa-plus
       = t('upload_picture')
@@ -66,11 +66,11 @@
                 = picture.description
             = render partial: 'controls', locals: {picture: picture}
             = render partial: 'comments', locals: {picture: picture}
-          
+
         %br/
         .clearfix
   - else
-    %p= t('no_pictures_yet')  
+    %p= t('no_pictures_yet')
 
 .hidden-phone.visible-desktop
   = will_paginate @pictures, previous_label: '«', next_label: '»'

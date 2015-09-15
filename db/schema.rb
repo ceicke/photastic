@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709135121) do
+ActiveRecord::Schema.define(version: 20150915145538) do
 
   create_table "album_members", force: :cascade do |t|
     t.integer  "user_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150709135121) do
     t.string   "subdomain"
     t.string   "yo_api_key"
     t.string   "yo_username"
+    t.boolean  "guests_can_upload"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -71,6 +72,7 @@ ActiveRecord::Schema.define(version: 20150709135121) do
     t.string   "latitude"
     t.string   "longitude"
     t.datetime "taken_at"
+    t.string   "guest_user"
   end
 
   add_index "pictures", ["album_id"], name: "index_pictures_on_album_id"
@@ -108,6 +110,7 @@ ActiveRecord::Schema.define(version: 20150709135121) do
     t.integer  "video_file_file_size"
     t.datetime "video_file_updated_at"
     t.boolean  "encoded",                 default: false
+    t.string   "guest_user"
   end
 
   add_index "videos", ["album_id"], name: "index_videos_on_album_id"

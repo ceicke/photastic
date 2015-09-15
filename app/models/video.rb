@@ -6,7 +6,6 @@ class Video < ActiveRecord::Base
   }
 
   validates :album_id, presence: true
-  validates :user_id, presence: true
   validates :video_file, :attachment_presence => true
 
   belongs_to :album
@@ -55,8 +54,24 @@ class Video < ActiveRecord::Base
     update_column('encoded',true)
   end
 
+  def uploader_name
+    if user.blank?
+      if guest_user.blank?
+        ''
+      else
+        guest_user
+      end
+    else
+      if user.nickname.blank?
+        ''
+      else
+        user.nickname
+      end
+    end
+  end
+
   def send_yo
-    unless album.yo_api_key.blank?
+    if Rails.env.production? && !album.yo_api_key.blank?
       Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => album.yo_api_key, 'link' => video_file.url)
     end
   end

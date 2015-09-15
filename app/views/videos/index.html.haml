@@ -6,7 +6,7 @@
 .page-header
   %h1
     = @album.name
-  - unless current_user.blank?
+  - if !current_user.blank? || @album.guests_can_upload
     %a{href: new_album_video_path(@album), class: 'btn btn-primary'}
       %i.fa.fa-plus
       = t('upload_video')

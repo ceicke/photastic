@@ -25,6 +25,7 @@ en:
   edit_album_settings: "Edit album settings"
   album_name: "Name of album"
   album_passcode: "Passcode for album"
+  album_guests_can_upload: "Guests may upload pictures and videos"
   please_enter_passcode_for_album: "Please enter the album's passcode and your name to access it."
   delete_album: "Delete Album"
   really_delete_album: "Do you really want to delete the album? All pictures will be lost."
