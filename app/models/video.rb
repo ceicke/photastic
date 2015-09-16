@@ -44,7 +44,7 @@ class Video < ActiveRecord::Base
 
     job = HeyWatch.submit(conf, heywatch_api_key)
 
-    if !job['status'] == 'ok'
+    if job['status'] != 'ok'
       raise "#{job["error_code"]} - #{job["error_message"]}"
     end
 
