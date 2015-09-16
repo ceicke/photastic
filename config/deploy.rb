@@ -36,14 +36,16 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 # set :keep_releases, 5
 
 namespace :deploy do
-
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+  desc 'restart puma'
+  task :restart_puma do
+    on roles(:web) do
+      within release_path do
+        execute 'source ~/config/secrets.sh'
+        #execute "cd '#{release_path}'; bundle exec /usr/local/rvm/gems/ruby-2.0.0-p643/bin/pumactl -S /tmp/puma.state -p /tmp/puma.pid phased-restart"
+        execute :bundle, :exec, 'pumactl -S /tmp/puma.state -p /tmp/puma.pid phased-restart'
+      end
     end
   end
 
+  after :finished, :restart_puma
 end
