@@ -1,0 +1,153 @@
+de:
+  time:
+    formats:
+      default: "%d.%m.%y"
+  date:
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names: [~, Jan, Feb, Mar, Avr, Mai, Juin, Juil, Aug, Sep, Oct, Nov, Déc]
+
+  welcome: "Bienvenue chez Photastic"
+  save_error: "Ah non!"
+  save: "Sauvegarder"
+  back: "retour"
+  enter: "confirmer"
+  yes: "Oui"
+  no: "Non"
+  delete: "annuler"
+  edit: "adapter"
+  actions: "Actions"
+  delete_confirm: "Tu es sûr?"
+  make_sure_you_have_a_name: "S’il-te plaît donne un nom à l’album."
+  new_album: "Créer un nouvel album."
+  new_album_explanation: "Ici, tu peux créer un nouvel album. Après tu peux télécharger tes photos et vidéos à cet album."
+  album_was_saved: "Ton album était sauvegarder."
+  album_promote_error: "Il y avait un erreur en train de placer la photo standard pour ton album."
+  edit_album_settings: "Paramètres de l’album"
+  album_name: "Nom de l’album"
+  album_passcode: "Mot de passe"
+  album_guests_can_upload: "Les visiteurs de ton album ont le droit d’y télécharger leurs propres photos."
+  please_enter_passcode_for_album: "S’il-te plaît entre ton nom et le mot de passe de l’album."
+  delete_album: "Annuler l’album"
+  really_delete_album: "Tu es sûr que tu veux vraiment annuler l’album avec tous les photos là-dedans?"
+  album_subdomain: "Subdomain de l’album"
+  previous: "Retour"
+  next: "Continuer"
+
+  pictures: "Photos"
+  upload_picture: "Photo"
+  new_picture: "Télécharger des photos"
+  new_pictures: "Télécharger des photos"
+  new_picture_explanation: "Ici, tu peux télécharger des nouvelles photos à ton album."
+  make_sure_all_required_fields: "S’il-te plaît entre qc dans chaque cadre nécessaire."
+  no_picture_file_selected: "Il faut que tu choisis une photo, avant que tu peux la télécharger."
+  picture_was_saved: "Ta photo était sauvegardée."
+  no_pictures_yet: "Cet album ne contient pas encore de photos."
+  picture_description: "Description"
+  upload_pictures_here: "Clique ici pour choisir des photo ou tirer des photos par ici dans ce cadre."
+
+  videos: "Vidéos"
+  upload_video: "Vidéo"
+  new_video: "télécharger le vidéo"
+  new_video_explanation: "Ici, tu peux télécharger des nouvels vidéos à ton album vidéo."
+  make_sure_all_required_fields: "S’il-te plaît entre qc dans chaque cadre nécessaire."
+  no_video_file_selected: "Il faut que tu choisis un fichier vidéo, avant que tu peux le télécharger."
+  video_was_saved: "Ton vidéo était sauvegardé."
+  no_videos_yet: "Cet album ne contient pas encore de vidéos."
+  video_description: "Description"
+
+  membership_list: "Liste de membres"
+  add_member: "Ajouter un nouvel membre à l’album"
+  edit_member: "Adapter l’affiliation"
+  email_of_user: "Adresse e-mail"
+  password: "Mot de passe"
+  password_confirmation: "répéter le mot de passe"
+  can_administer_album: "Administrer l’album"
+  can_add_photos: "télécharger des photo"
+  member_added: "Un nouvel usager était ajouter à l’album"
+  no_members_yet: "Il n’était pas ajouter de nouvel usager à l’album"
+  membership_saved: "Les adaptions à l’affiliation étaient sauvegardées."
+  your_name: "Ton nom"
+  user_or_nickname_missing: "Il est nécessaire d’entre un nom d’usager ou un nom."
+
+  comment: "Commentaire"
+  comments: "Commentaires"
+  your_comment: "Ton commentaire"
+  comment_was_saved: "Ton commentaire était sauvegardé"
+  comment_was_not_saved: "Malheureusement, ce n’était pas possible de sauvegarder ton commentaire."
+  delete_comment: "Annuler commentaire"
+  comment_was_deleted: "Commentaire annulé"
+
+  edit_user_settings: "Adapter le compte d’usager"
+
+  sign_in: "S’inscrire"
+  sign_out: "Se déconnecter"
+  sign_up: "Enregistrer"
+  password_forgotten: "Oublié le mot de passe"
+  no_account: "Pas encore d’accèss?"
+
+  search: "Recherche"
+  search_submit: "Rechercher"
+  search_for: "Recherche pour…"
+
+  devise:
+    confirmations:
+      confirmed: Merci pour votre enregistrement. Vous êtes inscrit maintenant.
+      send_instructions: Dans quelques minutes vous recevront un e-mail pour confirmer votre inscription.
+      send_paranoid_instructions: Dans le cas où votre adresse e-mail existe déjà dans notre base de données, vous recevront un e-mail dans quelques minutes pour confirmer votre inscription.
+    failure:
+      user:
+        already_authenticated: Vous êtes déjà inscrit.
+        inactive: Votre compte est inactive.
+        invalid: Dates d’inscription invalides.
+        last_attempt: Vous avons encore une expérience jusque’au blocage de votre compte.
+        locked: Votre compte est bloqué.
+        not_found_in_database: "Dates d’inscription invalides."
+        unauthenticated: C’est nécessaire de s’inscrire ou s’enregistrer pour continuer.
+        unconfirmed: C’est nécessaire de confirmer votre compte pour continuer.
+        timeout: Notre séance est périmée. S’il-vous plaît s’inscrirez-vous encore une fois.
+    mailer:
+      confirmation_instructions:
+        subject: Instruction pour la confirmation de votre compte
+      reset_password_instructions:
+        subject: Instruction pour la réinitialisation de votre mot de passe.
+      unlock_instructions:
+        subject: Instruction pour le déblocage de votre compte
+    omniauth_callbacks:
+      failure: Sie konnten nicht mit Ihrem %{kind}-Account angemeldet werden, weil "%{reason}".
+      success: Sie haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet.
+    passwords:
+      no_token: Sie können sich nicht auf dieser Seite anmelden, wenn Sie nicht von einer Passwort-Zurücksetzen-E-Mail kommen. Wenn Sie von solch einer E-Mail kommen, überprüfen Sie bitte, ob Sie die gesamte URL verwendeten.
+      send_instructions: Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können.
+      send_paranoid_instructions: Falls Ihre E-Mail-Adresse in unserer Datenbank existiert, erhalten Sie in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können.
+      updated: Ihr Passwort wurde geändert. Sie sind jetzt angemeldet.
+      updated_not_active: Ihr Passwort wurde geändert.
+    registrations:
+      destroyed: Ihr Account wurde gelöscht.
+      signed_up: Sie haben sich erfolgreich registriert.
+      signed_up_but_inactive: Sie haben sich erfolgreich registriert. Wir konnten Sie jedoch nicht anmelden, weil Ihr Account noch nicht aktiviert ist.
+      signed_up_but_locked: Sie haben sich erfolgreich registriert. Wir konnten Sie jedoch nicht anmelden, weil Ihr Account gesperrt ist.
+      signed_up_but_unconfirmed: Sie erhalten in wenigen Minuten eine E-Mail mit einem Link für die Bestätigung der Registrierung. Klicken Sie auf den Link um Ihren Account zu aktivieren.
+      update_needs_confirmation: Ihre Daten wurden aktualisiert, aber Sie müssen Ihre neue E-Mail-Adresse bestätigen. Sie erhalten in wenigen Minuten eine E-Mail, mir der Sie die Änderung Ihrer E-Mail-Adresse abschließen können.
+      updated: Votres données sont à jour.
+    sessions:
+      signed_in: Vous êtes inscrit.
+      signed_out: Vous êtes déconnecté.
+    unlocks:
+      send_instructions: Dans quelques minutes vous recevront un e-mail avec des instruction pour le déblocage de votre compte.
+      send_paranoid_instructions: Dans le cas où votre adresse e-mail existe déjà dans notre base de données, vous recevront un e-mail avec des instruction pour le déblocage de votre compte dans quelques minutes.
+      unlocked: Votre compte était débloqué. Vous êtes inscrit maintenant.
+  errors:
+    messages:
+      already_confirmed: c’était déjà confirmé, s’il-vous plaît essayez-vous de s’inscrire
+      confirmation_period_expired: c’était nécessaire de le confirmer en %{period}, s’il vous plaît demander-le encore une fois.
+      expired: est périmé, s’il vous plaît demander un autre
+      not_found: pas retrouvé
+      not_locked: n’est pas bloqué
+      not_saved:
+        one: "Ne pouvais pas sauvegarder %{resource}: un erreur."
+        other: "Ne pouvais pas sauvegarder %{resource}: %{count} erreur."
+  edit_picture: "Adapter la photo"
+  edit_video: "Adapter le vidéo"
+  album_yo_api_key: "Ton Yo! API Key"
+  yo_username: "Ton Yo! Nom d’usager"
+  email_of_user_administration_hint: "Nom d’usager d’un usager de Photastic"
