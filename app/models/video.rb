@@ -24,8 +24,7 @@ class Video < ActiveRecord::Base
     password = ENV['SERVER_PASSWORD']
     heywatch_api_key = ENV['HEYWATCH_API_KEY']
 
-    current_dir = Dir.pwd
-    target_dir = current_dir + '/app/shared/public/system/videos_encoded'
+    target_dir = '/home/photastic//app/shared/public/system/videos_encoded'
 
     FileUtils.mkdir_p "#{target_dir}/#{album.id}/#{id}"
 
