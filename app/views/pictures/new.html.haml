@@ -24,7 +24,6 @@
   %button#submit.btn.btn-primary= t('new_pictures')
 
 :javascript
-
   $('#submit').hide();
 
   Dropzone.autoDiscover = false;
@@ -47,7 +46,7 @@
     $('.dropzone').show('fast');
     $('#descriptionArea').hide('fast');
     $('#submit').hide('fast');
-    var description_area = $('#descriptionArea').find("[data-filename='" + file.name + "']");
+    var description_area = $('#descriptionArea').find("[data-filesize='" + file.size + "']");
     formData.append('picture[description]', description_area.val())
   });
   dropzone.on('thumbnail', function(file, dataUrl) {
@@ -58,7 +57,7 @@
 
     var preview_area = $('<div>').prop('class','span2').append(preview_image);
 
-    var textarea = $('<textarea>').prop('rows', 5).prop('cols', 30).attr('data-filename', file.name);
+    var textarea = $('<textarea>').prop('rows', 5).prop('cols', 30).attr('data-filesize', file.size);
     var description_area = $('<div>').prop('class','span10').append(textarea);
 
     var complete_row = row.append(preview_area).append(description_area);

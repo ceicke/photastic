@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.2.3'
+gem 'rails', '4.2.5'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -12,8 +12,6 @@ gem 'jquery-rails'
 gem 'fancybox-rails'
 
 gem 'uglifier', '>= 1.0.3'
-
-gem 'sass'
 
 gem 'bootstrap-will_paginate'
 gem 'font-awesome-rails'
