@@ -41,7 +41,6 @@ namespace :deploy do
     on roles(:web) do
       within release_path do
         execute 'source ~/config/secrets.sh'
-        #execute "cd '#{release_path}'; bundle exec /usr/local/rvm/gems/ruby-2.0.0-p643/bin/pumactl -S /tmp/puma.state -p /tmp/puma.pid phased-restart"
         execute :bundle, :exec, 'pumactl -S /tmp/puma.state -p /tmp/puma.pid phased-restart'
       end
     end
