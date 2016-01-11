@@ -36,8 +36,6 @@ class Video < ActiveRecord::Base
     conf << "\n"
     conf << "-> mp4_720p = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/ios.mp4"
     conf << "\n"
-    conf << "-> flash_360p = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/flash.flv"
-    conf << "\n"
     conf << "-> jpg_250x = sftp://#{username}:#{password}@photasti.cc:22#{target_dir}/#{album.id}/#{id}/thumb.jpg, number=1"
     conf << "\n"
 
