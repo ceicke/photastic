@@ -6,10 +6,13 @@ class Video < ActiveRecord::Base
   }
 
   validates :album_id, presence: true
+  validates :video_file, :attachment_presence => true
 
   belongs_to :album
   belongs_to :user
   has_many :comments, dependent: :destroy, as: :commentable
+
+  has_attached_file :video_file
 
   after_save :heywatch_encode
 
