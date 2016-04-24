@@ -59,7 +59,7 @@
           %a{name: video.id}
           %a{href: album_video_path(@album, video)}
             - if !video.encoded?
-              = image_tag(video.video_file(:thumb))
+              = image_tag 'spinner_big.gif'
             - else
               %img{src: "http://photasti.cc/system/videos_encoded/#{@album.id}/#{video.id}/thumb.jpg"}
           .picture_inner_phone
