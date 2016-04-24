@@ -60,7 +60,7 @@ class VideosController < ApplicationController
     respond_to do |format|
       if @video.save
         format.html { redirect_to  album_videos_path(album_id: @album), notice: t('video_was_saved') }
-        format.json { render json: @video, status: :created, location: @video }
+        format.json { render json: @video, status: :created }
       else
         format.html { render action: 'new' }
         format.json { render json: @video.errors, status: :unprocessable_entity }
