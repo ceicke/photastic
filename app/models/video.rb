@@ -11,7 +11,6 @@ class Video < ActiveRecord::Base
   belongs_to :user
   has_many :comments, dependent: :destroy, as: :commentable
 
-  after_create :send_yo
   after_save :heywatch_encode
 
   def heywatch_encode
@@ -59,12 +58,6 @@ class Video < ActiveRecord::Base
       else
         user.nickname
       end
-    end
-  end
-
-  def send_yo
-    if Rails.env.production? && !album.yo_api_key.blank?
-      Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => album.yo_api_key, 'link' => video_file.url)
     end
   end
 
