@@ -30,6 +30,9 @@ en:
   delete_album: "Delete Album"
   really_delete_album: "Do you really want to delete the album? All pictures will be lost."
   album_subdomain: "Subdomain of album."
+  from: "From"
+  until: "Until"
+  close: "Close"
 
   pictures: "Pictures"
   upload_picture: "Picture"
@@ -41,6 +44,8 @@ en:
   picture_was_saved: "The picture was saved."
   no_pictures_yet: "This album does not contain any pictures yet."
   upload_pictures_here: "Click here to select images or drag them here."
+  filter_pictures: "Filter pictures"
+
 
   videos: "Videos"
   upload_video: "Video"
@@ -53,6 +58,7 @@ en:
   no_videos_yet: "This album does not contain any videos yet."
   upload_videos_here: "Click here to select videos or drag them here."
   video_processing: "The video is still processing."
+  filter_videos: "Filter videos"
 
 
   membership_list: "Membership list"

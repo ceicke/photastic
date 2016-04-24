@@ -3,6 +3,20 @@
   = "::"
   = t('pictures')
 
+#time-modal.modal.hide.fade
+  .modal-header
+    %button.close{type: 'button', data: {dismiss: 'modal'}} x
+    %h3= t('filter_pictures')
+  .modal-body
+    = form_tag(album_path(@album), method: 'get', class: 'form-inline') do
+      = label_tag= t('from')
+      = text_field_tag :from, @from, class: 'input-small'
+      = label_tag= t('until')
+      = text_field_tag :until, @until, class: 'input-small'
+  .modal-footer
+    %button.btn{data: {dismiss: 'modal'}}= t('close')
+    %button.time-box-save-button.btn.btn-primary= t('save')
+
 .page-header
   %h1
     = @album.name
@@ -21,6 +35,8 @@
       %button{type: 'submit', class: 'btn'}
         %i.fa.fa-search
         = t('search_submit')
+      %a.btn.open-time-modal
+        %i.fa.fa-clock-o
 
 .hidden-phone.visible-desktop
   = will_paginate @pictures, previous_label: '«', next_label: '»'
@@ -86,3 +102,21 @@
   s.type = "text/javascript";
   s.src = "//yoapp.s3.amazonaws.com/js/yo-button.js";
   (document.head || document.getElementsByTagName("head")[0]).appendChild(s);
+
+  $('.open-time-modal').on('click', function() {
+    $('#from').datepicker({
+      language: 'de'
+    });
+    $('#until').datepicker({
+      language: 'de'
+    });
+    $('#time-modal').modal('show');
+  });
+
+  $('.time-box-save-button').on('click', function() {
+    var dateFrom = $('#from').val();
+    var dateUntil = $('#until').val();
+    var url = "#{album_pictures_path(@album)}";
+    $('#time-modal').modal('hide');
+    window.location.href = url + '?from=' + dateFrom + '&until=' + dateUntil;
+  });

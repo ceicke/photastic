@@ -16,6 +16,8 @@
 //= require jquery.isotope.min
 //= require jquery.imagesloaded
 //= require jquery-fileupload/basic
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
 //= require video
 //= require dropzone
 //= require_tree .

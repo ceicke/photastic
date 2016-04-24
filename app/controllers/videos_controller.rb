@@ -2,6 +2,7 @@ class VideosController < ApplicationController
 
   skip_before_filter :authenticate_user!, only: [:index, :show, :new, :create]
   before_filter :check_album_passcode, only: [:index, :show, :new, :create]
+  before_filter :check_time_box, only: [:index]
 
   def index
     if request.subdomain.blank?
@@ -14,7 +15,11 @@ class VideosController < ApplicationController
       authorize! :manage, @album
     end
 
-    @videos = Video.where(album_id: @album.id).paginate(:page => params[:page], :per_page => 30).order('created_at DESC')
+    if @timeboxed
+      @videos = Video.where("album_id = ? and created_at >= ? and created_at <= ?", @album.id, @from, @until).paginate(:page => params[:page], :per_page => 30).order("created_at DESC")
+    else
+      @videos = Video.where(album_id: @album.id).paginate(:page => params[:page], :per_page => 30).order('created_at DESC')
+    end
 
     respond_to do |format|
       format.html
@@ -109,6 +114,16 @@ class VideosController < ApplicationController
   private
   def video_params
     params.require(:video).permit(:description, :video_file, :video_file_file_name, :created_at)
+  end
+
+  def check_time_box
+    if params[:from] && params[:until]
+      @timeboxed = true
+      @from = params[:from]
+      @until = params[:until]
+    else
+      @timeboxed = false
+    end
   end
 
 end

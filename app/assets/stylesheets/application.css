@@ -21,5 +21,6 @@
  *= require fancybox
  *= require video-js
  *= require dropzone/dropzone
+ *= require bootstrap-datepicker
  * require_tree .
  */

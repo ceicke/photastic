@@ -32,6 +32,9 @@ de:
   album_subdomain: "Subdomain des Albums."
   previous: "Zurück"
   next: "Weiter"
+  from: "Von"
+  until: "Bis"
+  close: "Schließen"
 
   pictures: "Bilder"
   upload_picture: "Bild"
@@ -44,6 +47,7 @@ de:
   no_pictures_yet: "Dieses Album enthält noch keine Bilder."
   picture_description: "Beschreibung"
   upload_pictures_here: "Hier klicken um Bider auszuwählen, oder Bilder hier reinziehen."
+  filter_pictures: "Bilder filtern"
 
   videos: "Videos"
   upload_video: "Video"
@@ -57,6 +61,7 @@ de:
   video_description: "Beschreibung"
   upload_videos_here: "Hier klicken um Videos auszuwählen, oder Video hier reinziehen."
   video_processing: "Das Video wird noch verarbeitet."
+  filter_videos: "Videos filtern"
 
 
   membership_list: "Mitgliederliste"

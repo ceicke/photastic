@@ -59,6 +59,7 @@ gem 'videojs_rails'
 gem 'formtastic-bootstrap'
 
 gem 'ui_datepicker-rails3'
+gem 'bootstrap-datepicker-rails'
 
 # We store our images on S3
 gem 'aws-sdk', '~> 1.5.7'

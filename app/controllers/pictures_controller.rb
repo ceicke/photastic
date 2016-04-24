@@ -2,6 +2,7 @@ class PicturesController < ApplicationController
 
   skip_before_filter :authenticate_user!, only: [:index, :show, :new, :create]
   before_filter :check_album_passcode, only: [:index, :show, :new, :create]
+  before_filter :check_time_box, only: [:index]
 
   def index
     if request.subdomain.blank?
@@ -14,7 +15,12 @@ class PicturesController < ApplicationController
       authorize! :manage, @album
     end
 
-    @pictures = Picture.where(album_id: @album.id).paginate(:page => params[:page], :per_page => 30).order("created_at DESC")
+    if @timeboxed
+      @pictures = Picture.where("album_id = ? and created_at >= ? and created_at <= ?", @album.id, @from, @until).paginate(:page => params[:page], :per_page => 30).order("created_at DESC")
+    else
+      @pictures = Picture.where(album_id: @album.id).paginate(:page => params[:page], :per_page => 30).order("created_at DESC")
+    end
+
     @all_pictures = Picture.where(album_id: @album.id).order("created_at DESC")
 
     respond_to do |format|
@@ -115,6 +121,16 @@ class PicturesController < ApplicationController
   private
   def picture_params
     params.require(:picture).permit(:description, :picture_file)
+  end
+
+  def check_time_box
+    if params[:from] && params[:until]
+      @timeboxed = true
+      @from = params[:from]
+      @until = params[:until]
+    else
+      @timeboxed = false
+    end
   end
 
 end
