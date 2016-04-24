@@ -3,7 +3,7 @@ lock '3.4.0'
 
 set :application, 'photastic'
 set :repo_url, 'git@github.com:ceicke/photastic.git'
-set :rvm_ruby_version, 'ruby-2.0.0-p643@photastic'
+set :rvm_ruby_version, 'ruby-2.3.0@photastic'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
