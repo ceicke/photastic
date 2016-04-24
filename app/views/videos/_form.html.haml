@@ -5,7 +5,6 @@
       = t('no_video_file_selected')
 
   = f.inputs do
-    = f.input :video_file, as: :file, label: false
     = f.input :description, as: :text, placeholder: t('video_description'), label: false, input_html: {rows: 5, cols: 50}
     = f.input :created_at, as: :date, label: false if controller.action_name == 'edit'
     = link_to t('back'), album_videos_path(@album), class: 'btn btn-secondary'

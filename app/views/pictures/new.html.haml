@@ -9,7 +9,7 @@
 
 
   %form#upload-dropzone.dropzone{action: "#{album_pictures_path(@album)}", enctype: 'multipart/form-data', method: 'POST'}
-    %div.fallback
+    .fallback
       .row-fluid
         .span12
           %input{type: 'file', name: 'picture[picture_file]'}

@@ -48,12 +48,16 @@ de:
   videos: "Videos"
   upload_video: "Video"
   new_video: "Video hochladen"
+  new_videos: "Videos hochladen"
   new_video_explanation: "Hier kannst du neue Videos in dein Album laden."
   make_sure_all_required_fields: "Bitte fülle alle notwenigen Felder aus."
   no_video_file_selected: "Du musst eine Video-Datei auswählen bevor du es hochladen kannst."
   video_was_saved: "Dein Video wurde gespeichert."
   no_videos_yet: "Dieses Album enthält noch keine Videos."
   video_description: "Beschreibung"
+  upload_videos_here: "Hier klicken um Videos auszuwählen, oder Video hier reinziehen."
+  video_processing: "Das Video wird noch verarbeitet."
+
 
   membership_list: "Mitgliederliste"
   add_member: "Jemanden dem Album hinzufügen"

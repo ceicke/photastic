@@ -6,7 +6,6 @@ class Video < ActiveRecord::Base
   }
 
   validates :album_id, presence: true
-  validates :video_file, :attachment_presence => true
 
   belongs_to :album
   belongs_to :user
@@ -15,16 +14,12 @@ class Video < ActiveRecord::Base
   after_create :send_yo
   after_save :heywatch_encode
 
-  has_attached_file :video_file, :styles => {
-    :thumb => { :geometry => "250x250>", :format => 'jpg', :time => 2 }
-  }, :processors => [:transcoder]
-
   def heywatch_encode
     username = ENV['SERVER_USERNAME']
     password = ENV['SERVER_PASSWORD']
     heywatch_api_key = ENV['HEYWATCH_API_KEY']
 
-    target_dir = '/home/photastic//app/shared/public/system/videos_encoded'
+    target_dir = '/home/photastic/app/shared/public/system/videos_encoded'
 
     FileUtils.mkdir_p "#{target_dir}/#{album.id}/#{id}"
 

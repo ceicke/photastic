@@ -45,11 +45,15 @@ en:
   videos: "Videos"
   upload_video: "Video"
   new_video: "Upload a video"
+  new_video: "Upload videos"
   new_video_explanation: "Here you can upload a new video into your album."
   make_sure_all_required_fields: "Please make sure that you have filled out all the required fields."
   no_video_file_selected: "You need to select a video file to upload to this album."
   video_was_saved: "The video was saved."
   no_videos_yet: "This album does not contain any videos yet."
+  upload_videos_here: "Click here to select videos or drag them here."
+  video_processing: "The video is still processing."
+
 
   membership_list: "Membership list"
   add_member: "Add someone to this album"
