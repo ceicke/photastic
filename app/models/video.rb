@@ -22,7 +22,7 @@ class Video < ActiveRecord::Base
       :api_key => ENV['COCONUT_API_KEY'],
       :source => "http://photasti.cc/#{video_file.url}",
       :webhook => "http://photasti.cc/video_callback/callback?video_id=#{id}",
-      :outputs => prepare_coconut_configuration
+      :conf => prepare_coconut_configuration
     )
 
     if coconut_job['status'] == 'ok'
