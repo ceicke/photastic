@@ -87,6 +87,11 @@ class Video < ActiveRecord::Base
         conf << "\n"
     conf << "-> jpg:250x = $cdn/#{target_dir}/#{album.id}/#{id}/thumb.jpg, number=1"
     conf << "\n"
+
+    filename = "/tmp/coconut_video_#{id}.conf"
+    File.write(filename, conf)
+
+    filename
   end
 
 end
