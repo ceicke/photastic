@@ -1,11 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.10'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'rake', '< 11.0'
 
 gem 'less-rails'
 gem 'jquery-rails'
@@ -49,8 +47,8 @@ gem 'paperclip', '~> 3.0'
 # We can also do videos
 gem 'paperclip-av-transcoder'
 
-# use heywatch for encoding videos
-gem 'heywatch'
+# use coconut for encoding videos
+gem 'coconutrb', '~> 2.2.0'
 
 # video player
 gem 'videojs_rails'
