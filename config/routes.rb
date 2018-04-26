@@ -17,7 +17,7 @@ Photastic::Application.routes.draw do
   resources :users, only: [:edit, :update]
   resource :video_callback, only: [:callback] do
     member do
-      post 'callback'
+      get 'callback'
     end
   end
 
@@ -25,4 +25,3 @@ Photastic::Application.routes.draw do
   get '/', to: 'pictures#index', constraints: { :subdomain => /.+/ }
   root :to => 'albums#index'
 end
-
