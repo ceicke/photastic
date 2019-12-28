@@ -25,11 +25,10 @@ class Video < ActiveRecord::Base
       :conf => prepare_coconut_configuration
     )
 
-    if coconut_job['status'] == 'ok'
+    if coconut_job['status'] == 'processing'
       logger.debug "Video File ID #{self.id}: coconut job submitted successfully"
       return coconut_job
     else
-      self.video.coconut_error!
       logger.info "Video File ID #{self.id}: error submitting job to coconut #{coconut_job['error_code']} #{coconut_job['error_message']}"
       raise 'Coconut submit failed'
     end
