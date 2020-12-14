@@ -29,6 +29,10 @@ group :development, :test do
   gem 'listen'
 end
 
+group :production do
+  gem 'puma'
+end
+
 # To upload files nicer
 gem 'dropzonejs-rails'
 gem 'jquery-fileupload-rails'
