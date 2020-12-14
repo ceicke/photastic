@@ -17,6 +17,12 @@ directory '/home/photastic/app/current'
 #   [200, { 'Content-Type' => 'text/plain', 'Content-Length' => body.length.to_s }, [body]]
 # end
 
+# Change to match your CPU core count
+workers 2
+
+# Min and Max threads per worker
+threads 1, 6
+
 # Load “path” as a rackup file.
 #
 # The default is “config.ru”.
