@@ -184,11 +184,12 @@ GEM
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
-    paperclip (3.5.4)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
+    paperclip (5.2.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      cocaine (~> 0.5.5)
       mime-types
+      mimemagic (~> 0.3.0)
     paperclip-av-transcoder (0.6.4)
       av (~> 0.9.0)
       paperclip (>= 2.5.2)
@@ -318,7 +319,7 @@ DEPENDENCIES
   jquery-rails
   less-rails
   listen
-  paperclip (~> 3.0)
+  paperclip (~> 5.2)
   paperclip-av-transcoder
   pg
   pg_search

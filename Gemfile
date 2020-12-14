@@ -43,7 +43,7 @@ gem 'cancancan'
 gem 'haml-rails'
 
 # We use paperclip to process our images
-gem 'paperclip', '~> 3.0'
+gem 'paperclip', '~> 5.2'
 
 # We can also do videos
 gem 'paperclip-av-transcoder'
