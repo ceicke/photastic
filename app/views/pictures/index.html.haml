@@ -20,8 +20,6 @@
 .page-header
   %h1
     = @album.name
-    - unless @album.yo_username.blank? || @album.yo_api_key.blank?
-      #yo-button
   - if !current_user.blank? || @album.guests_can_upload
     %a{href: new_album_picture_path(@album), class: 'btn btn-primary'}
       %i.fa.fa-plus
@@ -94,15 +92,6 @@
   = will_paginate @pictures, previous_label: '«', next_label: '»', inner_window: 1, outer_window: 0
 
 :javascript
-  var _yoData = {
-    "username": "#{@album.yo_username}",
-    "trigger": "a new picture or video is posted"
-  };
-  var s = document.createElement("script");
-  s.type = "text/javascript";
-  s.src = "//yoapp.s3.amazonaws.com/js/yo-button.js";
-  (document.head || document.getElementsByTagName("head")[0]).appendChild(s);
-
   $('.open-time-modal').on('click', function() {
     $('#from').datepicker({
       language: 'de'

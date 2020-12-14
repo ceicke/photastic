@@ -41,21 +41,6 @@ class Picture < ActiveRecord::Base
     geo = Paperclip::Geometry.from_file(picture_file.queued_for_write[:medium])
     self.image_width_medium = geo.width
     self.image_height_medium = geo.height
-
-    exif = EXIFR::JPEG.new(picture_file.queued_for_write[:original].path)
-
-    if exif.exif?
-
-      unless exif.date_time.blank?
-        self.taken_at = exif.date_time
-      end
-
-      unless exif.gps.blank?
-        self.latitude = exif.gps.latitude
-        self.longitude = exif.gps.longitude
-      end
-
-    end
   end
 
   def uploader_name

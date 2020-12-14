@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  before_filter :authenticate_user!, :set_locale
+  before_action :authenticate_user!, :set_locale
 
   layout :layout_by_resource
 

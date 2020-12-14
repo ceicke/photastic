@@ -28,12 +28,6 @@ class Album < ActiveRecord::Base
     end
   end
 
-  def send_yo
-    unless yo_api_key.blank?
-      Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => yo_api_key)
-    end
-  end
-
   def cover_picture
     thumb_picture_url
   end

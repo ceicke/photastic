@@ -1,7 +1,7 @@
 class AlbumMembersController < ApplicationController
 
   load_and_authorize_resource
-  before_filter :check_album_manage_permission
+  before_action :check_album_manage_permission
 
   def index
     @album = Album.find(params[:album_id])   

@@ -95,6 +95,4 @@ en:
   no_account: "Don’t have an account?"
   edit_picture: "Edit picture"
   edit_video: "Edit video"
-  album_yo_api_key: "Your Yo! API Key"
-  yo_username: "Your Yo! Username"
   email_of_user_administration_hint: "Username of another Photastic User"

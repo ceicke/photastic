@@ -9,8 +9,6 @@
     = f.input :passcode, label: t('album_passcode'), placeholder: t('album_passcode')
     = f.input :subdomain, label: t('album_subdomain'), placeholder: t('album_subdomain'), input_html: {class: 'span4'}, prepend: 'http://', append: '.photasti.cc'
     = f.input :guests_can_upload, label: t('album_guests_can_upload')
-    = f.input :yo_username, label: t('yo_username'), placeholder: t('yo_username')
-    = f.input :yo_api_key, label: t('album_yo_api_key'), placeholder: t('album_yo_api_key')
     - if controller.action_name == 'edit'
       = link_to t('back'), album_path(@album), class: 'btn btn-secondary'
     - else

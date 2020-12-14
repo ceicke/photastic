@@ -1,8 +1,8 @@
 class PicturesController < ApplicationController
 
-  skip_before_filter :authenticate_user!, only: [:index, :show, :new, :create]
-  before_filter :check_album_passcode, only: [:index, :show, :new, :create]
-  before_filter :check_time_box, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show, :new, :create]
+  before_action :check_album_passcode, only: [:index, :show, :new, :create]
+  before_action :check_time_box, only: [:index]
 
   def index
     if request.subdomain.blank?

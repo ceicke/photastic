@@ -148,6 +148,4 @@ fr:
         other: "Ne pouvais pas sauvegarder %{resource}: %{count} erreur."
   edit_picture: "Adapter la photo"
   edit_video: "Adapter le vidéo"
-  album_yo_api_key: "Ton Yo! API Key"
-  yo_username: "Ton Yo! Nom d’usager"
   email_of_user_administration_hint: "Nom d’usager d’un usager de Photastic"

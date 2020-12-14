@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
-  skip_before_filter :authenticate_user!, :only => :create
-  before_filter :check_album_passcode, :only => :create
+  skip_before_action :authenticate_user!, :only => :create
+  before_action :check_album_passcode, :only => :create
   load_and_authorize_resource except: [:create, :destroy]
 
   def create

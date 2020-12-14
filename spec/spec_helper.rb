@@ -46,7 +46,6 @@ RSpec.configure do |config|
 
   # for our heywatch mocking
   config.before(:each) do
-    stub_request(:post, /heywatch.com/).
-      to_return(status: 201, body: '{"id": 9429,"errors": {},"output_urls": {"android_720p": "sftp://photasti.cc/videos_encoded/9/705/android.mp4","mp4_720p": "sftp://photasti.cc/videos_encoded/9/705/ios.mp4","jpg_250x250": ["sftp://photasti.cc/videos_encoded/9/705/thumb.jpg"],"flash_360p": "sftp://photasti.cc/system/videos_encoded/9/705/flash.flv"},"event": "job.completed"}', headers: {})
+    stub_request(:post, "https://api.coconut.co/v1/job").to_return(status: 201, body: '{"id": 9429,"errors": {},"output_urls": {"android_720p": "sftp://photasti.cc/videos_encoded/9/705/android.mp4","mp4_720p": "sftp://photasti.cc/videos_encoded/9/705/ios.mp4","jpg_250x250": ["sftp://photasti.cc/videos_encoded/9/705/thumb.jpg"],"flash_360p": "sftp://photasti.cc/system/videos_encoded/9/705/flash.flv"},"event": "job.completed"}', headers: {})
   end
 end

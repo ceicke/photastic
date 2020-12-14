@@ -1,10 +1,14 @@
 development:
-  adapter: postgresql
-  encoding: utf8
-  database: photastic_development
-  username: photastic
-  password: photastic
-  host: 127.0.0.1
+  #adapter: postgresql
+  #encoding: utf8
+  #database: photastic_development
+  #username: photastic
+  #password: photastic
+  #host: 127.0.0.1
+  adapter: sqlite3
+  database: db/development.sqlit3
+  pool: 5
+  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

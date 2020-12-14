@@ -25,7 +25,7 @@ class Video < ActiveRecord::Base
       :conf => prepare_coconut_configuration
     )
 
-    if coconut_job['status'] == 'processing'
+    if coconut_job['status'] == 'ok'
       logger.debug "Video File ID #{self.id}: coconut job submitted successfully"
       return coconut_job
     else
@@ -60,7 +60,8 @@ class Video < ActiveRecord::Base
     username = ENV['SERVER_USERNAME']
     password = ENV['SERVER_PASSWORD']
 
-    target_dir = '/home/photastic/app/shared/public/system/videos_encoded'
+    target_dir = Rails.root.join('public', 'system', 'videos_encoded')
+    # target_dir = '/home/photastic/app/shared/public/system/videos_encoded'
 
     FileUtils.mkdir_p "#{target_dir}/#{album.id}/#{id}"
 

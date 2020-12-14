@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.6.3'
 
-gem 'rails', '4.2.10'
+gem 'rails', '~> 5.0'
 
 gem 'rake', '< 11.0'
 
@@ -15,17 +15,18 @@ gem 'bootstrap-will_paginate'
 gem 'font-awesome-rails'
 gem 'therubyracer'
 gem 'coffee-rails'
-group :production do
-  gem 'puma'
-end
+
+gem 'sqlite3'
+
+gem 'bootsnap', require: false
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec-rails', '~> 2.0'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'webmock'
+  gem 'listen'
 end
 
 # To upload files nicer
@@ -65,9 +66,6 @@ gem 'aws-sdk', '~> 1.5.7'
 # We use Google analytics
 gem 'google-analytics-rails'
 
-# reading exif data
-gem 'exifr'
-
 # use postgresql
 gem 'pg'
 
@@ -81,8 +79,7 @@ gem 'pg_search'
 # gem 'jbuilder'
 
 # Deploy with Capistrano
-gem 'capistrano', '~> 3.4.0'
-gem 'capistrano-puma'
+gem 'capistrano', '~> 3.4.1'
 gem 'capistrano-rails', '~> 1.1.0'
 gem 'capistrano-rvm'
 gem 'capistrano-bundler'

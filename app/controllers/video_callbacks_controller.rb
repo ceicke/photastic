@@ -1,7 +1,7 @@
 class VideoCallbacksController < ApplicationController
 
   protect_from_forgery except: :callback
-  skip_before_filter :authenticate_user!, :set_locale
+  skip_before_action :authenticate_user!, :set_locale
 
   def callback
     video = Video.find(params[:video_id])
