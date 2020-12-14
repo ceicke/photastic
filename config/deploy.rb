@@ -1,5 +1,3 @@
-require 'capistrano/passenger'
-
 # config valid only for current version of Capistrano
 lock '3.4.1'
 
@@ -36,5 +34,11 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+namespace :deploy do
+  after :finshed do
+    on roles(:web) do
+      run '/usr/bin/passenger-config restart-app'
+    end
+  end
 
-set :passenger_restart_command, 'passenger-config restart-app'
+end
