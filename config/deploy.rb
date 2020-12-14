@@ -34,11 +34,14 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
+
 namespace :deploy do
-  after :finshed do
-    on roles(:web) do
-      run '/usr/bin/passenger-config restart-app'
+  desc 'Restart Passenger'
+  task :restart_passenger do
+    on roles(:app) do
+      execute '/usr/bin/passenger-config restart-app /home/photastic/app/current'
     end
   end
-
 end
+
+after 'deploy:publishing', 'deploy:restart_passenger'
