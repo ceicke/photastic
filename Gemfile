@@ -3,7 +3,7 @@ ruby '2.6.3'
 
 gem 'rails', '~> 5.0'
 
-gem 'rake', '< 11.0'
+gem 'rake', '< 13.0'
 
 gem 'less-rails'
 gem 'jquery-rails'
