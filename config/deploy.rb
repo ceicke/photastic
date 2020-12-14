@@ -34,17 +34,3 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-
-namespace :deploy do
-  desc 'restart puma'
-  task :restart_puma do
-    on roles(:web) do
-      within release_path do
-        execute 'source ~/config/secrets.sh'
-        execute :bundle, :exec, 'pumactl -S /tmp/puma.state -p /tmp/puma.pid phased-restart'
-      end
-    end
-  end
-
-  after :finished, :restart_puma
-end

@@ -29,10 +29,6 @@ group :development, :test do
   gem 'listen'
 end
 
-group :production do
-  gem 'puma'
-end
-
 # To upload files nicer
 gem 'dropzonejs-rails'
 gem 'jquery-fileupload-rails'
@@ -87,5 +83,6 @@ gem 'capistrano', '~> 3.4.1'
 gem 'capistrano-rails', '~> 1.1.0'
 gem 'capistrano-rvm'
 gem 'capistrano-bundler'
+gem 'capistrano-passenger'
 # To use debugger
 # gem 'debugger'
