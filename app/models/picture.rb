@@ -15,8 +15,6 @@ class Picture < ActiveRecord::Base
 
   after_post_process :postprocess_image
 
-  after_create :send_yo
-
   def date_time
     if self.taken_at.blank?
       self.created_at
@@ -56,12 +54,6 @@ class Picture < ActiveRecord::Base
       else
         user.nickname
       end
-    end
-  end
-
-  def send_yo
-    if Rails.env.production? && !album.yo_api_key.blank?
-      Net::HTTP.post_form(URI('http://api.justyo.co/yoall/'), 'api_token' => album.yo_api_key, 'link' => picture_file.url(:large))
     end
   end
 
