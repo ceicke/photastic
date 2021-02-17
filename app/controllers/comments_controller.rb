@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to back_url, notice: t('comment_was_saved') }
         format.json { render json: @comment, status: :created, location: @comment }
       else
-        format.html { redirect_to :back, alert: t('comment_was_not_saved') + @comment.errors.inspect.to_s }
+        format.html { redirect_to back_url, alert: t('comment_was_not_saved') + @comment.errors.inspect.to_s }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
